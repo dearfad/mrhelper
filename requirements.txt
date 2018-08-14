@@ -5,4 +5,4 @@ defusedxml
 requests
 requests[socks]
 pyinstaller
-mkdocs==1.0
+mkdocs
