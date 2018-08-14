@@ -1,0 +1,8 @@
+site_name: MrHelper
+nav:
+    - 简介: 'index.md'
+    - 快速入门: 'quickstart.md'
+    - 行为准则: 'CODE_OF_CONDUCT.md'
+    - 贡献: 'CONTRIBUTING.md'
+    - 流程图: 'diagram.md'
+theme: readthedocs

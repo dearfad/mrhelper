@@ -1,0 +1,8 @@
+pyqt5==5.10.1
+python-docx
+beautifulsoup4
+defusedxml
+requests
+requests[socks]
+pyinstaller
+mkdocs==1.0

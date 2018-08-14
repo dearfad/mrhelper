@@ -1,0 +1,82 @@
+/*
+* File: mrhelper.qss
+* Author: dearfad
+* Description: MrHelper Default QSS Stylesheet Template
+*/
+
+/* Unmark Beblow for Custom Qss */
+
+/* === Main_Tab =============== */
+/* QTabWidget#main_tab {} */
+/* === Tab_Read ================ */
+/* QTableWidget#read_datatable {} */
+/* QTableWidget#read_datatable_vheader {} */
+/* QTableWidget#read_datatable_hheader {} */
+/* QGroupBox#read_viewoption {} */
+/* === Tab_Read_view_option ================ */
+/* QCheckBox#read_view_option_use {} */
+/* QCheckBox#read_view_option_abstract {} */
+/* QCheckBox#read_view_option_year {} */
+/* QCheckBox#read_view_option_type {} */
+/* QLabel#read_view_option_search_label {} */
+/* QLineEdit#read_view_option_search_linedit {} */
+/* QCheckBox#read_view_option_relate {} */
+/* === Tab_Read_textedit ================ */
+/* QTextEdit#read_info_textedit {} */
+/* === Tab_Read_mark_option ================ */
+/* QGroupBox#read_functiongroup {} */
+/* QCheckBox#read_functiongroup_info {} */
+/* QCheckBox#read_functiongroup_view {} */
+/* QCheckBox#read_functiongroup_memo {} */
+/* QCheckBox#read_functiongroup_webpage {} */
+/* QCheckBox#read_functiongroup_fulltext {} */
+/* QCheckBox#read_functiongroup_references {} */
+/* QCheckBox#read_functiongroup_new {} */
+/* QCheckBox#read_functiongroup_open {} */
+/* QCheckBox#read_functiongroup_add {} */
+/* QCheckBox#read_functiongroup_save {} */
+/* === Tab_Read_memo_option ================ */
+/* QGroupBox#read_memooption {} */
+/* QLabel#read_memo_option_keywords {} */
+/* QLabel#read_memo_option_iv_label {} */
+/* QLineEdit#read_memo_option_iv_lineedit {} */
+/* QCheckBox#read_memo_option_relation {} */
+/* QLabel#read_memo_option_dv_label {} */
+/* QLineEdit#read_memo_option_dv_lineedit {} */
+/* QLabel#read_memo_option_group {} */
+/* QLineEdit#read_memo_option_group_lineedit {} */
+/* QLineEdit#read_memo_option_subgroup {} */
+/* QLabel#read_memo_option_description {} */
+/* QPlainTextEdit#read_memo_option_reftext {} */
+/* === Tab_Classify ================ */
+/* QTreeWidget#classify_treelist {} */
+/* QPushButtion#classify_genseq_button {} */
+/* QPushButtion#classify_save_button {} */
+/* === Tab_Export ================ */
+/* QPushButton#export_export_button {} */
+/* QPushButton#export_save_button {} */
+/* QPushButton#export_open_data_button {} */
+/* QLineEdit#export_title_lineedit {} */
+/* QLineEdit#export_author_lineedit {} */
+/* QLineEdit#export_abstract_lineedit {} */
+/* QLineEdit#export_keywords_lineedit {} */
+/* === Tab_Help ================ */
+/* QTextEdit#help_help_textedit {} */
+/* === Tab_About ================ */
+/* QTextEdit#about_about_textedit {} */
+
+QWidget {
+    font-family: Verdana, 'Microsoft YaHei';
+    font-size: 10.5pt;
+}
+
+QStatusBar {
+    background: lightblue;
+    font-family: Cambria;
+    font-weight: bold;
+}
+
+QSplitter::handle:vertical {
+    height: 3px;
+    background: lightblue;
+}
