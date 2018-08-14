@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>使用方法 - MrHelper</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\u4f7f\u7528\u65b9\u6cd5";
+    var mkdocs_page_input_path = "usage.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> MrHelper</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">简介</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../quickstart/">快速入门</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../CODE_OF_CONDUCT/">行为准则</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../CONTRIBUTING/">贡献</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../diagram/">流程图</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">MrHelper</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>使用方法</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1">使用方法</h1>
+<h2 id="_2">快速入门</h2>
+<ul>
+<li>
+<p>Step 1<br />
+    将以下（全部或单独）数据文件置于在程序所在 <strong>data目录</strong></p>
+</li>
+<li>
+<p>Web of Science<br />
+    Core Database -> Search -> Save to other format -> All Records
+    and References -> Download</p>
+</li>
+<li>
+<p>Pubmed<br />
+    Search -> Sent to -> File -> Format(MEDLINE) -> Create File ->
+    Download</p>
+</li>
+<li>
+<p>Wanfang<br />
+    检索 -> 全选 -> 全选 -> 全选 -> 全选 -> ... -> 导出 -> NoteExpress -> 下载</p>
+</li>
+<li>
+<p>CNKI<br />
+    检索 -> 全选 -> 全选 -> 全选 -> 全选 -> ... -> 导出 -> CNKI E-Study ->
+    下载</p>
+</li>
+<li>
+<p>Step 2<br />
+    运行 <strong>mrhelper.exe</strong></p>
+</li>
+<li>
+<p>Step 3<br />
+    在 <strong>阅读</strong> 界面阅读并标记文献</p>
+</li>
+<li>
+<p>Step 4<br />
+    在 <strong>整理</strong> 界面调整分组及文献顺序</p>
+</li>
+<li>
+<p>Step 5<br />
+    在 <strong>导出</strong> 界面设置导出综述文档及数据文件</p>
+</li>
+<li>
+<p>Step 6<br />
+    使用 <strong>Endnote</strong> 新建数据库并以 <strong>Endnote Import-Import All-Unicode (UTF-8)</strong>
+    导入save目录下数据文件 <strong>endnote.txt</strong></p>
+</li>
+<li>
+<p>Step 7<br />
+    设置ENDNOTE -> Edit -> Preferences -> Temporary Citation -> Use
+    Field (勾选) -> Label</p>
+</li>
+<li>
+<p>Step 8<br />
+    使用 <strong>Word</strong> 打开save目录下综述文档 <strong>reference.docx</strong>，在Endnote栏下将Instant
+    Formatting is <strong>Off</strong> 更改为 <strong>On</strong></p>
+</li>
+<li>
+<p>Step 9<br />
+<strong>保存</strong> 综述文档</p>
+</li>
+</ul>
+<h2 id="_3">启动</h2>
+<ul>
+<li>
+<ul>
+<li>
+<p>启动mrhelper.exe后，程序将自动创建一下目录：</p>
+<ul>
+<li>./data/ 用于放置从Web of Science Core Collection, Pubmed, CNKI,
+    万方下载得到的文件</li>
+<li>./save/
+    存放项目存档mrhelper.save和程序界面执行导出后得到的.docx文档及用于导入ENDNOTE的数据文件</li>
+<li>./log/ 记录项目运行异常</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_4">抓取数据</h2>
+<ul>
+<li>
+<p>Web of Science: 无需抓取</p>
+</li>
+<li>
+<ul>
+<li>
+<p>Pubmed: 通过PMID得到文献在PMC中的相关信息</p>
+<ul>
+<li>说明文档：https://www.ncbi.nlm.nih.gov/books/NBK25497/</li>
+<li>网址遵循：https://www.ncbi.nlm.nih.gov/pmc/tools/cites-citedby/</li>
+<li>api_key: 注册Pubmed-NCBI可得到api_key 10 r/s</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<p>CNKI: 通过link得到文献页面及相关文献</p>
+<ul>
+<li>RefType 1: 参考文献</li>
+<li>RefType 3: 引证文献</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>万方: 通过link得到文献页面及相关文献</p>
+</li>
+</ul>
+<h2 id="_5">模板说明</h2>
+<ul>
+<li>mrhelper.docx</li>
+<li>标题 1 - 16：中文 微软雅黑；西文 Cambria；加粗；居中；间距 段前18磅 段后18磅 单倍行距；</li>
+<li>标题 2 - 14；中文 微软雅黑；西文 Cambria；加粗；左对齐；间距 段前18磅 段后18磅 单倍行距；</li>
+<li>标题 3 - 12；中文 微软雅黑；西文 Cambria；加粗；左对齐；间距 段前18磅 段后18磅 单倍行距；</li>
+<li>标题 4 - 10.5；中文 微软雅黑；西文 Cambria；加粗；左对齐；间距 段前18磅 段后18磅 单倍行距；</li>
+<li>正文 - 10.5；中文 微软雅黑；西文 Cambria；间距 段前18磅 段后18磅 单倍行距；</li>
+<li>纸张大小：A4</li>
+<li>页边距：中等</li>
+<li>软件：Office 2016 - Word</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
