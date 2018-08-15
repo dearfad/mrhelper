@@ -7,3 +7,4 @@ nav:
     - 流程图: 'diagram.md'
 theme:
     name: 'material'
+    language: 'zh'
