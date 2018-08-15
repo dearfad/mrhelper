@@ -32,6 +32,7 @@ function displayResults (results) {
 function doSearch () {
   var query = document.getElementById('mkdocs-search-query').value;
   if (query.length > 2) {
+    console.log('Searching with query: ' + query);
     if (!window.Worker) {
       displayResults(search(query));
     } else {
@@ -48,6 +49,7 @@ function initSearch () {
   if (search_input) {
     search_input.addEventListener("keyup", doSearch);
   }
+
   var term = getSearchTermFromLocation();
   if (term) {
     search_input.value = term;
@@ -56,9 +58,7 @@ function initSearch () {
 }
 
 function onWorkerMessage (e) {
-  if (e.data.allowSearch) {
-    initSearch();
-  } else if (e.data.results) {
+  if (e.data.results) {
     var results = e.data.results;
     displayResults(results);
   }
@@ -70,9 +70,6 @@ if (!window.Worker) {
   $.getScript(base_url + "/search/worker.js").done(function () {
     console.log('Loaded worker');
     init();
-    window.postMessage = function (msg) {
-      onWorkerMessage({data: msg});
-    };
   }).fail(function (jqxhr, settings, exception) {
     console.error('Could not load worker.js');
   });
@@ -82,3 +79,16 @@ if (!window.Worker) {
   searchWorker.postMessage({init: true});
   searchWorker.onmessage = onWorkerMessage;
 }
+
+$(function() {
+  var search_input = document.getElementById('mkdocs-search-query');
+  if (search_input) {
+    search_input.addEventListener("keyup", doSearch);
+  }
+
+  var term = getSearchTermFromLocation();
+  if (term) {
+    search_input.value = term;
+    doSearch();
+  }
+});
