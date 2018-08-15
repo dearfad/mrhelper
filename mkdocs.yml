@@ -5,4 +5,4 @@ nav:
     - 行为准则: 'CODE_OF_CONDUCT.md'
     - 贡献: 'CONTRIBUTING.md'
     - 流程图: 'diagram.md'
-theme: readthedocs
+theme: mkdocs
