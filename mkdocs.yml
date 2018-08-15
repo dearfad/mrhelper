@@ -1,10 +1,61 @@
-site_name: MrHelper
-nav:
-    - 简介: 'index.md'
-    - 快速入门: 'quickstart.md'
-    - 行为准则: 'CODE_OF_CONDUCT.md'
-    - 贡献: 'CONTRIBUTING.md'
-    - 流程图: 'diagram.md'
+# Project Information
+site_name: 'MrHelper'
+site_description: 'Medical Review Helper'
+site_author: 'dearfad'
+site_url: 'https://dearfad.github.io/mrhelper/'
+
+# Repository
+repo_name: 'dearfad/mrhelper'
+repo_url: 'https://github.com/dearfad/mrhelper'
+
+# Copyright
+copyright: 'Copyright &copy; 2018 dearfad'
+
+# Configuration
 theme:
-    name: 'material'
-    language: 'zh'
+  name: 'material'
+  language: 'zh'
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+
+# Customization
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/dearfad'
+
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Javascripts
+extra_javascript:
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML' 
+
+# Contents
+nav:
+  - 简介: 'index.md'
+  - 快速入门: 'quickstart.md'
