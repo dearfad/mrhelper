@@ -14,7 +14,7 @@
 
 ## 使用方法
 
-* 快速入门 - [链接](https://https://dearfad.github.io/mrhelper/quickstart)
+* 快速入门 - [链接](https://dearfad.github.io/mrhelper/quickstart)
 * 帮助文档 - [链接](https://dearfad.github.io/mrhelper)
 * 解压后执行 **mrhelper.exe**
 * 从源码执行，请安装以下模块：
