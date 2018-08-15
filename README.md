@@ -15,7 +15,7 @@
 ## 使用方法
 
 * 快速入门 - [链接](https://mrhelper.readthedocs.io/quickstart)
-* 帮助文档 - [readthedocs](https://mrhelper.readthedocs.io)
+* 帮助文档 - [链接](https://dearfad.github.io/mrhelper)
 * 解压后执行 **mrhelper.exe**
 * 从源码执行，请安装以下模块：
 * python 3.6
