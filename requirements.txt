@@ -1,4 +1,4 @@
-pyside2
+pyqt5
 python-docx
 beautifulsoup4
 defusedxml
