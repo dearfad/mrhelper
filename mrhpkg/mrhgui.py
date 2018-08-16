@@ -13,11 +13,11 @@ Medical Review Helper
 
 import sys
 
-from PyQt5.QtCore import Qt, QStringListModel
-from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QTableWidget, QTabWidget, QTreeWidget
-from PyQt5.QtWidgets import QLineEdit, QLabel, QPlainTextEdit, QCheckBox, QPushButton
-from PyQt5.QtWidgets import QTextEdit, QAbstractItemView, QGroupBox, QSplitter
-from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QFormLayout, QCompleter
+from PySide2.QtCore import Qt, QStringListModel
+from PySide2.QtWidgets import QApplication, QMainWindow, QWidget, QTableWidget, QTabWidget, QTreeWidget
+from PySide2.QtWidgets import QLineEdit, QLabel, QPlainTextEdit, QCheckBox, QPushButton
+from PySide2.QtWidgets import QTextEdit, QAbstractItemView, QGroupBox, QSplitter
+from PySide2.QtWidgets import QVBoxLayout, QHBoxLayout, QFormLayout, QCompleter
 
 
 # noinspection PyArgumentList

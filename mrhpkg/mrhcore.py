@@ -11,9 +11,9 @@ import pickle
 import threading
 import time
 
-from PyQt5.QtCore import QThread, pyqtSignal, Qt
-from PyQt5.QtGui import QColor
-from PyQt5.QtWidgets import QTableWidgetItem
+from PySide2.QtCore import QThread, Signal, Qt
+from PySide2.QtGui import QColor
+from PySide2.QtWidgets import QTableWidgetItem
 from bs4 import BeautifulSoup
 from docx import Document
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
@@ -72,9 +72,9 @@ class MrhConfig:
 
 
 class MrhIo(QThread):
-    sigmsg = pyqtSignal(str)
-    sigmrh = pyqtSignal(object)
-    sigover = pyqtSignal()
+    sigmsg = Signal(str)
+    sigmrh = Signal(object)
+    sigover = Signal()
 
     def __init__(self, mrhproject, filepath, mode):
         super().__init__()
@@ -133,8 +133,8 @@ class MrhIo(QThread):
 
 
 class MrhTable(QThread):
-    sigmsg = pyqtSignal(str)
-    sigover = pyqtSignal(int)
+    sigmsg = Signal(str)
+    sigover = Signal(int)
 
     def __init__(self, mrhproject, datatable, config, mode, viewoptions=None, currentrid=None):
         super().__init__()
@@ -389,8 +389,8 @@ class MrhTable(QThread):
 
 
 class MrhWeb(QThread):
-    sigmsg = pyqtSignal(str)
-    sigmrh = pyqtSignal(object)
+    sigmsg = Signal(str)
+    sigmrh = Signal(object)
 
     def __init__(self, mrhdata, mrhproject, config):
         super().__init__()

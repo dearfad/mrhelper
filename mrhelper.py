@@ -18,10 +18,10 @@ import datetime
 import os
 import sys
 
-from PyQt5.QtCore import QUrl, Qt
-from PyQt5.QtGui import QDesktopServices, QCursor, QIcon, QColor
-from PyQt5.QtWidgets import QApplication, QTreeWidgetItem, QFileDialog
-from PyQt5.QtWidgets import QMenu, QTreeWidgetItemIterator, QComboBox, QAbstractItemView
+from PySide2.QtCore import QUrl, Qt
+from PySide2.QtGui import QDesktopServices, QCursor, QIcon, QColor
+from PySide2.QtWidgets import QApplication, QTreeWidgetItem, QFileDialog
+from PySide2.QtWidgets import QMenu, QTreeWidgetItemIterator, QComboBox, QAbstractItemView
 
 import mrhpkg.mrhabout as mrhabout
 import mrhpkg.mrhdata as mrhdata
