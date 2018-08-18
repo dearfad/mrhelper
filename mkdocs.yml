@@ -15,9 +15,6 @@ copyright: 'Copyright &copy; 2018 dearfad'
 theme:
   name: 'material'
   language: 'zh'
-  palette:
-    primary: 'indigo'
-    accent: 'indigo'
 
 # Customization
 extra:
@@ -59,3 +56,7 @@ extra_javascript:
 nav:
   - 简介: 'index.md'
   - 快速入门: 'quickstart.md'
+  - 源码说明:
+      - MRHPKG:
+          - FILTERS:
+              - PUBMED: 'mrhpkg/filters/pubmed.md'

@@ -6,3 +6,5 @@ requests
 requests[socks]
 pyinstaller
 mkdocs
+mkdocs-material
+pymdown-extensions
