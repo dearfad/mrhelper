@@ -6,7 +6,7 @@
 import os
 
 
-class PmdData:
+class PubMed:
     def __init__(self):
         # Predefine Field
         # MEDLINE®/PubMed® Data Element (Field) Descriptions
@@ -130,7 +130,7 @@ def parsedata(datafile_path):
                     field = line[:4].strip()
                     text = line[6:].strip()
                     if field == 'PMID':
-                        dataitem = PmdData()
+                        dataitem = PubMed()
                     if field in fields:
                         txt = getattr(dataitem, field)
                         if txt:

@@ -93,11 +93,14 @@
 
 !!! note "格式"
 
-    * 文件起始：PMID- XXXXXXXX
+    * 文件起始：空行
     * 文件终止：空行
     * 文献起始：PMID- XXXXXXXX
     * 文献终止：空行
     * 字段标识：XXXX- YYYYYYYY
+    * 校验方式：
+        1. 第1行： `line = '/n'`
+        2. 第2行前4个字母： `line[:4] = 'PMID'`
 
 !!! note "方法"
 
