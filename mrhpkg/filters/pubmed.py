@@ -200,7 +200,7 @@ def opendir(datafile_path):
 
 if __name__ == '__main__':
     # Datafile Path
-    datafile_path = 'pubmed.txt'
+    datafile_path = './mrhpkg/filters/pubmed.txt'
     # Read Data
     data = getdata(datafile_path)
     print(len(data))
