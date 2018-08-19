@@ -35,17 +35,35 @@ def checktype(filepath):
 def parsedata(filepath):
     """Parse Exported File in MEDLINE format."""
     data = []
+    lastfield = ''
     with open(filepath, encoding='utf-8') as datafile:
         for index, line in enumerate(datafile):
             if line == '\n':
                 item = PubMed()
+                if not lastfield:
+                    data.append(item)
+            else:
+                field = line[:4].strip()
+                text = line[6:].strip()
+                if field:
+                    content = getattr(item, field, '')
+                    if content:
+                        content = ' '.join([content, text])
+                        setattr(item, field, content)
+                    else:
+                        setattr(item, field, text)
+                    lastfield = field
+                else:
+                    content = getattr(item, lastfield)
+                    content = ' '.join([content, text])
+                    setattr(item, lastfield, content)
         if item:
             data.append(item)
     return data
 
 
 if __name__ == '__main__':
-    path = 'pubmed.txt'
+    path = './mrhpkg/filters/pubmed.txt'
     srcdata = getdata(path)
     if srcdata == -1:
         print('-1')
