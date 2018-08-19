@@ -17,8 +17,13 @@ class PubMed:
     https://www.nlm.nih.gov/bsd/mms/medlineelements.html
     """
     # Custom Fields
-    type: str = 'MEDLINE'
+    datatype: str = 'MEDLINE'
     database: str = 'pubmed'
+
+
+def getdata(filepath):
+    """Return Data From File By MEDLINE Format Parser."""
+    return parsedata(filepath) if checktype(filepath) else -1
 
 
 def checktype(filepath):
@@ -27,55 +32,16 @@ def checktype(filepath):
         return datafile.readline() == '\n' and datafile.readline()[:4] == 'PMID'
 
 
-def parsedata(datafile_path):
+def parsedata(filepath):
+    """Parse Exported File in MEDLINE format."""
     data = []
-    fields = ['FAU', 'AUID', 'RN', 'OT', 'OID', 'LID', 'AD',
-              'PHST', 'AID', 'MH', 'SB', 'GS', 'CIN', 'IS',
-              'AU', 'PT', 'GR']
-    with open(datafile_path, 'r', encoding='utf-8') as datafile:
-        lastfield = ''
-        datafile.readline()
-        for line in datafile:
-            if line != '\n':
-                field = line[:4].strip()
-                text = line[6:].strip()
-                if field == 'PMID':
-                    dataitem = PubMed()
-                if field in fields:
-                    txt = getattr(dataitem, field)
-                    if txt:
-                        txt.append(text)
-                    else:
-                        txt = [text]
-                    setattr(dataitem, field, txt)
-                elif not field:
-                    lasttext = getattr(dataitem, lastfield)
-                    if lastfield in fields:
-                        lasttext[-1] = ' '.join([lasttext[-1], text])
-                        setattr(dataitem, lastfield, lasttext)
-                    else:
-                        newtext = ' '.join([lasttext, text])
-                        setattr(dataitem, lastfield, newtext)
-                else:
-                    setattr(dataitem, field, text)
-                if field == 'AD' and lastfield == 'AD':
-                    #######################
-                    # 1 author 2 address
-                    # parse necessary ?
-                    #######################
-                    pass
-                if field:
-                    lastfield = field
-            else:
-                dataitem.srcfile = datafile_path
-                data.append(dataitem)
-        data.append(dataitem)  # Append last item
+    with open(filepath, encoding='utf-8') as datafile:
+        for index, line in enumerate(datafile):
+            if line == '\n':
+                item = PubMed()
+        if item:
+            data.append(item)
     return data
-
-
-def getdata(filepath):
-    """Return Data From File By MEDLINE Format Parser."""
-    return parsedata(filepath) if checktype(filepath) else -1
 
 
 if __name__ == '__main__':
