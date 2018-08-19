@@ -39,7 +39,7 @@ def parsedata(filepath):
     data = []
     lastfield = ''
     with open(filepath, encoding='utf-8') as datafile:
-        for index, line in enumerate(datafile):
+        for line in datafile:
             if line == '\n':
                 pmditem = PubMed()
                 data.append(pmditem)
