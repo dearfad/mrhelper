@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.3">
     
     
       
@@ -403,6 +403,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../wos.py/" title="WOS" class="md-nav__link">
+      WOS
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -680,7 +692,7 @@ PST - epublish
 SO  - PLoS One. 2018 Feb 15;13(2):e0192757. doi: 10.1371/journal.pone.0192757.
     eCollection 2018.
 </pre></div>
-</details><details class="example"><summary>ENDNOTE - PUBMED 字段对照</summary><ul><li>Filters From EndNote X8.2</li><li>Pubmed Import Filter</li><li>Reference Type: <strong>Journal Article</strong></li><li>Last modified: 2017.04.14 0:08:34</li></ul><table><thead><tr><th>Tag</th><th>Field(s)</th></tr></thead><tbody><tr><td>PT</td><td><code class="codehilite">JOURNAL ARTICLE</code></td></tr><tr><td>PT</td><td><code class="codehilite">Journal Article</code></td></tr><tr><td>PT</td><td><code class="codehilite">Journal</code></td></tr><tr><td>PT</td><td><code class="codehilite">JOURNAL</code></td></tr><tr><td>AB</td><td>Abstract</td></tr><tr><td>AD</td><td>Author Address</td></tr><tr><td>AID</td><td>{IGNORE} <code class="codehilite">[pii]</code></td></tr><tr><td>AID</td><td>DOI <code class="codehilite">[doi]</code></td></tr><tr><td>AU</td><td>Author</td></tr><tr><td>AUID</td><td>Notes</td></tr><tr><td>CDAT</td><td>{IGNORE}</td></tr><tr><td>CI</td><td>{IGNORE}</td></tr><tr><td>CN</td><td>Notes</td></tr><tr><td>CRDT</td><td>{IGNORE}</td></tr><tr><td>CY</td><td>{IGNORE}</td></tr><tr><td>DA</td><td>{IGNORE}</td></tr><tr><td>DCOM</td><td>{IGNORE}</td></tr><tr><td>DEP</td><td>{IGNORE}</td></tr><tr><td>DP</td><td>Year Date</td></tr><tr><td>DP</td><td>Year</td></tr><tr><td>EDAT</td><td>Epub Date 0{IGNORE}</td></tr><tr><td>EDAT</td><td>Epub Date 1{IGNORE}</td></tr><tr><td>EDAT</td><td>Epub Date</td></tr><tr><td>FAU</td><td>Notes</td></tr><tr><td>GR</td><td>Notes</td></tr><tr><td>IP</td><td>Issue</td></tr><tr><td>IS</td><td>Notes (Electronic)</td></tr><tr><td>IS</td><td>ISSN (Linking)</td></tr><tr><td>IS</td><td>ISSN</td></tr><tr><td>JC</td><td>{IGNORE}</td></tr><tr><td>JID</td><td>{IGNORE}</td></tr><tr><td>JT</td><td>Alternate Journal</td></tr><tr><td>LA</td><td>Language</td></tr><tr><td>LID</td><td>{IGNORE}<code class="codehilite">[pii]</code></td></tr><tr><td>LID</td><td>DOI <code class="codehilite">[doi]</code></td></tr><tr><td>LR</td><td>{IGNORE}</td></tr><tr><td>MH</td><td>Keywords</td></tr><tr><td>MHDA</td><td>{IGNORE}</td></tr><tr><td>MID</td><td>NIHMSID</td></tr><tr><td>OT</td><td>Keywords</td></tr><tr><td>OTO</td><td>{IGNORE}</td></tr><tr><td>OWN</td><td>Database Provider</td></tr><tr><td>PG</td><td>Pages</td></tr><tr><td>PHST</td><td>{IGNORE}</td></tr><tr><td>PL</td><td>Notes</td></tr><tr><td>PMC</td><td>PMCID</td></tr><tr><td>PMID</td><td>Accession Number</td></tr><tr><td>PST</td><td>{IGNORE}</td></tr><tr><td>PT</td><td>Notes</td></tr><tr><td>PUBM</td><td>{IGNORE}</td></tr><tr><td>RN</td><td>{IGNORE}</td></tr><tr><td>SB</td><td>{IGNORE}</td></tr><tr><td>SO</td><td>Notes</td></tr><tr><td>STAT</td><td>{IGNORE}</td></tr><tr><td>TA</td><td>Journal</td></tr><tr><td>TI</td><td>Title</td></tr><tr><td>TT</td><td>Original Publication</td></tr><tr><td>VI</td><td>Volume</td></tr><tr><td>UI</td><td>{IGNORE}</td></tr><tr><td>URL</td><td>URL</td></tr><tr><td>URLF</td><td>URL</td></tr><tr><td>URLS</td><td>URL</td></tr><tr><td>4099</td><td>URL</td></tr><tr><td>4100</td><td>URL</td></tr><tr><td>OAB</td><td>Abstract</td></tr><tr><td>OABL</td><td>Abstract</td></tr></tbody></table></details><div class="admonition note">
+</details><div class="admonition note">
 <p class="admonition-title">格式</p>
 <ul>
 <li>文件起始：空行</li>
@@ -700,8 +712,6 @@ SO  - PLoS One. 2018 Feb 15;13(2):e0192757. doi: 10.1371/journal.pone.0192757.
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pubmed</span>
 
 <span class="n">srcdata</span> <span class="o">=</span> <span class="n">pubmed</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">srcdata</span><span class="o">.</span><span class="n">AU</span><span class="p">,</span> <span class="n">srcdata</span><span class="o">.</span><span class="n">TI</span><span class="p">,</span> <span class="n">srcdata</span><span class="o">.</span><span class="n">PMID</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -752,13 +762,13 @@ SO  - PLoS One. 2018 Feb 15;13(2):e0192757. doi: 10.1371/journal.pone.0192757.
           </a>
         
         
-          <a href="../../spiders/pubmed.py/" title="PUBMED" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../wos.py/" title="WOS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   前进
                 </span>
-                PUBMED
+                WOS
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -818,7 +828,7 @@ SO  - PLoS One. 2018 Feb 15;13(2):e0192757. doi: 10.1371/journal.pone.0192757.
           
         
       
-      <script>app.initialize({version:"1.0",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.1",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

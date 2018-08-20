@@ -21,6 +21,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://dearfad.github.io/mrhelper/mrhpkg/filters/wos.py/</loc>
+     <lastmod>2018-08-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://dearfad.github.io/mrhelper/mrhpkg/spiders/pubmed.py/</loc>
      <lastmod>2018-08-20</lastmod>
      <changefreq>daily</changefreq>
