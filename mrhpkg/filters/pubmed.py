@@ -17,7 +17,7 @@ class PubMed:
     """
     # Custom Fields
     datatype: str = 'MEDLINE'
-    database: str = 'pubmed'
+    database: str = 'PUBMED'
 
 
 def getdata(filepath):
@@ -25,7 +25,7 @@ def getdata(filepath):
     Normal: Return Data Type List
     Error:  Return -1
     """
-    return parsedata(filepath) if checktype(filepath) else -1
+    return parsefile(filepath) if checktype(filepath) else -1
 
 
 def checktype(filepath):
@@ -34,7 +34,7 @@ def checktype(filepath):
         return datafile.readline() == '\n' and datafile.readline()[:4] == 'PMID'
 
 
-def parsedata(filepath):
+def parsefile(filepath):
     """Parse Exported File From Pubmed in MEDLINE format."""
     data = []
     lastfield = ''
