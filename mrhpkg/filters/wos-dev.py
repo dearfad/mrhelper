@@ -6,23 +6,21 @@ Filename: wos.py
 Usage: DataFile Parse Module For ALL Format of Web of Science
 """
 
-from dataclasses import dataclass, field
 
-
-@dataclass
-class WOS:
+class WosItem:
     """WOS Data Format.
     Web of Science Core Collection Fields List
     http://images.webofknowledge.com/WOKRS5272R3/help/zh_CN/WOK/hs_wos_fieldtags.html
     """
+
+    def __init__(self):
+        self.database = 'WOS'
     # Custom Fields
-    datatype: str = 'CORE'
-    database: str = 'WOS'
-    RID: int = -1  # References ID
-    CCR: list = field(default_factory=list)  # Remove DOI from Field CR
-    CTX: str = ''  # Cited Text
-    LCS: list = field(default_factory=list)  # Local Cited References List
-    LCR: list = field(default_factory=list)  # Local Citing References List
+    # RID: int = -1  # References ID
+    # CCR: set()  # Remove DOI from Field CR
+    # CTX: str = ''  # Cited Text
+    # LCS: list = field(default_factory=list)  # Local Cited References List
+    # LCR: list = field(default_factory=list)  # Local Citing References List
 
 
 def getdata(filepath):
@@ -30,20 +28,21 @@ def getdata(filepath):
     Normal: Return Data Type List
     Error:  Return -1
     """
-    data = parsefile(filepath) if checktype(filepath) else -1
-    # if data:
-    #     data = optdata(data)
+    data = _parsefile(filepath) if _checktype(filepath) else -1
+    if data != -1:
+        data = fixdata(data)
+        data = localinfo(data)
     return data
 
 
-def checktype(filepath):
+def _checktype(filepath):
     """Check WOS Exported File Format."""
     validlines = ['FN Thomson Reuters Web of Science™\n', 'VR 1.0\n']
     with open(filepath, encoding='utf-8-sig') as datafile:
         return datafile.readline() == validlines[0] and datafile.readline() == validlines[1]
 
 
-def parsefile(datafile_path):
+def _parsefile(datafile_path):
     """Parse Exported File From Web of Science in CORE format."""
     data = []
     lastfield = ''
@@ -56,7 +55,7 @@ def parsefile(datafile_path):
                 text = line[3:].strip()
                 if field:
                     if field == 'PT':
-                        wositem = WOS()
+                        wositem = WosItem()
                         data.append(wositem)
                     setattr(wositem, field, text)
                     lastfield = field
@@ -69,38 +68,40 @@ def parsefile(datafile_path):
     return data
 
 
-def addlcrlcs(data):
-    for rid, item in enumerate(data):
-        item.RID = rid  # 添加索引号
-        item.CCR = set(remove_doiincr(item))  # 参考文献删除DOI
-        item.CTX = add_ctx(item)  # 添加引用文本
-    data = add_lcsr(data)
+def localinfo(data):
+    """Parse WosItem LCR LCS Data."""
+    for rid, wositem in enumerate(data):
+        wositem.RID = rid
+        wositem.CCR = set(_remove_doi(wositem))
+        wositem.CTX = _add_ctx(wositem)
+    data = add_info(data)
     return data
 
 
-def remove_doiincr(item):
-    # 去掉参考文献内DOI
+def _remove_doi(wositem):
+    """Remove DOI In WosItem.CR."""
     ccr = []
-    for unit in item.CR:
-        if ', DOI ' in unit:
-            unit = unit.split(', DOI')[0]
-        ccr.append(unit)
+    for item in wositem.CR:
+        if ', DOI ' in item:
+            item = item.split(', DOI')[0]
+        ccr.append(item)
     return ccr
 
 
-def add_ctx(data):
-    # 添加文献引用文本
-    author = data.AU[0].replace(', ', ' ') if data.AU else ''
-    year = str(data.PY) if data.PY else ''
-    journal = data.J9 if data.J9 else data.BS if data.BS else data.SO if data.SO else ''
-    volume = 'V' + data.VL if data.VL else ''
-    page = 'P' + data.BP if data.BP else ''
+def _add_ctx(wositem):
+    """Add Cited Text."""
+    # todo
+    author = wositem.AU[0].replace(', ', ' ') if getattr(wositem, 'AU', '') else ''
+    year = wositem.PY if getattr(wositem, 'PY', '') else ''
+    journal = wositem.J9 if wositem.J9 else wositem.BS if wositem.BS else wositem.SO if wositem.SO else ''
+    volume = 'V' + wositem.VL if wositem.VL else ''
+    page = 'P' + wositem.BP if wositem.BP else ''
     citetext = ', '.join(item for item in (
         author, year, journal, volume, page) if item)
     return citetext
 
 
-def add_lcsr(data):
+def add_info(data):
     # 添加 LCS LCR
     cite_dict = {}  # 建立CTX与RID索引字典
     cite_set = set()  # 建立CTX SET总表
@@ -116,21 +117,16 @@ def add_lcsr(data):
     return data
 
 
-def optdata(data):
-    keys = ('SC', 'ID', 'EM', 'DE', 'RI', 'WC', 'OI')
-    for item in data:
-        for key in keys:
-            text = getattr(item, key)
-            if text:
-                txt = text.split(';')
-                txt = [t.strip() for t in txt]
-                setattr(item, key, txt)
-    # Add LCR/LCS
-    data = addlcrlcs(data)
+def fixdata(data):
+    for wositem in data:
+        if isinstance(wositem.AU, str):
+            wositem.AU = [wositem.AU]
     return data
 
 
 if __name__ == '__main__':
     path = './mrhpkg/filters/500.txt'
     srcdata = getdata(path)
-    print(len(srcdata), srcdata[1].TI)
+    for item in srcdata:
+        bs = getattr(item, 'SO', '')
+        print(type(bs))

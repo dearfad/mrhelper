@@ -6,18 +6,15 @@ Filename: pubmed.py
 Usage: DataFile Parse Module For MEDLINE Format of PubMed
 """
 
-from dataclasses import dataclass
 
-
-@dataclass
-class PubMed:
+class PubmedItem:
     """PubMed MEDLINE Data Format.
     MEDLINE®/PubMed® Data Element (Field) Descriptions
     https://www.nlm.nih.gov/bsd/mms/medlineelements.html
     """
-    # Custom Fields
-    datatype: str = 'MEDLINE'
-    database: str = 'PUBMED'
+
+    def __init__(self):
+        self.database = 'PUBMED'
 
 
 def getdata(filepath):
@@ -25,42 +22,49 @@ def getdata(filepath):
     Normal: Return Data Type List
     Error:  Return -1
     """
-    return parsefile(filepath) if checktype(filepath) else -1
+    data = _parsefile(filepath) if _checktype(filepath) else -1
+    if data != -1:
+        data = _fixdata(data)
+    return data
 
 
-def checktype(filepath):
+def _checktype(filepath):
     """Check PubMed MEDLINE Format."""
     with open(filepath, encoding='utf-8') as datafile:
         return datafile.readline() == '\n' and datafile.readline()[:4] == 'PMID'
 
 
-def parsefile(filepath):
+def _parsefile(filepath):
     """Parse Exported File From Pubmed in MEDLINE format."""
     data = []
     lastfield = ''
     with open(filepath, encoding='utf-8') as datafile:
         for line in datafile:
             if line == '\n':
-                pmditem = PubMed()
-                data.append(pmditem)
+                pubmeditem = PubmedItem()
+                data.append(pubmeditem)
             else:
                 field = line[:4].strip()
                 text = line[6:].strip()
                 if field:
-                    content = getattr(pmditem, field, '')
+                    content = getattr(pubmeditem, field, '')
                     if content:
                         if isinstance(content, str):
                             content = [content]
                         content.append(text)
-                        setattr(pmditem, field, content)
+                        setattr(pubmeditem, field, content)
                     else:
-                        setattr(pmditem, field, text)
+                        setattr(pubmeditem, field, text)
                     lastfield = field
                 else:
-                    content = getattr(pmditem, lastfield)
+                    content = getattr(pubmeditem, lastfield)
                     if isinstance(content, str):
                         content = ' '.join([content, text])
                     else:
                         content[-1] = ' '.join([content[-1], text])
-                    setattr(pmditem, lastfield, content)
+                    setattr(pubmeditem, lastfield, content)
+    return data
+
+
+def _fixdata(data):
     return data
