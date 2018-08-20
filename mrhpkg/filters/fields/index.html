@@ -1,0 +1,1047 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Medical Review Helper">
+      
+      
+        <link rel="canonical" href="https://dearfad.github.io/mrhelper/mrhpkg/filters/fields/">
+      
+      
+        <meta name="author" content="dearfad">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
+    
+    
+      
+        <title>字段对照 - MrHelper</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.451f80e5.css">
+      
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../../#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://dearfad.github.io/mrhelper/" title="MrHelper" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                MrHelper
+              </span>
+              <span class="md-header-nav__topic">
+                字段对照
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/dearfad/mrhelper/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      dearfad/mrhelper
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://dearfad.github.io/mrhelper/" title="MrHelper" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    MrHelper
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/dearfad/mrhelper/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      dearfad/mrhelper
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../quickstart/" title="快速入门" class="md-nav__link">
+      快速入门
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      源码说明
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        源码说明
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1" checked>
+    
+    <label class="md-nav__link" for="nav-3-1">
+      MRHPKG
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        MRHPKG
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-1" type="checkbox" id="nav-3-1-1" checked>
+    
+    <label class="md-nav__link" for="nav-3-1-1">
+      FILTERS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-1">
+        FILTERS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        字段对照
+      </label>
+    
+    <a href="./" title="字段对照" class="md-nav__link md-nav__link--active">
+      字段对照
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#endnote-import-filter" title="Endnote Import Filter" class="md-nav__link">
+    Endnote Import Filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-of-science-core-collection-import-filter" title="Web of Science Core Collection Import Filter" class="md-nav__link">
+    Web of Science Core Collection Import Filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wanfang-export-format" title="Wanfang Export Format" class="md-nav__link">
+    Wanfang Export Format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cnki-export-format" title="CNKI Export Format" class="md-nav__link">
+    CNKI Export Format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mrhdata" title="MrhData 字段转换表" class="md-nav__link">
+    MrhData 字段转换表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gbt-7714-2015" title="GB/T 7714-2015 信息与文献 参考文献著录规则" class="md-nav__link">
+    GB/T 7714-2015 信息与文献 参考文献著录规则
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pubmed.py/" title="PUBMED" class="md-nav__link">
+      PUBMED
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-2" type="checkbox" id="nav-3-1-2">
+    
+    <label class="md-nav__link" for="nav-3-1-2">
+      SPIDERS
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-1-2">
+        SPIDERS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../spiders/pubmed.py/" title="PUBMED" class="md-nav__link">
+      PUBMED
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../spiders/cnki.py/" title="CNKI" class="md-nav__link">
+      CNKI
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      MRHRES
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        MRHRES
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../mrhres/mrhelper.docx/" title="mrhelper.docx" class="md-nav__link">
+      mrhelper.docx
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../CODE_OF_CONDUCT/" title="行为准则" class="md-nav__link">
+      行为准则
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../CONTRIBUTING/" title="贡献" class="md-nav__link">
+      贡献
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#endnote-import-filter" title="Endnote Import Filter" class="md-nav__link">
+    Endnote Import Filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#web-of-science-core-collection-import-filter" title="Web of Science Core Collection Import Filter" class="md-nav__link">
+    Web of Science Core Collection Import Filter
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wanfang-export-format" title="Wanfang Export Format" class="md-nav__link">
+    Wanfang Export Format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cnki-export-format" title="CNKI Export Format" class="md-nav__link">
+    CNKI Export Format
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mrhdata" title="MrhData 字段转换表" class="md-nav__link">
+    MrhData 字段转换表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gbt-7714-2015" title="GB/T 7714-2015 信息与文献 参考文献著录规则" class="md-nav__link">
+    GB/T 7714-2015 信息与文献 参考文献著录规则
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/dearfad/mrhelper/edit/master/docs/mrhpkg/filters/fields.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="_1">参考文献格式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>.. note::</p>
+<ul>
+<li>Filters From EndNote X8.2</li>
+</ul>
+<h2 id="endnote-import-filter">Endnote Import Filter<a class="headerlink" href="#endnote-import-filter" title="Permanent link">&para;</a></h2>
+<p>Reference Type: <strong>Journal Article</strong></p>
+<p>Last modified: 2017.04.14 0:08:38</p>
+<p>.. warning::
+   <strong>Comments and limitations:</strong></p>
+<ul>
+<li>This filter is designed to import text files that have been downloaded from online databases or exported from EndNote (version 8 and above) using the EndNote format.</li>
+</ul>
+<p><strong>LIMITATIONS</strong></p>
+<ol>
+<li>
+<p>Since only "plain text" files can be imported into EndNote, this filter cannot be used to import images, graphics, &amp;c.</p>
+</li>
+<li>
+<p>Before importing, corporate authors must end in a comma or EndNote will not be able to distinguish them from personal authors and will therefore parse them incorrectly.</p>
+</li>
+</ol>
+<p>=== ==========================
+Tag  Field(s)
+=== ==========================
+%0  `Journal Article`
+%A  Author
+%B  Journal
+%C  {IGNORE}
+%D  Year
+%E  {IGNORE}
+%F  Label
+%f  Figure
+%G  Language
+%H  Translated Author
+%I  {IGNORE}
+%J  Journal
+%K  Keywords
+%L  Call Number
+%M  Accession Number
+%N  Issue
+%O  Alternate Journal
+%P  Pages
+%Q  Translated Title
+%R  DOI
+%S  {IGNORE}
+%T  Title
+%U  URL
+%V  Volume
+%W  Database Provider
+%X  Abstract
+%Y  {IGNORE}
+%Z  Notes
+%1  Legal Note
+%2  PMCID
+%3  {IGNORE}
+%4  {IGNORE}
+%6  {IGNORE}
+%7  Epub Date
+%8  Date
+%9  Type of Article
+%?  {IGNORE}
+%@  ISSN
+%!  Short Title
+%#  {IGNORE}
+%$  NIHMSID
+%]  Article Number
+%&amp;  Start Page
+%(  Original Publication
+%)  Reprint Edition
+%*  Reviewed Item
+%+  Author Address
+%f  Notes
+%^  Caption
+%&gt;  File Attachments
+%&lt;  Research Notes
+%[  Access Date
+%=  {IGNORE}
+%~  Name of Database
+=== ==========================</p>
+<h2 id="web-of-science-core-collection-import-filter">Web of Science Core Collection Import Filter<a class="headerlink" href="#web-of-science-core-collection-import-filter" title="Permanent link">&para;</a></h2>
+<p>Reference Type: <strong>Journal Article</strong></p>
+<p>Last modified: 2017.04.14 0:08:32</p>
+<p>.. warning::
+   <strong>Comments and limitations:</strong></p>
+<p><strong>DOWNLOADING INSTRUCTIONS</strong></p>
+<ol>
+<li>
+<p>Perform a WoS or DCI search as normal.</p>
+</li>
+<li>
+<p>Select the desired articles by clicking the button to the left of each article and add them to the Marked List.</p>
+</li>
+<li>
+<p>Go to the "Marked List" page by selecting the "Marked List" button under “Thomson Reuters.”</p>
+</li>
+<li>
+<p>On the "Marked List" page, near the bottom where all the exportable fields are shown, select "Select All."</p>
+</li>
+<li>
+<p>On the "Marked List" page confirm your selection and select the option to "Save to Other File Formats."</p>
+</li>
+<li>
+<p>Import the resulting "savedrecs.txt" file using this filter.</p>
+</li>
+</ol>
+<p><strong>LIMITATIONS</strong></p>
+<ol>
+<li>
+<p>The author address may be presented twice, once with the street address and once without.  Users may manually delete the duplicated information manually after importing.</p>
+</li>
+<li>
+<p>The publisher's city may be presented without the state, which must be typed in manually after importing if desired.  Sometimes, even the city must be gleaned from the Notes field.</p>
+</li>
+<li>
+<p>Certain author names must be edited after importing.  The name "OBryen" for example will import as "Obryen" (note lower-case second letter).  Since the apostrophe wasn't supplied in the first place, one must provide it manually, thus "O'Bryen".</p>
+</li>
+<li>
+<p>Patent application and publication dates are presented with extraneous information, which must be deleted after importing.  In addtion, the year must be moved from the Patent Date field to the Year field manually.</p>
+</li>
+<li>
+<p>If you are using EndNote 8, the language code for patents is imported into the Language field.  In earlier versions, it is imported into the Patent Date field along with the pages; both pages and language code must be manually moved to their appropriate fields after importing.  (If you have EndNote 7 or earlier, you may edit this filter, changing the 'Language' to 'Notes' in the PD tag of the Patent template.)</p>
+</li>
+<li>
+<p>If you are using direct export and depending on which database you downloaded patents from, the issue date may in fact be the issue number of the journal in which the patent was published.</p>
+</li>
+</ol>
+<p>=== ==========================
+Tag  Field(s)
+=== ==========================
+PT  `J`
+AB  Abstract
+AR  Notes
+AU  Author
+BD  Keywords
+BN  Notes
+BP  Pages
+BS  Notes
+CC  Keywords
+CH  Keywords
+CN  Keywords
+CO  {IGNORE}
+CP  Notes
+CR  {IGNORE}
+C1  Author Address
+CL  Notes
+CP  {IGNORE}
+CR  {IGNORE}
+CT  Notes
+CY  Notes
+DE  Keywords
+DI  DOI
+DF  {IGNORE}
+DT  Type of Article
+DV  {IGNORE}
+EM  Author Address
+EP  Pages
+FN  {IGNORE}
+FO  Keywords
+FT  Notes
+FU  Notes
+GA  {IGNORE}
+GE  Keywords
+ID  Keywords
+IS  Issue
+J9  {IGNORE}
+JI  Alternate Journal (Notes)
+JI  Alternate Journal
+KC  Keywords
+LA  Language
+LS  Notes
+MC  Keywords
+ME  {IGNORE}
+MQ  Keywords
+NR  {IGNORE}
+OR  Keywords
+PA  {IGNORE}
+PD  Date|, Year
+PD  Date| Year
+PD  Date
+PG  {IGNORE}
+PI  {IGNORE}
+PN  Notes
+PO  Keywords
+PR  Keywords
+PS  Pages
+PT  {IGNORE}
+PU  {IGNORE}
+PV  {IGNORE}
+PY  Year
+RD  {IGNORE}
+RP  Author Address
+SC  {IGNORE}
+SI  Notes
+SN  ISSN
+SO  Journal
+SP  Notes
+SS  Keywords
+SU  Notes
+TA  Keywords
+TC  {IGNORE}
+TI  Title
+TM  Keywords
+UT  Accession Number
+VL  vol.Volume, no.Issue
+VL  no.Issue
+VL  vol.Volume
+VL  Volume
+VR  {IGNORE}
+WP  URL
+Z9  Notes
+PM  Notes
+=== ==========================</p>
+<h2 id="wanfang-export-format">Wanfang Export Format<a class="headerlink" href="#wanfang-export-format" title="Permanent link">&para;</a></h2>
+<p>Website： <a href="http://www.wanfangdata.com.cn">http://www.wanfangdata.com.cn</a></p>
+<p>Last modified: 2018.05.29 14:29:20</p>
+<p>========  ============  ============  ============  ============  ============
+Fields    NoteExpress   RefWorks      NoteFirst     EndNote       Bibtex
+========  ============  ============  ============  ============  ============
+<strong>Essential Fields</strong></p>
+<hr />
+<p>Author    Y (CN/ENG)    X [1]_        Y (CN/ENG)    Y (CN/ENG)    Y (CN)
+Title     Y (CN/ENG)    Y (CN/ENG)    Y (CN/ENG)    Y (CN)        Y (CN)
+Journal   Y (CN/ENG)    Y (CN/ENG)    Y (CN)        Y (CN/ENG)    Y (CN)
+Type      Y             Y             Y             Y             Y
+Year      Y             Y             Y             Y             Y
+Volumn    N             N             N             N             N
+Issue     Y             Y             Y             Y             Y
+Page      Y (BP/EP)     Y (BP/EP)     Y (BP/EP)     Y (BP/EP)     Y (BP/EP)
+<strong>Analysis Fields</strong></p>
+<hr />
+<p>Month     N             N             N             N             Y
+Link      Y             Y             Y             Y             N
+DOI       Y             Y             Y             Y             N
+Abstract  Y             Y             Y             Y             N
+Keywords  Y             Y             Y             Y             N
+Address   Y             N [2]_        N             Y [3]_        N
+ISSN      Y             Y             Y             Y             N
+Database  Y             Y             N             Y             N
+Language  Y             Y             Y             Y             N
+<strong>Other Fields</strong></p>
+<hr />
+<p>Country   N             Y             N             N             N
+Fund      N             Y             N             N             N
+Notes     N             Y [4]_        N             N             N
+========  ============  ============  ============  ============  ============</p>
+<p>.. [1] <strong>错误</strong>：作者中文及英文姓名列于A1字段内，无英文姓名时标注为之前文献作者英文名。</p>
+<p>.. [2] <strong>错误</strong>：设计有地址字段AD，但一些文献没有导出地址。</p>
+<p>.. [3] <strong>标记</strong>：地址非常完整，单位/省市/邮编</p>
+<p>.. [4] <strong>标记</strong>：作者个数，第一作者</p>
+<h2 id="cnki-export-format">CNKI Export Format<a class="headerlink" href="#cnki-export-format" title="Permanent link">&para;</a></h2>
+<p>Website： <a href="http://www.cnki.net">http://www.cnki.net</a></p>
+<p>Last modified: 2018.05.14 21:11:55</p>
+<p>========  ============  ============  ============  ============  ============
+Fields    CNKI E-Study  RefWorks      Endnote       NoteExpress   NoteFirst
+========  ============  ============  ============  ============  ============
+<strong>Essential Fields</strong></p>
+<hr />
+<p>Author    Y (CN)        Y (CN)        Y (CN)        Y (CN)        Y (CN)
+Title     Y (CN)        Y (CN)        Y (CN)        Y (CN)        Y (CN)
+Journal   Y (CN)        Y (CN)        Y (CN)        Y (CN)        Y (CN)
+Type      Y             Y             Y             Y             Y
+Year      Y             Y             Y             Y             Y
+Volumn    Y             N             N             N             N
+Issue     Y             Y             Y             Y             Y
+Page      Y (BP/EP)     Y (BP/EP)     Y (BP/EP)     Y (BP/EP)     Y (BP/EP)
+<strong>Analysis Fields</strong></p>
+<hr />
+<p>Month     Y             N             N             N             N
+Link      Y [5]_        N             N             N             N
+DOI       N             N             N             N             N
+Abstract  Y             Y             Y             Y             Y
+Keywords  Y             Y             Y             Y             Y
+Address   N             Y             Y             Y             N
+ISSN      N             Y             Y             Y             Y
+Database  Y [6]_        Y             N             Y             N
+Language  N             Y             N             N             Y
+<strong>Other Fields</strong></p>
+<hr />
+<p>Country   N             N             N             N             N
+Fund      N             N             N             N             N
+Notes     N             N             N             Y             N
+CallNum.  N             Y             Y             N             N
+========  ============  ============  ============  ============  ============</p>
+<p>.. [5] <strong>错误</strong>：链接无法访问，需更改/kns/-&gt;/kcms/</p>
+<p>.. [6] <strong>标注</strong>：来源数据库 期刊 报纸...</p>
+<h2 id="mrhdata">MrhData 字段转换表<a class="headerlink" href="#mrhdata" title="Permanent link">&para;</a></h2>
+<p>Last modified: 2018.05.30</p>
+<p>========  ============  ============  ============  ==============    ============  ============  ============  ============  ============  ============  ============  ============  ============
+MrhData   Endnote       Web Of Sci    Pubmed        WANFANG                                                                   CNKI</p>
+<hr />
+<p>Fields    Endnote       WOS           MedLine       NoteExpress       RefWorks      NoteFirst     EndNote       Bibtex        CNKI E-Study  RefWorks      Endnote       NoteExpress   NoteFirst
+========  ============  ============  ============  ==============    ============  ============  ============  ============  ============  ============  ============  ============  ============
+author    %A            AU            AU            Author                                                                    Author
+title     %T            TI            TI            Title                                                                     Title
+type      %0            DT            PT            Reference Type                                                            DataType
+journal   %J            SO            JT            Journal                                                                   Source
+year      %D            PY            DP            Year                                                                      Year
+volumn    %V            VL            VI                                                                                      Roll
+issue     %N            IS            IP            Issue                                                                     Period
+page      %P            BP-EP         PG            Pages                                                                     Page
+link      %U            WP            URL           URL                                                                       Link
+doi       %R            DI            AID           DOI
+pmid      %M            PM            PMID
+pmcid                                 PMC
+abstract  %X            AB            AB            Abstract                                                                  Summary
+cs                      TC
+cr                      NR
+keywords  %K            DE            OT            Keywords                                                                  Keyword
+========  ============  ============  ============  ==============    ============  ============  ============  ============  ============  ============  ============  ============  ============</p>
+<h2 id="gbt-7714-2015">GB/T 7714-2015 信息与文献 参考文献著录规则<a class="headerlink" href="#gbt-7714-2015" title="Permanent link">&para;</a></h2>
+<p>Information and documentation - Rules for bibliographic references and citations to information resources</p>
+<p>百度文库 <code class="codehilite">在线阅读 &lt;https://wenku.baidu.com/view/bd63e138f121dd36a32d82cb.html&gt;</code>_</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../../quickstart/" title="快速入门" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  后退
+                </span>
+                快速入门
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../pubmed.py/" title="PUBMED" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  前进
+                </span>
+                PUBMED
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 dearfad
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/dearfad" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.583bbe55.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.jp.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0",url:{base:"../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
