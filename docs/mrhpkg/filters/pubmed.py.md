@@ -91,6 +91,82 @@
         eCollection 2018.
     ```
 
+??? example "ENDNOTE - PUBMED 字段对照"
+
+    * Filters From EndNote X8.2
+    * Pubmed Import Filter
+    * Reference Type: **Journal Article**
+    * Last modified: 2017.04.14 0:08:34
+
+    |Tag|Field(s)|
+    |-|-|
+    |PT|`JOURNAL ARTICLE`|
+    |PT|`Journal Article`|
+    |PT|`Journal`|
+    |PT|`JOURNAL`|
+    |AB|Abstract|
+    |AD|Author Address|
+    |AID|{IGNORE} `[pii]`|
+    |AID|DOI `[doi]`|
+    |AU|Author|
+    |AUID|Notes|
+    |CDAT|{IGNORE}|
+    |CI|{IGNORE}|
+    |CN|Notes|
+    |CRDT|{IGNORE}|
+    |CY|{IGNORE}|
+    |DA|{IGNORE}|
+    |DCOM|{IGNORE}|
+    |DEP|{IGNORE}|
+    |DP|Year Date|
+    |DP|Year|
+    |EDAT|Epub Date 0{IGNORE}|
+    |EDAT|Epub Date 1{IGNORE}|
+    |EDAT|Epub Date|
+    |FAU|Notes|
+    |GR|Notes|
+    |IP|Issue|
+    |IS|Notes (Electronic)|
+    |IS|ISSN (Linking)|
+    |IS|ISSN|
+    |JC|{IGNORE}|
+    |JID|{IGNORE}|
+    |JT|Alternate Journal|
+    |LA|Language|
+    |LID|{IGNORE}`[pii]`|
+    |LID|DOI `[doi]`|
+    |LR|{IGNORE}|
+    |MH|Keywords|
+    |MHDA|{IGNORE}|
+    |MID|NIHMSID|
+    |OT|Keywords|
+    |OTO|{IGNORE}|
+    |OWN|Database Provider|
+    |PG|Pages|
+    |PHST|{IGNORE}|
+    |PL|Notes|
+    |PMC|PMCID|
+    |PMID|Accession Number|
+    |PST|{IGNORE}|
+    |PT|Notes|
+    |PUBM|{IGNORE}|
+    |RN|{IGNORE}|
+    |SB|{IGNORE}|
+    |SO|Notes|
+    |STAT|{IGNORE}|
+    |TA|Journal|
+    |TI|Title|
+    |TT|Original Publication|
+    |VI|Volume|
+    |UI|{IGNORE}|
+    |URL|URL|
+    |URLF|URL|
+    |URLS|URL|
+    |4099|URL|
+    |4100|URL|
+    |OAB|Abstract|
+    |OABL|Abstract|
+
 !!! note "格式"
 
     * 文件起始：空行
