@@ -67,4 +67,5 @@ def _parsefile(filepath):
 
 
 def _fixdata(data):
+    """Data Preparation."""
     return data
