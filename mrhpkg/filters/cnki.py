@@ -1,62 +1,47 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+
+"""
 # Filename: cnki.py
 # Usage: CNKI DataFile Process Module For E-Study Format
+"""
 
-import os
 import tempfile
-
 import defusedxml.ElementTree as et
 
 
-class XmlData:
+class CnkiItem:
+    """CNKI ESTUDY Data Format."""
+    # Custom Field
+
     def __init__(self):
-        # Predefine Field
-        self.DataType = ''
-        self.Title = ''
-        self.Author = []
-        self.Source = ''
-        self.Year = ''
-        self.PubTime = ''
-        self.Keyword = []
-        self.Summary = ''
-        self.Period = ''
-        self.PageCount = ''
-        self.Page = ''
-        self.SrcDatabase = ''
-        self.Organ = ''
-        self.Link = ''
-        self.City = ''
-        self.Meeting = ''
-        self.Roll = ''
-        self.Degree = ''
-        self.Teacher = ''
-        # Custom Field
-        self.cls = 'xml'
-        self.reftype = 'noteexpress'
-        self.database = 'cnki'
-        self.srcfile = ''
+        self.database = 'CNKI'
 
 
-def isdb(datafile_path):
-    with open(datafile_path, 'r', encoding='utf-8') as datafile:
-        try:
-            line = datafile.readline().lower()
-            if line != '<?xml version="1.0" encoding="utf-8"?>\n':
-                return False
-        except UnicodeDecodeError:
-            return False
-    return True
+def getdata(filepath):
+    """Return Data From File By XML Format Parser.
+    Normal: Return Data Type List
+    Error:  Return -1
+    """
+    data = _parsefile(filepath) if _checktype(filepath) else -1
+    if data != -1:
+        data = _fixdata(data)
+    return data
 
 
-def fixtreeparse(datafile_path):
-    ##################################################
-    # Add Func Here if Xml File is not good for parse.
-    ##################################################
+def _checktype(filepath):
+    """Check CNKI Exported File Format."""
+    with open(filepath, encoding='utf-8') as datafile:
+        return datafile.readline().lower() == '<?xml version="1.0" encoding="utf-8"?>\n'
+
+
+def _fix_treeparse(datafile_path):
+    """Remove Lines For XML Parse."""
     with open(datafile_path, 'r', encoding='utf-8') as datafile:
         eslines = datafile.readlines()
         ############################################################################
-        # For CNKI E-Study .eln Format
+        # For CNKI E-Study .eln Format Only
         fixstr = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >\n'
         if eslines[-2] == fixstr:
             eslines.pop(-2)
@@ -64,85 +49,35 @@ def fixtreeparse(datafile_path):
         tmpfile = tempfile.TemporaryFile(mode='w+t', encoding='utf-8', dir='.')
         tmpfile.writelines(eslines)
         tmpfile.seek(0)
-        try:
-            tree = et.parse(tmpfile)
-        finally:
-            tmpfile.close()  # make sure tempfile deleted
+        tree = et.parse(tmpfile)  # Better Performance
+        tmpfile.close()  # make sure tempfile deleted
     return tree
 
 
-def parsedata(datafile_path):
+def _parsefile(filepath):
+    """Parse Exported File From CNKI in ESTUDY format."""
     data = []
-    strlist = ['Title', 'DataType', 'Source', 'Year', 'PubTime',
-               'Summary', 'Period', 'PageCount', 'Page', 'SrcDatabase',
-               'Organ', 'Link', 'City', 'Meeting', 'Roll', 'Degree',
-               'Teacher']
-    if isdb(datafile_path):
-        try:
-            tree = et.parse(datafile_path)
-        except et.ParseError:
-            tree = fixtreeparse(datafile_path)
-        root = tree.getroot()
-        for sub in root:
-            if sub.tag == 'DATA':
-                dataitem = XmlData()
-                for item in sub:
-                    if item.tag in strlist:
-                        setattr(dataitem, item.tag, item.text)
-                    if item.tag == 'Author':
-                        if ';' in item.text:
-                            dataitem.Author = item.text.strip(';').split(';')
-                        elif ',' in item.text:
-                            dataitem.Author = item.text.split(',')
-                        else:
-                            dataitem.Author = [item.text]
-                    if item.tag == 'Keyword':
-                        dataitem.Keyword = item.text.split(';')
-                dataitem.srcfile = datafile_path
-                data.append(dataitem)
-    else:
-        data = []
+    tree = _fix_treeparse(filepath)
+    root = tree.getroot()
+    for sub in root:
+        if sub.tag == 'DATA':
+            cnkiitem = CnkiItem()
+            data.append(cnkiitem)
+            for item in sub:
+                setattr(cnkiitem, item.tag, item.text)
     return data
 
 
-def optdata(data):
+def _fixdata(data):
+    """Data Preparation."""
+    for cnkiitem in data:
+        if getattr(cnkiitem, 'Author', ''):
+            if ';' in cnkiitem.Author:
+                cnkiitem.Author = cnkiitem.Author.strip(';').split(';')
+            elif ',' in cnkiitem.Author:
+                cnkiitem.Author = cnkiitem.Author.split(',')
+            else:
+                cnkiitem.Author = [cnkiitem.Author]
+        if getattr(cnkiitem, 'Keyword', ''):
+            cnkiitem.Keyword = cnkiitem.Keyword.split(';;')
     return data
-
-
-# region Same in Filters
-def getdata(datafile_path):
-    # Auto Detect File or Dir
-    if os.path.isfile(datafile_path):
-        data = openfile(datafile_path)
-    elif os.path.isdir(datafile_path):
-        data = opendir(datafile_path)
-    else:
-        data = []
-    # Change Field Type for Use
-    if data:
-        data = optdata(data)
-    return data
-
-
-def openfile(datafile_path):
-    data = parsedata(datafile_path)
-    return data
-
-
-def opendir(datafile_path):
-    data = []
-    with os.scandir(datafile_path) as datafiles:
-        for file in datafiles:
-            if os.path.isfile(file.path):
-                data += parsedata(file.path)
-    return data
-
-
-def main():
-    datafile_path = '../../data/'
-    data = getdata(datafile_path)
-    print(data)
-
-
-if __name__ == '__main__':
-    main()
