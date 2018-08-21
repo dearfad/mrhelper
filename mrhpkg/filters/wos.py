@@ -12,15 +12,15 @@ class WosItem:
     Web of Science Core Collection Fields List
     http://images.webofknowledge.com/WOKRS5272R3/help/zh_CN/WOK/hs_wos_fieldtags.html
     """
+    # Custom Fields
 
     def __init__(self):
         self.database = 'WOS'
-    # Custom Fields
-    # RID: int = -1  # References ID
-    # CCR: set()  # Remove DOI from Field CR
-    # CTX: str = ''  # Cited Text
-    # LCS: list = field(default_factory=list)  # Local Cited References List
-    # LCR: list = field(default_factory=list)  # Local Citing References List
+        self.RID = -1  # References ID
+        self.CCR = set()  # Remove DOI from Field CR
+        self.CTX = ''  # Cited Text
+        self.LCS = []  # Local Cited References List
+        self.LCR = []  # Local Citing References List
 
 
 def getdata(filepath):
@@ -30,8 +30,8 @@ def getdata(filepath):
     """
     data = _parsefile(filepath) if _checktype(filepath) else -1
     if data != -1:
-        data = fixdata(data)
-        data = localinfo(data)
+        data = _fixdata(data)
+        data = _localinfo(data)
     return data
 
 
@@ -68,57 +68,60 @@ def _parsefile(datafile_path):
     return data
 
 
-def localinfo(data):
+def _localinfo(data):
     """Parse WosItem LCR LCS Data."""
     for rid, wositem in enumerate(data):
         wositem.RID = rid
-        wositem.CCR = set(_remove_doi(wositem))
+        wositem.CCR = _remove_doi(wositem)
         wositem.CTX = _add_ctx(wositem)
-    data = add_info(data)
+    data = _add_info(data)
     return data
 
 
 def _remove_doi(wositem):
     """Remove DOI In WosItem.CR."""
-    ccr = []
+    ccr = set()
     for item in wositem.CR:
         if ', DOI ' in item:
             item = item.split(', DOI')[0]
-        ccr.append(item)
+        ccr.add(item)
     return ccr
 
 
 def _add_ctx(wositem):
     """Add Cited Text."""
-    # todo
-    author = wositem.AU[0].replace(', ', ' ') if getattr(wositem, 'AU', '') else ''
+    author = wositem.AU[0].replace(
+        ', ', ' ') if getattr(wositem, 'AU', '') else ''
     year = wositem.PY if getattr(wositem, 'PY', '') else ''
-    journal = wositem.J9 if wositem.J9 else wositem.BS if wositem.BS else wositem.SO if wositem.SO else ''
-    volume = 'V' + wositem.VL if wositem.VL else ''
-    page = 'P' + wositem.BP if wositem.BP else ''
-    citetext = ', '.join(item for item in (
-        author, year, journal, volume, page) if item)
+    journal = wositem.J9 if getattr(wositem, 'J9', '') else wositem.BS if getattr(
+        wositem, 'BS', '') else wositem.SO if getattr(wositem, 'SO', '') else ''
+    volume = 'V' + wositem.VL if getattr(wositem, 'VL', '') else ''
+    page = 'P' + wositem.BP if getattr(wositem, 'BP', '') else ''
+    citetext = ', '.join([item for item in (
+        author, year, journal, volume, page) if item])
     return citetext
 
 
-def add_info(data):
-    # 添加 LCS LCR
-    cite_dict = {}  # 建立CTX与RID索引字典
-    cite_set = set()  # 建立CTX SET总表
-    for item in data:
-        cite_dict[item.CTX] = item.RID
-        cite_set.add(item.CTX)
-    for rid, item in enumerate(data):
-        if item.CCR:
-            cite_list = cite_set & item.CCR  # 计算引用文本总表与当前文献CR的交集
-            for unit in cite_list:
-                data[cite_dict.get(unit)].LCS.append(rid)
-                item.LCR.append(cite_dict.get(unit))
+def _add_info(data):
+    """ADD LCR LCX"""
+    ctx_rid = {}
+    ctx_set = set()
+    for wositem in data:
+        ctx_rid[wositem.CTX] = wositem.RID
+        ctx_set.add(wositem.CTX)
+    for rid, wositem in enumerate(data):
+        if wositem.CCR:
+            citeinfo = ctx_set & wositem.CCR
+            for item in citeinfo:
+                data[ctx_rid.get(item)].LCS.append(rid)
+                wositem.LCR.append(ctx_rid.get(item))
     return data
 
 
-def fixdata(data):
+def _fixdata(data):
     for wositem in data:
-        if isinstance(wositem.AU, str):
+        if isinstance(getattr(wositem, 'AU', 0), str):
             wositem.AU = [wositem.AU]
+        if isinstance(getattr(wositem, 'TI', 0), list):
+            wositem.TI = ' '.join(wositem.TI)
     return data
