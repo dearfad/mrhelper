@@ -119,6 +119,7 @@ def _add_info(data):
 
 
 def _fixdata(data):
+    """Data Preparation."""
     for wositem in data:
         if isinstance(getattr(wositem, 'AU', 0), str):
             wositem.AU = [wositem.AU]
