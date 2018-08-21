@@ -12,7 +12,6 @@ class WosItem:
     Web of Science Core Collection Fields List
     http://images.webofknowledge.com/WOKRS5272R3/help/zh_CN/WOK/hs_wos_fieldtags.html
     """
-    # Custom Fields
 
     def __init__(self):
         self.database = 'WOS'

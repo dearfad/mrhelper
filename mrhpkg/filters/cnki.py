@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-
 """
 # Filename: cnki.py
 # Usage: CNKI DataFile Process Module For E-Study Format
@@ -13,7 +12,6 @@ import defusedxml.ElementTree as et
 
 class CnkiItem:
     """CNKI ESTUDY Data Format."""
-    # Custom Field
 
     def __init__(self):
         self.database = 'CNKI'
@@ -40,17 +38,14 @@ def _fix_treeparse(datafile_path):
     """Remove Lines For XML Parse."""
     with open(datafile_path, 'r', encoding='utf-8') as datafile:
         eslines = datafile.readlines()
-        ############################################################################
-        # For CNKI E-Study .eln Format Only
         fixstr = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >\n'
         if eslines[-2] == fixstr:
             eslines.pop(-2)
-        ############################################################################
         tmpfile = tempfile.TemporaryFile(mode='w+t', encoding='utf-8', dir='.')
         tmpfile.writelines(eslines)
         tmpfile.seek(0)
-        tree = et.parse(tmpfile)  # Better Performance
-        tmpfile.close()  # make sure tempfile deleted
+        tree = et.parse(tmpfile)
+        tmpfile.close()
     return tree
 
 

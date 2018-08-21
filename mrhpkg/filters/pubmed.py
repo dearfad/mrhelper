@@ -12,7 +12,6 @@ class PubmedItem:
     MEDLINE®/PubMed® Data Element (Field) Descriptions
     https://www.nlm.nih.gov/bsd/mms/medlineelements.html
     """
-    # Custom Fields
 
     def __init__(self):
         self.database = 'PUBMED'
