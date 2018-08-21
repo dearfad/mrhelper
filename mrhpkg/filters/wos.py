@@ -122,11 +122,3 @@ def fixdata(data):
         if isinstance(wositem.AU, str):
             wositem.AU = [wositem.AU]
     return data
-
-
-if __name__ == '__main__':
-    path = './mrhpkg/filters/500.txt'
-    srcdata = getdata(path)
-    for item in srcdata:
-        bs = getattr(item, 'SO', '')
-        print(type(bs))
