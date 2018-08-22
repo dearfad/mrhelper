@@ -8,10 +8,10 @@
 
 import re
 
-import filters.cnki as cnki
-import filters.pubmed as pubmed
-import filters.wanfang as wanfang
-import filters.wos as wos
+import mrhpkg.filters.cnki as cnki
+import mrhpkg.filters.pubmed as pubmed
+import mrhpkg.filters.wanfang as wanfang
+import mrhpkg.filters.wos as wos
 
 
 class MrhProject:
