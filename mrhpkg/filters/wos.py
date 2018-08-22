@@ -3,7 +3,7 @@
 
 """
 Filename: wos.py
-Usage: DataFile Parse Module For ALL Format of Web of Science
+Usage: DataFile Parse Module For CORE COLLECTION Format of Web of Science
 """
 
 
@@ -27,14 +27,14 @@ def getdata(filepath):
     Normal: Return Data Type List
     Error:  Return -1
     """
-    data = _parsefile(filepath) if _checktype(filepath) else -1
+    data = _parsefile(filepath) if checktype(filepath) else -1
     if data != -1:
         data = _fixdata(data)
         data = _localinfo(data)
     return data
 
 
-def _checktype(filepath):
+def checktype(filepath):
     """Check WOS Exported File Format."""
     validlines = ['FN Thomson Reuters Web of Science™\n', 'VR 1.0\n']
     with open(filepath, encoding='utf-8-sig') as datafile:

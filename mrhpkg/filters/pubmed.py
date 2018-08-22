@@ -22,13 +22,13 @@ def getdata(filepath):
     Normal: Return Data Type List
     Error:  Return -1
     """
-    data = _parsefile(filepath) if _checktype(filepath) else -1
+    data = _parsefile(filepath) if checktype(filepath) else -1
     if data != -1:
         data = _fixdata(data)
     return data
 
 
-def _checktype(filepath):
+def checktype(filepath):
     """Check PubMed MEDLINE Format."""
     with open(filepath, encoding='utf-8') as datafile:
         return datafile.readline() == '\n' and datafile.readline()[:4] == 'PMID'

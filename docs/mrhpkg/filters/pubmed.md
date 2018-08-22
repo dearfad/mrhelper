@@ -9,7 +9,7 @@
 
 ??? example "范例"
 
-    ```
+    ```text
     PMID- 29447299
     OWN - NLM
     STAT- In-Data-Review

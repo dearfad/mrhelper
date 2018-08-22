@@ -1,13 +1,34 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+"""
 # Filename: mrhimp.py
 # Usage: Medical Review Helper DataFile Import Module
+"""
 
-import mrhpkg.mrhimp as mrhimp
 import re
+import mrhpkg.filters.wos as wos
+import mrhpkg.filters.pubmed as pubmed
+import mrhpkg.filters.cnki as cnki
+import mrhpkg.filters.wanfang as wanfang
 
 
-class MrhData:
+class MrhProject:
+    """MrHelper Project Data Format."""
+
+    def __init__(self):
+        self.title = ''
+        self.author = []
+        self.abstract = ''
+        self.keywords = []
+        self.refseq = []
+        self.data = []
+        self.srcdata = {}
+
+
+class MrhItem:
+    """MrHelper Data Item Format."""
+
     def __init__(self):
         self.author = []
         self.title = ''
@@ -23,30 +44,19 @@ class MrhData:
         self.pmcid = ''
         self.abstract = ''
         self.database = ''
-        self.cs = ''
-        self.cr = ''
-        self.lcs = []
-        self.lcr = []
+        self.cs = ''  # Cited By
+        self.cr = ''  # Citing
+        self.lcs = []  # Local Cited By
+        self.lcr = []  # Local Citing
         self.keywords = []
         # Mrhelper Define Field
-        self.rid = -1
-        self.use = 1
-        self.iv = ''  # Independent variable
-        self.dv = ''  # dependent variable
-        self.relation = 1  # relation 0 decrease 1 no relation 2 increase
+        self.rid = -1  # References ID
+        self.use = 1  # 0-Useless, 1-Evaluate, 2-Use
+        self.iv = ''  # Independent Variable
+        self.dv = ''  # Dependent Variable
+        self.relation = 1  # Relation: 0-decrease, 1-no relation, 2-increase
         self.reftext = ''  # Description
-        self.group = ['', '']  # group, subgroup
-
-
-class MrhProject:
-    def __init__(self):
-        self.title = ''
-        self.author = []
-        self.abstract = ''
-        self.keywords = []
-        self.refseq = []
-        self.data = []
-        self.srcdata = {}
+        self.group = ['', '']  # Group, Subgroup
 
 
 def _get_field_value(item, dbname, field_dict):
@@ -88,7 +98,7 @@ def _parse_data(srcdata):
     rid = -1
     for dbname in databases:
         for item in srcdata[dbname]:
-            mrhitem = MrhData()
+            mrhitem = MrhItem()
             rid += 1
             mrhitem.rid = rid
             mrhitem.database = dbname
@@ -128,7 +138,7 @@ def getdata(datafile_path):
     mrhproject = MrhProject()
     mrhproject.title = 'Medical Review Project'
     mrhproject.author = ['dearfad', 'lealoof']
-    srcdata = mrhimp.getdata(datafile_path)
+    srcdata = getsrcdata(datafile_path)
     mrhproject.srcdata = srcdata
     mrhdata = _parse_data(srcdata)
     mrhdata = _fix_data(mrhdata, srcdata)
@@ -136,8 +146,21 @@ def getdata(datafile_path):
     return mrhproject
 
 
+def checktype(filepath, parser):
+    for dbname in parser:
+        if parser[dbname].checktype(filepath):
+            return dbname
+    return -1
+
+
+def getsrcdata(filepath):
+    parser = {'wos': wos, 'pubmed': pubmed, 'wanfang': wanfang, 'cnki': cnki}
+    dbname = checktype(filepath, parser)
+    return parser[dbname].getdata(filepath) if dbname != -1 else -1
+
+
 def main():
-    datafile_path = '../data/'
+    datafile_path = './mrhpkg/pubmed.txt'
     mrhproject = getdata(datafile_path)
     print(mrhproject.title)
 
