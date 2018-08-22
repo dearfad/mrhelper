@@ -160,7 +160,7 @@ def getsrcdata(filepath):
 
 
 def main():
-    datafile_path = './mrhpkg/pubmed.txt'
+    datafile_path = 'pubmed.txt'
     mrhproject = getdata(datafile_path)
     print(mrhproject.title)
 
