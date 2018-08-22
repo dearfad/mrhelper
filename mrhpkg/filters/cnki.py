@@ -36,7 +36,7 @@ def _checktype(filepath):
 
 def _fix_treeparse(datafile_path):
     """Remove Lines For XML Parse."""
-    with open(datafile_path, 'r', encoding='utf-8') as datafile:
+    with open(datafile_path, encoding='utf-8') as datafile:
         eslines = datafile.readlines()
         fixstr = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >\n'
         if eslines[-2] == fixstr:
