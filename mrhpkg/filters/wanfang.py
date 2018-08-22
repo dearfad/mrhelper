@@ -27,7 +27,7 @@ def getdata(filepath):
 
 def _checktype(filepath):
     """Check WanFang NoteExpress Format."""
-    with open(filepath, 'r', encoding='utf-8') as datafile:
+    with open(filepath, encoding='utf-8') as datafile:
         return datafile.readline()[:16] == '{Reference Type}'
 
 

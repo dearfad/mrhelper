@@ -7,7 +7,7 @@
 """
 
 import tempfile
-import defusedxml.ElementTree as et
+import defusedxml.ElementTree as ElementTree
 
 
 class CnkiItem:
@@ -44,7 +44,7 @@ def _fix_treeparse(datafile_path):
         tmpfile = tempfile.TemporaryFile(mode='w+t', encoding='utf-8', dir='.')
         tmpfile.writelines(eslines)
         tmpfile.seek(0)
-        tree = et.parse(tmpfile)
+        tree = ElementTree.parse(tmpfile)
         tmpfile.close()
     return tree
 
