@@ -7,10 +7,11 @@
 """
 
 import re
-import mrhpkg.filters.wos as wos
-import mrhpkg.filters.pubmed as pubmed
-import mrhpkg.filters.cnki as cnki
-import mrhpkg.filters.wanfang as wanfang
+
+import filters.cnki as cnki
+import filters.pubmed as pubmed
+import filters.wanfang as wanfang
+import filters.wos as wos
 
 
 class MrhProject:
@@ -140,9 +141,9 @@ def getdata(datafile_path):
     mrhproject.author = ['dearfad', 'lealoof']
     srcdata = getsrcdata(datafile_path)
     mrhproject.srcdata = srcdata
-    mrhdata = _parse_data(srcdata)
-    mrhdata = _fix_data(mrhdata, srcdata)
-    mrhproject.data = mrhdata
+    # mrhdata = _parse_data(srcdata)
+    # mrhdata = _fix_data(mrhdata, srcdata)
+    # mrhproject.data = mrhdata
     return mrhproject
 
 
@@ -160,10 +161,9 @@ def getsrcdata(filepath):
 
 
 def main():
-    datafile_path = 'pubmed.txt'
+    datafile_path = './mrhpkg/pubmed.txt'
     mrhproject = getdata(datafile_path)
-    print(mrhproject.title)
-
+    pass
 
 if __name__ == '__main__':
     main()
