@@ -135,11 +135,9 @@ def _fix_data(mrhdata, srcdata):
     return mrhdata
 
 
-def getdata(datafile_path):
+def getdata(filepath):
     mrhproject = MrhProject()
-    mrhproject.title = 'Medical Review Project'
-    mrhproject.author = ['dearfad', 'lealoof']
-    srcdata = getsrcdata(datafile_path)
+    srcdata = getsrcdata(filepath)
     mrhproject.srcdata = srcdata
     # mrhdata = _parse_data(srcdata)
     # mrhdata = _fix_data(mrhdata, srcdata)
@@ -147,22 +145,18 @@ def getdata(datafile_path):
     return mrhproject
 
 
-def checktype(filepath, parser):
-    for dbname in parser:
-        if parser[dbname].checktype(filepath):
-            return dbname
+def getsrcdata(filepath):
+    databases = [wos, pubmed, wanfang, cnki]
+    for database in databases:
+        data = database.getdata(filepath)
+        if data != -1:
+            return data
     return -1
 
 
-def getsrcdata(filepath):
-    parser = {'wos': wos, 'pubmed': pubmed, 'wanfang': wanfang, 'cnki': cnki}
-    dbname = checktype(filepath, parser)
-    return parser[dbname].getdata(filepath) if dbname != -1 else -1
-
-
 def main():
-    datafile_path = 'pubmed.txt'
-    mrhproject = getdata(datafile_path)
+    path = './mrhpkg/pubmed.txt'
+    mrhproject = getdata(path)
     pass
 
 if __name__ == '__main__':
