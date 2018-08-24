@@ -10,7 +10,7 @@ Hammer.R
 
 ## STEPS
 
-### PREPARE
+### DATA PREPARATION
 
 * **WOS**: Core Database -> Search -> Save to other format -> All Records and References -> Download
 
