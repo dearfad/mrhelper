@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.1, mkdocs-material-3.0.3">
     
     
       
@@ -303,18 +303,30 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../../mrhimp/" title="MRHIMP" class="md-nav__link">
+      MRHIMP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-1" type="checkbox" id="nav-3-1-1" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-2" type="checkbox" id="nav-3-1-2" checked>
     
-    <label class="md-nav__link" for="nav-3-1-1">
+    <label class="md-nav__link" for="nav-3-1-2">
       FILTERS
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-1-1">
+      <label class="md-nav__title" for="nav-3-1-2">
         FILTERS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -351,13 +363,6 @@
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mrhdata" title="MrhData字段转换表" class="md-nav__link">
-    MrhData字段转换表
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#gbt-7714-2015" title="GB/T 7714-2015 参考文献著录规则" class="md-nav__link">
@@ -458,13 +463,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-2" type="checkbox" id="nav-3-1-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1-3" type="checkbox" id="nav-3-1-3">
     
-    <label class="md-nav__link" for="nav-3-1-2">
+    <label class="md-nav__link" for="nav-3-1-3">
       SPIDERS
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-3-1-2">
+      <label class="md-nav__title" for="nav-3-1-3">
         SPIDERS
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -590,13 +595,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#mrhdata" title="MrhData字段转换表" class="md-nav__link">
-    MrhData字段转换表
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#gbt-7714-2015" title="GB/T 7714-2015 参考文献著录规则" class="md-nav__link">
     GB/T 7714-2015 参考文献著录规则
   </a>
@@ -644,166 +642,6 @@
                 
                 
                 <h1 id="_1">参考文献格式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<h2 id="mrhdata">MrhData字段转换表<a class="headerlink" href="#mrhdata" title="Permanent link">&para;</a></h2>
-<p><strong>最后更新</strong>: 2018.05.30</p>
-<table>
-<thead>
-<tr>
-<th>MrhData</th>
-<th>Endnote</th>
-<th>Web Of Science</th>
-<th>Pubmed</th>
-<th>万方</th>
-<th>CNKI</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>author</td>
-<td>%A</td>
-<td>AU</td>
-<td>AU</td>
-<td>Author</td>
-<td>Author</td>
-</tr>
-<tr>
-<td>title</td>
-<td>%T</td>
-<td>TI</td>
-<td>TI</td>
-<td>Title</td>
-<td>Title</td>
-</tr>
-<tr>
-<td>type</td>
-<td>%0</td>
-<td>DT</td>
-<td>PT</td>
-<td>ReferenceType</td>
-<td>DataType</td>
-</tr>
-<tr>
-<td>journal</td>
-<td>%J</td>
-<td>SO</td>
-<td>JT</td>
-<td>Journal</td>
-<td>Source</td>
-</tr>
-<tr>
-<td>year</td>
-<td>%D</td>
-<td>PY</td>
-<td>DP</td>
-<td>Year</td>
-<td>Year</td>
-</tr>
-<tr>
-<td>volumn</td>
-<td>%V</td>
-<td>VL</td>
-<td>VI</td>
-<td></td>
-<td>Roll</td>
-</tr>
-<tr>
-<td>issue</td>
-<td>%N</td>
-<td>IS</td>
-<td>IP</td>
-<td>Issue</td>
-<td>Period</td>
-</tr>
-<tr>
-<td>page</td>
-<td>%P</td>
-<td>BP-EP</td>
-<td>PG</td>
-<td>Pages</td>
-<td>Page</td>
-</tr>
-<tr>
-<td>link</td>
-<td>%U</td>
-<td></td>
-<td></td>
-<td>URL</td>
-<td>Link</td>
-</tr>
-<tr>
-<td>doi</td>
-<td>%R</td>
-<td>DI</td>
-<td>AID</td>
-<td>DOI</td>
-<td></td>
-</tr>
-<tr>
-<td>pmid</td>
-<td>%M</td>
-<td>PM</td>
-<td>PMID</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>pmcid</td>
-<td></td>
-<td></td>
-<td>PMC</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>abstract</td>
-<td>%X</td>
-<td>AB</td>
-<td>AB</td>
-<td>Abstract</td>
-<td>Summary</td>
-</tr>
-<tr>
-<td>cs</td>
-<td></td>
-<td>TC</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>cr</td>
-<td></td>
-<td>NR</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>lcr</td>
-<td></td>
-<td>LCR</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>lcs</td>
-<td></td>
-<td>LCS</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>keywords</td>
-<td>%K</td>
-<td>DE</td>
-<td>OT</td>
-<td>Keywords</td>
-<td>Keyword</td>
-</tr>
-</tbody>
-</table>
 <h2 id="gbt-7714-2015">GB/T 7714-2015 参考文献著录规则<a class="headerlink" href="#gbt-7714-2015" title="Permanent link">&para;</a></h2>
 <ul>
 <li>GB/T 7714-2015 信息与文献 参考文献著录规则</li>
@@ -1723,7 +1561,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../../quickstart/" title="快速入门" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../mrhimp/" title="MRHIMP" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1732,7 +1570,7 @@
                 <span class="md-footer-nav__direction">
                   后退
                 </span>
-                快速入门
+                MRHIMP
               </span>
             </div>
           </a>
@@ -1804,7 +1642,7 @@
           
         
       
-      <script>app.initialize({version:"1.0",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.1",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
