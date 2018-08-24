@@ -1,5 +1,7 @@
 # **MRHIMP.PY**
 
+* 导入数据文件，并将其转换为mrhitem格式，返回mrhdata和rawdata.
+
 ---
 
 ## **MrhData字段转换表**
