@@ -24,7 +24,7 @@ class MrhProject:
         self.keywords = []
         self.refseq = []
         self.mrhdata = []
-        self.rawdata = {}
+        self.rawdata = []
 
 
 class MrhItem:
@@ -60,20 +60,27 @@ class MrhItem:
         self.group = ['', '']  # Group, Subgroup
 
 
-def _get_field_value(mrhitem, database, field_dict):
-    field = field_dict.setdefault(database, '')
-    if isinstance(field, list):
-        value = []
-        for unit in field:
-            data = getattr(mrhitem, unit)
-            if data:
-                value.append(getattr(mrhitem, unit))
-    else:
-        value = getattr(mrhitem, field,'')
-    return value
+def getdata(filepath):
+    """GET mrhdata AND rawdata From File.
+    return dict{'mrhdata':mrhdata, 'rawdata':rawdata}
+    """
+    rawdata = _get_rawdata(filepath)
+    mrhdata = _get_mrhdata(rawdata)
+    return {'mrhdata': mrhdata, 'rawdata': rawdata}
+
+
+def _get_rawdata(filepath):
+    """Get rawdata From One of WOS, PUBMED, CNKI, WANFANG DATABASES."""
+    databases = [wos, pubmed, wanfang, cnki]
+    for database in databases:
+        data = database.getdata(filepath)
+        if data != -1:
+            return data
+    return -1
 
 
 def _get_mrhdata(rawdata):
+    """Transform rawdata Into mrhdata."""
     mrhdata = []
     field_dict = {
         'author': {'WOS': 'AU', 'PUBMED': 'AU', 'WANFANG': 'Author', 'CNKI': 'Author'},
@@ -100,7 +107,11 @@ def _get_mrhdata(rawdata):
         mrhitem.rid = rid
         mrhitem.database = rawitem.database
         for key in field_dict.keys():
-            value = _get_field_value(rawitem, rawitem.database, field_dict[key])
+            field = field_dict[key].setdefault(rawitem.database, '')
+            if isinstance(field, list):
+                value = [getattr(rawitem, unit, '') for unit in field]
+            else:
+                value = getattr(rawitem, field, '')
             setattr(mrhitem, key, value)
         mrhitem = _fix_mrhitem(mrhitem)
         mrhdata.append(mrhitem)
@@ -108,7 +119,7 @@ def _get_mrhdata(rawdata):
 
 
 def _fix_mrhitem(mrhitem):
-
+    """Fix mrhdata For General Use."""
     if mrhitem.database == 'CNKI':
         mrhitem.link = mrhitem.link.replace('/kns/', '/kcms/')
         mrhitem.link = mrhitem.link.replace('nvsm.cnki.net', 'kns.cnki.net')
@@ -117,6 +128,10 @@ def _fix_mrhitem(mrhitem):
 
     if mrhitem.database == 'WOS':
         mrhitem.page = '-'.join(mrhitem.page) if mrhitem.page else ''
+        if mrhitem.cr:
+            mrhitem.cr = int(mrhitem.cr)
+        if mrhitem.cs:
+            mrhitem.cs = int(mrhitem.cs)
 
     if mrhitem.database == 'PUBMED':
         mrhitem.year = re.findall(r'\d\d\d\d', mrhitem.year)[0]
@@ -129,24 +144,3 @@ def _fix_mrhitem(mrhitem):
         mrhitem.journal = mrhitem.journal.upper() if mrhitem.journal else ''
 
     return mrhitem
-
-
-def getdata(filepath):
-    rawdata = _get_rawdata(filepath)
-    mrhdata = _get_mrhdata(rawdata)
-    return [mrhdata, rawdata]
-
-
-def _get_rawdata(filepath):
-    databases = [wos, pubmed, wanfang, cnki]
-    for database in databases:
-        data = database.getdata(filepath)
-        if data != -1:
-            return data
-    return -1
-
-
-if __name__ == '__main__':
-    path = './mrhpkg/pubmed.txt'
-    data = getdata(path)
-    pass

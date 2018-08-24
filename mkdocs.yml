@@ -58,6 +58,7 @@ nav:
   - 快速入门: 'quickstart.md'
   - 源码说明:
       - MRHPKG:
+          - MRHIMP: "mrhpkg/mrhimp.md"
           - FILTERS:
               - 文献格式: "mrhpkg/filters/fields.md"
               - PUBMED: 'mrhpkg/filters/pubmed.md'

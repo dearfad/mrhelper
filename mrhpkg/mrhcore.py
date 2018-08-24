@@ -18,7 +18,7 @@ from bs4 import BeautifulSoup
 from docx import Document
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
-import mrhpkg.mrhdata as mrhdata
+import mrhpkg.mrhimp as mrhimp
 import mrhpkg.mrhini as mrhini
 import mrhpkg.spider.cnki as cnkispider
 import mrhpkg.spider.pubmed as pmdspider
@@ -119,18 +119,12 @@ class MrhIo(QThread):
 
     def mrhadd(self):
         for filepath in self.filepath:
-            project = mrhdata.getdata(filepath)
-            baserid = len(self.mrhproject.data)
-            for item in project.data:
-                item.rid += baserid
-            self.mrhproject.data += project.data
-            if not self.mrhproject.srcdata:
-                self.mrhproject.srcdata = []
-            for key, value in project.srcdata.items():
-                if project.srcdata[key]:
-                    self.mrhproject.srcdata += value
-                    break
-
+            data = mrhimp.getdata(filepath)
+            baserid = len(self.mrhproject.mrhdata)
+            for mrhitem in data['mrhdata']:
+                mrhitem.rid += baserid
+            self.mrhproject.mrhdata += data['mrhdata']
+            self.mrhproject.rawdata += data['rawdata']
 
 class MrhTable(QThread):
     sigmsg = pyqtSignal(str)
@@ -172,10 +166,10 @@ class MrhTable(QThread):
 
     def _create_table(self):
         self.datatable.setSortingEnabled(False)
-        self.datatable.setRowCount(len(self.mrhproject.data))
+        self.datatable.setRowCount(len(self.mrhproject.mrhdata))
         fields = [self.datatable.horizontalHeaderItem(index).text() for index in range(self.datatable.columnCount())]
         # todo Rewrite Pythonic
-        for row, item in enumerate(self.mrhproject.data):
+        for row, item in enumerate(self.mrhproject.mrhdata):
             itemcolor = self._mark_item(item)
             for column, field in enumerate(fields):
                 value = getattr(item, field, '')
@@ -253,6 +247,8 @@ class MrhTable(QThread):
                     else:
                         itemcolor['journal'] = 'yellow'
             else:
+                if isinstance(mrhitem.journal, list):
+                    print(mrhitem.journal)
                 if mrhitem.journal in self.config.hexin:
                     itemcolor['journal'] = 'lightgreen'
 
@@ -263,7 +259,7 @@ class MrhTable(QThread):
         for row in range(rows):
             self.datatable.setRowHidden(row, False)
             rid = int(self.datatable.item(row, 0).text())
-            mrhitem = self.mrhproject.data[rid]
+            mrhitem = self.mrhproject.mrhdata[rid]
             abstract = self._check_abstract(mrhitem)
             fiveyears = self._check_fiveyears(mrhitem)
             reftype = self._check_type(mrhitem)
@@ -288,7 +284,7 @@ class MrhTable(QThread):
                 if self.currentrid == mrhitem.rid:
                     return True
                 else:
-                    current_item = self.mrhproject.data[self.currentrid]
+                    current_item = self.mrhproject.mrhdata[self.currentrid]
                     if current_item.lcs:
                         if mrhitem.rid in current_item.lcs:
                             return True
@@ -307,7 +303,7 @@ class MrhTable(QThread):
 
     def _pick_viewoption(self):
         _pick_data = []
-        for item in self.mrhproject.data:
+        for item in self.mrhproject.mrhdata:
             if self._check_viewoptions(item):
                 _pick_data.append(item)
         self.data = _pick_data
@@ -592,7 +588,7 @@ class MrhExport:
     def endnote(self):
         filepath = os.path.join(self.savepath, 'endnote.txt')
         with open(filepath, 'w', encoding='utf-8') as datafile:
-            for item in self.mrhproject.data:
+            for item in self.mrhproject.mrhdata:
                 # Type
                 datafile.write('%0 Journal Article\n')
                 # author
@@ -693,7 +689,7 @@ class MrhExport:
                     if node[1] == 2:
                         heading.style = self.document.styles['Heading 3']
             else:
-                item = self.mrhproject.data[int(node[2])]
+                item = self.mrhproject.mrhdata[int(node[2])]
                 # Add References
                 self._docx_addref(item)
         # Add Reference Text

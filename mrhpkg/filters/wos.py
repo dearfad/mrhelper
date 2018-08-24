@@ -80,10 +80,11 @@ def _localinfo(data):
 def _remove_doi(wositem):
     """Remove DOI In WosItem.CR."""
     ccr = set()
-    for item in wositem.CR:
-        if ', DOI ' in item:
-            item = item.split(', DOI')[0]
-        ccr.add(item)
+    if getattr(wositem, 'CR', ''):
+        for item in wositem.CR:
+            if ', DOI ' in item:
+                item = item.split(', DOI')[0]
+            ccr.add(item)
     return ccr
 
 
@@ -124,4 +125,6 @@ def _fixdata(data):
             wositem.AU = [wositem.AU]
         if isinstance(getattr(wositem, 'TI', 0), list):
             wositem.TI = ' '.join(wositem.TI)
+        if isinstance(getattr(wositem, 'SO', 0), list):
+            wositem.SO = ' '.join(wositem.SO)
     return data

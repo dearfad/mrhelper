@@ -1,30 +1,5 @@
 # 参考文献格式
 
-## MrhData字段转换表
-
-**最后更新**: 2018.05.30
-
-|MrhData|Endnote|Web Of Science|Pubmed|万方|CNKI|
-|-|-|-|-|-|-|
-|author|%A|AU|AU|Author|Author|
-|title|%T|TI|TI|Title|Title|
-|type|%0|DT|PT|ReferenceType|DataType|
-|journal|%J|SO|JT|Journal|Source|
-|year|%D|PY|DP|Year|Year|
-|volumn|%V|VL|VI||Roll|
-|issue|%N|IS|IP|Issue|Period|
-|page|%P|BP-EP|PG|Pages|Page|
-|link|%U|||URL|Link|
-|doi|%R|DI|AID|DOI||
-|pmid|%M|PM|PMID|||
-|pmcid|||PMC|||
-|abstract|%X|AB|AB|Abstract|Summary|
-|cs||TC||||
-|cr||NR||||
-|lcr||LCR||||
-|lcs||LCS||||
-|keywords|%K|DE|OT|Keywords|Keyword|
-
 ## GB/T 7714-2015 参考文献著录规则
 
 * GB/T 7714-2015 信息与文献 参考文献著录规则

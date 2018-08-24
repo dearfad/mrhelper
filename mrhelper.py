@@ -24,7 +24,7 @@ from PyQt5.QtWidgets import QApplication, QTreeWidgetItem, QFileDialog
 from PyQt5.QtWidgets import QMenu, QTreeWidgetItemIterator, QComboBox, QAbstractItemView
 
 import mrhpkg.mrhabout as mrhabout
-import mrhpkg.mrhdata as mrhdata
+import mrhpkg.mrhimp as mrhimp
 import mrhpkg.mrhhelp as mrhhelp
 from mrhpkg.mrhcore import MrhIo, MrhExport, MrhWeb, MrhConfig, MrhTable
 from mrhpkg.mrhgui import MrhMainWindow
@@ -248,7 +248,7 @@ class MainWindow(MrhMainWindow):
         if filepath:
             CONFIG.ini['Directory']['project'] = filepath
             MrhConfig.save(CONFIG)
-            MRHPROJECT = mrhdata.MrhProject()
+            MRHPROJECT = mrhimp.MrhProject()
             self.maintabwidget.tab_read.datatable.clearContents()
             self.maintabwidget.tab_read.datatable.setRowCount(0)
             self.maintabwidget.tab_read.functiongroup.save_button.setEnabled(True)
@@ -274,7 +274,7 @@ class MainWindow(MrhMainWindow):
         if filepath:
             CONFIG.ini['Directory']['project'] = filepath
             MrhConfig.save(CONFIG)
-            MRHPROJECT = mrhdata.MrhProject()
+            MRHPROJECT = mrhimp.MrhProject()
             self.maintabwidget.tab_read.datatable.clearContents()
             self.maintabwidget.tab_read.datatable.setRowCount(0)
             self.maintabwidget.tab_read.functiongroup.add_button.setEnabled(True)
@@ -377,7 +377,7 @@ class MainWindow(MrhMainWindow):
     def _openbrowser_clicked(self):
         rid = self._get_current_rid()
         if rid != -1:
-            item = MRHPROJECT.data[rid]
+            item = MRHPROJECT.mrhdata[rid]
             pmid = item.pmid
             pmcid = item.pmcid
             link = item.link
@@ -401,7 +401,7 @@ class MainWindow(MrhMainWindow):
     def _fulltext_button_clicked(self):
         rid = self._get_current_rid()
         if rid != -1:
-            mrhitem = MRHPROJECT.data[rid]
+            mrhitem = MRHPROJECT.mrhdata[rid]
             pdffile = str(rid) + '.pdf'
             pdf = os.path.join(CONFIG.ini['Directory']['project'], 'pdf', pdffile)
             if os.path.exists(pdf):
@@ -431,7 +431,7 @@ class MainWindow(MrhMainWindow):
         QDesktopServices().openUrl(QUrl(address))
 
     def _citeref_button_clicked(self, data=None):
-        data = MRHPROJECT.data if not data else data
+        data = MRHPROJECT.mrhdata if not data else data
         self.qthread = MrhWeb(data, MRHPROJECT, CONFIG)
         self.qthread.sigmsg.connect(self._show_status)
         self.qthread.sigmrh.connect(self._receive_project)
@@ -441,7 +441,7 @@ class MainWindow(MrhMainWindow):
         current_tab = self.maintabwidget.currentIndex()
         rid = self._get_current_rid()
         if rid != -1:
-            item = MRHPROJECT.data[rid]
+            item = MRHPROJECT.mrhdata[rid]
             if current_tab == 0:
                 memogroup = self.maintabwidget.tab_read.memooptiongroup
             elif current_tab == 1:
@@ -468,7 +468,7 @@ class MainWindow(MrhMainWindow):
         current_tab = self.maintabwidget.currentIndex()
         rid = self._get_current_rid()
         if rid != -1:
-            item = MRHPROJECT.data[rid]
+            item = MRHPROJECT.mrhdata[rid]
             if current_tab == 0:
                 memogroup = self.maintabwidget.tab_read.memooptiongroup
             elif current_tab == 1:
@@ -483,7 +483,7 @@ class MainWindow(MrhMainWindow):
         if tableitem_header == 'rid':
             rid = int(tableitem.text())
             use = tableitem.checkState()
-            MRHPROJECT.data[rid].use = use
+            MRHPROJECT.mrhdata[rid].use = use
             self._datatable_setusecolor(tableitem, use)
 
     def _datatable_setusecolor(self, tableitem, use):
@@ -533,14 +533,14 @@ class MainWindow(MrhMainWindow):
 
     def _datatable_popmenu_retrieve(self):
         mrhitem_dict = self._get_selected_items()
-        mrhitems = [MRHPROJECT.data[rid] for rid in mrhitem_dict.keys()]
+        mrhitems = [MRHPROJECT.mrhdata[rid] for rid in mrhitem_dict.keys()]
         self._citeref_button_clicked(data=mrhitems)
 
     def _datatable_popmenu_setuse(self, use):
         datatable = self.maintabwidget.tab_read.datatable
         mrhitem_dict = self._get_selected_items()
         for rid, tableitem in mrhitem_dict.items():
-            MRHPROJECT.data[rid].use = use
+            MRHPROJECT.mrhdata[rid].use = use
             datatable.itemChanged.disconnect(self._datatable_itemchanged)
             tableitem.setCheckState(use)
             datatable.itemChanged.connect(self._datatable_itemchanged)
@@ -550,8 +550,8 @@ class MainWindow(MrhMainWindow):
         current_tab = self.maintabwidget.currentIndex()
         rid = self._get_current_rid()
         if rid != -1:
-            mrhitem = MRHPROJECT.data[rid]
-            srcitem = MRHPROJECT.srcdata[rid]
+            mrhitem = MRHPROJECT.mrhdata[rid]
+            srcitem = MRHPROJECT.rawdata[rid]
             text = CONFIG.info.format(**locals())
             if current_tab == 0:
                 info = self.maintabwidget.tab_read
@@ -565,7 +565,7 @@ class MainWindow(MrhMainWindow):
         current_tab = self.maintabwidget.currentIndex()
         rid = self._get_current_rid()
         if rid != -1:
-            srcitem = MRHPROJECT.srcdata[rid]
+            srcitem = MRHPROJECT.rawdata[rid]
             if current_tab == 0:
                 info = self.maintabwidget.tab_read
             elif current_tab == 1:
@@ -581,7 +581,7 @@ class MainWindow(MrhMainWindow):
         current_tab = self.maintabwidget.currentIndex()
         rid = self._get_current_rid()
         if rid != -1:
-            item = MRHPROJECT.data[rid]
+            item = MRHPROJECT.mrhdata[rid]
             if current_tab == 0:
                 memogroup = self.maintabwidget.tab_read.memooptiongroup
             elif current_tab == 1:
@@ -610,7 +610,7 @@ class MainWindow(MrhMainWindow):
             subgroup = set()
             iv = set()
             dv = set()
-            for item in MRHPROJECT.data:
+            for item in MRHPROJECT.mrhdata:
                 if item.use == 2:
                     group.add(item.group[0])
                     subgroup.add(item.group[1])
@@ -629,7 +629,7 @@ class MainWindow(MrhMainWindow):
         treelist = self.maintabwidget.tab_classify.treelist
         treelist.setSortingEnabled(False)
         treelist.clear()
-        treedata = [item for item in MRHPROJECT.data if item.use == 2]
+        treedata = [item for item in MRHPROJECT.mrhdata if item.use == 2]
 
         group, subgroup, seq = set(), set(), set(MRHPROJECT.refseq)
         for item in treedata:
@@ -644,7 +644,7 @@ class MainWindow(MrhMainWindow):
             if item.rid not in seq:
                 MRHPROJECT.refseq.append(item.rid)
 
-        treedata = [MRHPROJECT.data[rid] for rid in MRHPROJECT.refseq]
+        treedata = [MRHPROJECT.mrhdata[rid] for rid in MRHPROJECT.refseq]
         self.treelist_createtree(treedata, group, subgroup)
         treelist.expandAll()
         self.statusBar().showMessage(str('Total: ' + str(len(treedata))))
@@ -708,7 +708,7 @@ class MainWindow(MrhMainWindow):
         group = combo_grp.currentText()
         combo_subgrp = treelist.itemWidget(item, 4)
         subgrp = combo_subgrp.currentText()
-        MRHPROJECT.data[rid].group = [group, subgrp]
+        MRHPROJECT.mrhdata[rid].group = [group, subgrp]
         # self.treelist_show()
         # self.treelist_genseqbutton_click()
 
@@ -742,7 +742,7 @@ class MainWindow(MrhMainWindow):
         selected_items = self.maintabwidget.tab_classify.treelist.selectedItems()
         for item in selected_items:
             rid = int(item.text(2))
-            MRHPROJECT.data[rid].use = use
+            MRHPROJECT.mrhdata[rid].use = use
             MRHPROJECT.refseq.remove(rid)
         self.treelist_show()
         # self.treelist_genseqbutton_click()
