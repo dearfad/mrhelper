@@ -20,6 +20,10 @@ Hammer.R
 
 * **CNKI**: 检索 -> 全选 -> 全选 -> 全选 -> 全选 -> ... -> 导出 -> CNKI E-Study -> 下载
 
+### BEFORE START
+
+* **New** -> **Save** xxx.mrh -> **Add** datafile...
+
 ### STEP 1 - READ
 
 ![Step 1](img/quickstart/step1.png)
