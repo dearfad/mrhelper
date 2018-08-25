@@ -67,7 +67,8 @@ class MainWindow(MrhMainWindow):
         # Tab READ
         datatable = self.maintabwidget.tab_read.datatable
         column_width = CONFIG.ini['Appearance']['read_table_column'].split(',')
-        horizontal_headers = CONFIG.ini['Appearance']['read_table_column_header'].split(',')
+        horizontal_headers = CONFIG.ini['Appearance']['read_table_column_header'].split(
+            ',')
         datatable.setColumnCount(len(horizontal_headers))
         datatable.setHorizontalHeaderLabels(horizontal_headers)
         for index, width in enumerate(column_width):
@@ -122,9 +123,12 @@ class MainWindow(MrhMainWindow):
         functiongroup.info_button.clicked.connect(self._info_clicked)
         functiongroup.view_button.clicked.connect(self._view_clicked)
         functiongroup.memo_button.clicked.connect(self._memo_clicked)
-        functiongroup.openbrowser_button.clicked.connect(self._openbrowser_clicked)
-        functiongroup.fulltext_button.clicked.connect(self._fulltext_button_clicked)
-        functiongroup.citeref_button.clicked.connect(self._citeref_button_clicked)
+        functiongroup.openbrowser_button.clicked.connect(
+            self._openbrowser_clicked)
+        functiongroup.fulltext_button.clicked.connect(
+            self._fulltext_button_clicked)
+        functiongroup.citeref_button.clicked.connect(
+            self._citeref_button_clicked)
         functiongroup.save_button.clicked.connect(self.save_project)
         functiongroup.open_button.clicked.connect(self.open_project)
         functiongroup.add_button.clicked.connect(self.add_project)
@@ -149,13 +153,18 @@ class MainWindow(MrhMainWindow):
         classify = self.maintabwidget.tab_classify
         classify.functiongroup.info_button.clicked.connect(self._info_clicked)
         classify.functiongroup.memo_button.clicked.connect(self._memo_clicked)
-        classify.functiongroup.openbrowser_button.clicked.connect(self._openbrowser_clicked)
-        classify.functiongroup.fulltext_button.clicked.connect(self._fulltext_button_clicked)
-        classify.treelist.currentItemChanged.connect(self._treelist_item_clicked)
+        classify.functiongroup.openbrowser_button.clicked.connect(
+            self._openbrowser_clicked)
+        classify.functiongroup.fulltext_button.clicked.connect(
+            self._fulltext_button_clicked)
+        classify.treelist.currentItemChanged.connect(
+            self._treelist_item_clicked)
         classify.treelist.itemClicked.connect(self._treelist_item_clicked)
-        classify.functiongroup.genseq_button.clicked.connect(self.treelist_genseqbutton_click)
+        classify.functiongroup.genseq_button.clicked.connect(
+            self.treelist_genseqbutton_click)
         classify.functiongroup.save_button.clicked.connect(self.save_project)
-        classify.treelist.customContextMenuRequested.connect(self.treelist_popmenu)
+        classify.treelist.customContextMenuRequested.connect(
+            self.treelist_popmenu)
 
         memogroup = classify.memooptiongroup
         memogroup.iv_lineedit.textEdited.connect(self._memo_edited)
@@ -166,13 +175,20 @@ class MainWindow(MrhMainWindow):
         memogroup.reftext_textedit.textChanged.connect(self._reftext_change)
 
     def _tab_export_sigslot(self):
-        self.maintabwidget.tab_export.export_button.clicked.connect(self._export_button_click)
-        self.maintabwidget.tab_export.save_button.clicked.connect(self.save_project)
-        self.maintabwidget.tab_export.opendata_button.clicked.connect(self._open_data_folder_click)
-        self.maintabwidget.tab_export.title_lineedit.textEdited.connect(self._export_info_edit)
-        self.maintabwidget.tab_export.author_lineedit.textEdited.connect(self._export_info_edit)
-        self.maintabwidget.tab_export.abstract_lineedit.textEdited.connect(self._export_info_edit)
-        self.maintabwidget.tab_export.keywords_lineedit.textEdited.connect(self._export_info_edit)
+        self.maintabwidget.tab_export.export_button.clicked.connect(
+            self._export_button_click)
+        self.maintabwidget.tab_export.save_button.clicked.connect(
+            self.save_project)
+        self.maintabwidget.tab_export.opendata_button.clicked.connect(
+            self._open_data_folder_click)
+        self.maintabwidget.tab_export.title_lineedit.textEdited.connect(
+            self._export_info_edit)
+        self.maintabwidget.tab_export.author_lineedit.textEdited.connect(
+            self._export_info_edit)
+        self.maintabwidget.tab_export.abstract_lineedit.textEdited.connect(
+            self._export_info_edit)
+        self.maintabwidget.tab_export.keywords_lineedit.textEdited.connect(
+            self._export_info_edit)
 
     # endregion
 
@@ -251,8 +267,10 @@ class MainWindow(MrhMainWindow):
             MRHPROJECT = mrhimp.MrhProject()
             self.maintabwidget.tab_read.datatable.clearContents()
             self.maintabwidget.tab_read.datatable.setRowCount(0)
-            self.maintabwidget.tab_read.functiongroup.save_button.setEnabled(True)
-            self.maintabwidget.tab_read.functiongroup.add_button.setEnabled(True)
+            self.maintabwidget.tab_read.functiongroup.save_button.setEnabled(
+                True)
+            self.maintabwidget.tab_read.functiongroup.add_button.setEnabled(
+                True)
             self.maintabwidget.setTabEnabled(1, True)
             self.maintabwidget.setTabEnabled(2, True)
             self.save_project()
@@ -277,8 +295,10 @@ class MainWindow(MrhMainWindow):
             MRHPROJECT = mrhimp.MrhProject()
             self.maintabwidget.tab_read.datatable.clearContents()
             self.maintabwidget.tab_read.datatable.setRowCount(0)
-            self.maintabwidget.tab_read.functiongroup.add_button.setEnabled(True)
-            self.maintabwidget.tab_read.functiongroup.save_button.setEnabled(True)
+            self.maintabwidget.tab_read.functiongroup.add_button.setEnabled(
+                True)
+            self.maintabwidget.tab_read.functiongroup.save_button.setEnabled(
+                True)
             self.maintabwidget.setTabEnabled(1, True)
             self.maintabwidget.setTabEnabled(2, True)
 
@@ -326,16 +346,7 @@ class MainWindow(MrhMainWindow):
         self.qthread = MrhTable(MRHPROJECT, datatable, CONFIG, mode='create')
         self.qthread.sigmsg.connect(self._show_status)
         self.qthread.sigover.connect(self._filter_table)
-        # self.qthread.sigitem.connect(self._create_tableitem)
         self.qthread.start()
-    
-    # def _create_tableitem(self, var=tuple):
-    #     datatable = self.maintabwidget.tab_read.datatable
-    #     row = var[0]
-    #     column = var[1]
-    #     qitem = var[2]
-    #     datatable.setItem(row, column, qitem)
-        
 
     def _filter_table(self):
         viewoptions = self._get_view_options()
@@ -356,7 +367,8 @@ class MainWindow(MrhMainWindow):
         if rid != -1:
             datatable.selectRow(rid)
             current_item = datatable.item(rid, 0)
-            datatable.scrollToItem(current_item, QAbstractItemView.PositionAtCenter)
+            datatable.scrollToItem(
+                current_item, QAbstractItemView.PositionAtCenter)
 
     def _info_clicked(self):
         current_tab = self.maintabwidget.currentIndex()
@@ -412,7 +424,8 @@ class MainWindow(MrhMainWindow):
         if rid != -1:
             mrhitem = MRHPROJECT.mrhdata[rid]
             pdffile = str(rid) + '.pdf'
-            pdf = os.path.join(CONFIG.ini['Directory']['project'], 'pdf', pdffile)
+            pdf = os.path.join(
+                CONFIG.ini['Directory']['project'], 'pdf', pdffile)
             if os.path.exists(pdf):
                 QDesktopServices().openUrl(QUrl.fromLocalFile(pdf))
             else:
@@ -488,7 +501,8 @@ class MainWindow(MrhMainWindow):
 
     def _datatable_itemchanged(self, tableitem):
         datatable = self.maintabwidget.tab_read.datatable
-        tableitem_header = datatable.horizontalHeaderItem(tableitem.column()).text()
+        tableitem_header = datatable.horizontalHeaderItem(
+            tableitem.column()).text()
         if tableitem_header == 'rid':
             rid = int(tableitem.text())
             use = tableitem.checkState()
@@ -584,7 +598,9 @@ class MainWindow(MrhMainWindow):
             info.info_textedit.append('<hr>')
             info.info_textedit.append('<b>Source Record List<b><br>')
             for item in srcitem.__dict__:
-                info.info_textedit.append(f"{item}: {srcitem.__dict__[item]}<br>")  # Pycharm Warning Python>=3.6
+                # Pycharm Warning Python>=3.6
+                info.info_textedit.append(
+                    f"{item}: {srcitem.__dict__[item]}<br>")
 
     def _memo_show(self):
         current_tab = self.maintabwidget.currentIndex()
@@ -598,11 +614,14 @@ class MainWindow(MrhMainWindow):
             else:
                 return
             keywords = 'Keywords: ' + ', '.join(item.keywords)
-            memogroup.keywords_label.setText(keywords[:120])  # If Long, Layout Change
+            memogroup.keywords_label.setText(
+                keywords[:120])  # If Long, Layout Change
             memogroup.iv_lineedit.setText(item.iv)
             memogroup.dv_lineedit.setText(item.dv)
-            relationdict = {0: Qt.Unchecked, 1: Qt.PartiallyChecked, 2: Qt.Checked}
-            memogroup.relation_checkbox.setCheckState(relationdict[item.relation])
+            relationdict = {0: Qt.Unchecked,
+                            1: Qt.PartiallyChecked, 2: Qt.Checked}
+            memogroup.relation_checkbox.setCheckState(
+                relationdict[item.relation])
             memogroup.reftext_textedit.setPlainText(item.reftext)
             if item.group[0]:
                 memogroup.group_lineedit.setText(item.group[0])
@@ -674,13 +693,15 @@ class MainWindow(MrhMainWindow):
             groupbox.addItems([item for item in group])
             groupbox.setCurrentText(item.group[0])
             treelist.setItemWidget(treeitem, 3, groupbox)
-            groupbox.currentIndexChanged.connect(self.treelist_comboboxchange)  # Pycharm warning bug
+            groupbox.currentIndexChanged.connect(
+                self.treelist_comboboxchange)  # Pycharm warning bug
 
             subgroupbox = QComboBox()
             subgroupbox.addItems([item for item in subgroup])
             subgroupbox.setCurrentText(item.group[1])
             treelist.setItemWidget(treeitem, 4, subgroupbox)
-            subgroupbox.currentIndexChanged.connect(self.treelist_comboboxchange)  # Pycharm warning bug
+            subgroupbox.currentIndexChanged.connect(
+                self.treelist_comboboxchange)  # Pycharm warning bug
 
             treeitem.setText(5, item.title)
 
@@ -727,7 +748,8 @@ class MainWindow(MrhMainWindow):
 
     def treelist_genseqbutton_click(self):
         """Generate Sequence."""
-        item = QTreeWidgetItemIterator(self.maintabwidget.tab_classify.treelist)
+        item = QTreeWidgetItemIterator(
+            self.maintabwidget.tab_classify.treelist)
         MRHPROJECT.refseq = []
         while item.value():
             if item.value().text(2):
@@ -768,7 +790,8 @@ class MainWindow(MrhMainWindow):
 
     def _export_get_tree(self):
         reftree = []  # groupname, tag, rid (tag 0 item 1 group 2 subgroup)
-        item = QTreeWidgetItemIterator(self.maintabwidget.tab_classify.treelist)
+        item = QTreeWidgetItemIterator(
+            self.maintabwidget.tab_classify.treelist)
         while item.value():
             groupname = item.value().text(0)
             if groupname:
