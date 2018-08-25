@@ -26,6 +26,17 @@ import mrhpkg.spider.wanfang as wfspider
 
 
 class MrhConfig:
+    """Parse mrhelper.ini file.
+    Public:
+        save: save mrhelper.ini file
+
+    Returns:
+        ini: all .ini field
+        sci: sci.csv reader
+        hexin: hexin.csv reader
+        info: Text Template for Reference Info
+    """
+
     def __init__(self):
         self.inifile = 'mrhelper.ini'
         self.ini = self._get_ini()
@@ -67,11 +78,14 @@ class MrhConfig:
 
     @staticmethod
     def save(config):
+        """save mrhelper.ini file."""
         with open('mrhelper.ini', 'w', encoding='utf-8') as inifile:
             config.ini.write(inifile)
 
 
 class MrhIo(QThread):
+    """Manage Data Processing."""
+
     sigmsg = pyqtSignal(str)
     sigmrh = pyqtSignal(object)
     sigover = pyqtSignal()
@@ -85,6 +99,8 @@ class MrhIo(QThread):
         self.checkiothread = ''
 
     def run(self):
+        """Run Function For QThread."""
+
         if self.mode == 'save':
             self.iothread = threading.Thread(target=self.mrhsave)
         elif self.mode == 'open':
@@ -104,20 +120,24 @@ class MrhIo(QThread):
         while self.iothread.is_alive():
             self.msleep(100)
             elapse_time = str(round(time.time() - start_time, 1))
-            self.sigmsg.emit(f'{self.mode.upper()} Time Elapsed: {elapse_time} seconds')
+            self.sigmsg.emit(
+                f'{self.mode.upper()} Time Elapsed: {elapse_time} seconds')
         if self.mode == 'open' or self.mode == 'add':
             self.sigmrh.emit(self.mrhproject)
         self.sigmsg.emit(f'{self.mode.upper()} is DONE!')
 
     def mrhsave(self):
+        """Save Mrhproject."""
         with open(self.filepaths, 'wb') as savefile:
             pickle.dump(self.mrhproject, savefile)
 
     def mrhopen(self):
+        """Open Mrhproject."""
         with open(self.filepaths, 'rb') as openfile:
             self.mrhproject = pickle.load(openfile)
 
     def mrhadd(self):
+        """Add exported files from supported databases."""
         for filepath in self.filepaths:
             data = mrhimp.getdata(filepath)
             baserid = len(self.mrhproject.mrhdata)
@@ -125,6 +145,7 @@ class MrhIo(QThread):
                 mrhitem.rid += baserid
             self.mrhproject.mrhdata += data['mrhdata']
             self.mrhproject.rawdata += data['rawdata']
+
 
 class MrhTable(QThread):
     sigmsg = pyqtSignal(str)
@@ -152,7 +173,8 @@ class MrhTable(QThread):
 
         if self.tablethread:
             self.tablethread.start()
-            self.checktablethread = threading.Thread(target=self._check_tablethread)
+            self.checktablethread = threading.Thread(
+                target=self._check_tablethread)
             self.checktablethread.start()
 
     def _check_tablethread(self):
@@ -160,14 +182,16 @@ class MrhTable(QThread):
         while self.tablethread.is_alive():
             self.msleep(100)
             elapse_time = str(round(time.time() - start_time, 1))
-            self.sigmsg.emit(f'{self.mode.upper()} Time Elapsed: {elapse_time} seconds')
+            self.sigmsg.emit(
+                f'{self.mode.upper()} Time Elapsed: {elapse_time} seconds')
         self.sigmsg.emit(f'Total: {self.visiblerow}')
         self.sigover.emit(self.currentrid)
 
     def _create_table(self):
         self.datatable.setSortingEnabled(False)
         self.datatable.setRowCount(len(self.mrhproject.mrhdata))
-        fields = [self.datatable.horizontalHeaderItem(index).text() for index in range(self.datatable.columnCount())]
+        fields = [self.datatable.horizontalHeaderItem(
+            index).text() for index in range(self.datatable.columnCount())]
         # todo Rewrite Pythonic
         for row, item in enumerate(self.mrhproject.mrhdata):
             itemcolor = self._mark_item(item)
@@ -181,13 +205,15 @@ class MrhTable(QThread):
                         else:
                             qitem = QTableWidgetItem()
                     else:
-                        qitem = QTableWidgetItem(value) if value else QTableWidgetItem()
+                        qitem = QTableWidgetItem(
+                            value) if value else QTableWidgetItem()
                 elif isinstance(value, list):
                     if field == 'lcs' or field == 'lcr':
                         qitem = QTableWidgetItem()
                         qitem.setData(0, len(value))
                     else:
-                        qitem = QTableWidgetItem(value[0]) if value else QTableWidgetItem()
+                        qitem = QTableWidgetItem(
+                            value[0]) if value else QTableWidgetItem()
                 elif isinstance(value, int):
                     qitem = QTableWidgetItem()
                     qitem.setData(0, value)
@@ -272,7 +298,8 @@ class MrhTable(QThread):
                 self.visiblerow += 1
             else:
                 self.datatable.setRowHidden(row, True)
-        self.datatable.verticalHeader().setDefaultSectionSize(int(self.config.ini['Appearance']['read_table_row']))
+        self.datatable.verticalHeader().setDefaultSectionSize(
+            int(self.config.ini['Appearance']['read_table_row']))
         self.sigmsg.emit(f'Total: {self.visiblerow}')
 
     def _check_relate(self, mrhitem):
@@ -372,7 +399,8 @@ class MrhTable(QThread):
         option = self.viewoptions['search']
         if option:
             result = (option in mrhitem.title) or (option in mrhitem.abstract) or \
-                     self._check_search_author(option, mrhitem) or (option in mrhitem.journal)
+                self._check_search_author(option, mrhitem) or (
+                    option in mrhitem.journal)
             return result
         else:
             return True
@@ -407,7 +435,8 @@ class MrhWeb(QThread):
             self.status[database][0] = len(datadict[database])
         for database in databases:
             if datadict.setdefault(database):
-                database_thread = threading.Thread(target=self._get_info, args=(datadict[database], database))
+                database_thread = threading.Thread(
+                    target=self._get_info, args=(datadict[database], database))
                 threads.append(database_thread)
                 database_thread.start()
         for thread in threads:
@@ -425,11 +454,14 @@ class MrhWeb(QThread):
         threads = []
         for index, item in enumerate(dbdata):
             if item.database == 'wanfang' and item.link:
-                thread = threading.Thread(target=MrhSpider(item, self.data, self.config).wanfang)
+                thread = threading.Thread(target=MrhSpider(
+                    item, self.data, self.config).wanfang)
             elif item.database == 'cnki' and item.link:
-                thread = threading.Thread(target=MrhSpider(item, self.data, self.config).cnki)
+                thread = threading.Thread(target=MrhSpider(
+                    item, self.data, self.config).cnki)
             elif item.database == 'pubmed':
-                thread = threading.Thread(target=MrhSpider(item, self.data, self.config).pubmed)
+                thread = threading.Thread(target=MrhSpider(
+                    item, self.data, self.config).pubmed)
             else:
                 continue
             thread.name = item.database + '_' + str(index)
@@ -480,7 +512,8 @@ class MrhSpider:
             'http': self.config.ini['Proxy']['http'],
             'https': self.config.ini['Proxy']['https']
         }
-        reflist = wfspider.getdata(wfid, time_out=time_out, retries=retries, proxies=proxies)
+        reflist = wfspider.getdata(
+            wfid, time_out=time_out, retries=retries, proxies=proxies)
         crlist = reflist['cr'][0] if reflist['cr'] != -1 else -1
         cslist = reflist['cs'][0] if reflist['cs'] != -1 else -1
         self.item.cr = reflist['cr'][1] if reflist['cr'] != -1 else -1
@@ -517,8 +550,10 @@ class MrhSpider:
             'http': self.config.ini['Proxy']['http'],
             'https': self.config.ini['Proxy']['https']
         }
-        count = cnkispider.getcount(link, time_out=time_out, retries=retries, proxies=proxies)
-        reflist = cnkispider.getdata(link, time_out=time_out, retries=retries, proxies=proxies)
+        count = cnkispider.getcount(
+            link, time_out=time_out, retries=retries, proxies=proxies)
+        reflist = cnkispider.getdata(
+            link, time_out=time_out, retries=retries, proxies=proxies)
         if count:
             self.item.cr = count['REFERENCE']
             self.item.cs = count['CITING']
@@ -720,5 +755,6 @@ class MrhExport:
         rel = '+' if item.relation == 2 else '±'
         rel = '-' if item.relation == 0 else rel
         description = item.reftext
-        text = "%s%s %s%s%s %s %s" % (authorname, citation, iv, rel, dv, title, description)
+        text = "%s%s %s%s%s %s %s" % (
+            authorname, citation, iv, rel, dv, title, description)
         self.document.add_paragraph(text)
