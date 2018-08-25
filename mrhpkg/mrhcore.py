@@ -152,6 +152,7 @@ class MrhTable(QThread):
 
     sigmsg = pyqtSignal(str)
     sigover = pyqtSignal(int)
+    sigitem = pyqtSignal(tuple)
 
     def __init__(self, mrhproject, datatable, config, mode, viewoptions=None, currentrid=None):
         super().__init__()
@@ -236,11 +237,15 @@ class MrhTable(QThread):
                     qitem.setCheckState(use)
                     if use == 2:
                         qitem.setBackground(QColor('lightgreen'))
-                    self.datatable.setItem(row, column, qitem)
+                    self.sigitem.emit((row, column, qitem))
+                    # self.datatable.setItem(row, column, qitem)
                 else:
-                    self.datatable.setItem(row, column, qitem)
-        self.datatable.setSortingEnabled(True)
-        self.datatable.sortByColumn(0, Qt.AscendingOrder)
+                    self.sigitem.emit((row, column, qitem))
+                    # self.datatable.setItem(row, column, qitem)
+                if row%500 == 0:
+                    self.msleep(100)
+        # self.datatable.setSortingEnabled(True)
+        # self.datatable.sortByColumn(0, Qt.AscendingOrder)
 
     def _mark_item(self, mrhitem):
         itemcolor = {}
