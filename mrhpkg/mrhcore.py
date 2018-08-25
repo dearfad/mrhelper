@@ -148,6 +148,8 @@ class MrhIo(QThread):
 
 
 class MrhTable(QThread):
+    """Manage Tab_READ datatable."""
+    
     sigmsg = pyqtSignal(str)
     sigover = pyqtSignal(int)
 
