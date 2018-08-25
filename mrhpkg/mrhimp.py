@@ -6,8 +6,6 @@
 # Usage: Medical Review Helper DataFile Import Module
 """
 
-import re
-
 import mrhpkg.filters.cnki as cnki
 import mrhpkg.filters.pubmed as pubmed
 import mrhpkg.filters.wanfang as wanfang
@@ -134,7 +132,7 @@ def _fix_mrhitem(mrhitem):
             mrhitem.cs = int(mrhitem.cs)
 
     if mrhitem.database == 'PUBMED':
-        mrhitem.year = re.findall(r'\d\d\d\d', mrhitem.year)[0]
+        mrhitem.year = mrhitem.year[:4]
         for doi in mrhitem.doi:
             if '[doi]' in doi:
                 mrhitem.doi = doi.split(' ')[0]

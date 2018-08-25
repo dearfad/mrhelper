@@ -76,10 +76,10 @@ class MrhIo(QThread):
     sigmrh = pyqtSignal(object)
     sigover = pyqtSignal()
 
-    def __init__(self, mrhproject, filepath, mode):
+    def __init__(self, mrhproject, filepaths, mode):
         super().__init__()
         self.mrhproject = mrhproject
-        self.filepath = filepath
+        self.filepaths = filepaths
         self.mode = mode
         self.iothread = ''
         self.checkiothread = ''
@@ -110,15 +110,15 @@ class MrhIo(QThread):
         self.sigmsg.emit(f'{self.mode.upper()} is DONE!')
 
     def mrhsave(self):
-        with open(self.filepath, 'wb') as savefile:
+        with open(self.filepaths, 'wb') as savefile:
             pickle.dump(self.mrhproject, savefile)
 
     def mrhopen(self):
-        with open(self.filepath, 'rb') as openfile:
+        with open(self.filepaths, 'rb') as openfile:
             self.mrhproject = pickle.load(openfile)
 
     def mrhadd(self):
-        for filepath in self.filepath:
+        for filepath in self.filepaths:
             data = mrhimp.getdata(filepath)
             baserid = len(self.mrhproject.mrhdata)
             for mrhitem in data['mrhdata']:

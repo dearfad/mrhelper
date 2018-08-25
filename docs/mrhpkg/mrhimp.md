@@ -35,8 +35,8 @@
 
 ### **PUBMED**
 
-* 出版年：取前四位数字`mrhitem.year = re.findall(r'\d\d\d\d', mrhitem.year)[0]`
-* DOI：提取包含`[doi]`字符串为DOI，舍弃`[poi]`
+* 出版年：取前四位数字`mrhitem.year = mrhitem.year[:4]`
+* DOI：提取包含`[doi]`字符串为DOI，舍弃`[pii]`
 * 期刊名：转换为全部大写以便于对照SCI目录
 
 ### **CNKI**
