@@ -850,8 +850,8 @@
 </ul>
 <h3 id="pubmed"><strong>PUBMED</strong><a class="headerlink" href="#pubmed" title="Permanent link">&para;</a></h3>
 <ul>
-<li>出版年：取前四位数字<code class="codehilite">mrhitem.year = re.findall(r&#39;\d\d\d\d&#39;, mrhitem.year)[0]</code></li>
-<li>DOI：提取包含<code class="codehilite">[doi]</code>字符串为DOI，舍弃<code class="codehilite">[poi]</code></li>
+<li>出版年：取前四位数字<code class="codehilite">mrhitem.year = mrhitem.year[:4]</code></li>
+<li>DOI：提取包含<code class="codehilite">[doi]</code>字符串为DOI，舍弃<code class="codehilite">[pii]</code></li>
 <li>期刊名：转换为全部大写以便于对照SCI目录</li>
 </ul>
 <h3 id="cnki"><strong>CNKI</strong><a class="headerlink" href="#cnki" title="Permanent link">&para;</a></h3>
