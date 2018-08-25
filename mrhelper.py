@@ -326,7 +326,16 @@ class MainWindow(MrhMainWindow):
         self.qthread = MrhTable(MRHPROJECT, datatable, CONFIG, mode='create')
         self.qthread.sigmsg.connect(self._show_status)
         self.qthread.sigover.connect(self._filter_table)
+        # self.qthread.sigitem.connect(self._create_tableitem)
         self.qthread.start()
+    
+    # def _create_tableitem(self, var=tuple):
+    #     datatable = self.maintabwidget.tab_read.datatable
+    #     row = var[0]
+    #     column = var[1]
+    #     qitem = var[2]
+    #     datatable.setItem(row, column, qitem)
+        
 
     def _filter_table(self):
         viewoptions = self._get_view_options()

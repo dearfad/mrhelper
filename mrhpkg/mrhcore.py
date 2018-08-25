@@ -152,6 +152,7 @@ class MrhTable(QThread):
     
     sigmsg = pyqtSignal(str)
     sigover = pyqtSignal(int)
+    sigitem = pyqtSignal(tuple)
 
     def __init__(self, mrhproject, datatable, config, mode, viewoptions=None, currentrid=None):
         super().__init__()
@@ -168,8 +169,10 @@ class MrhTable(QThread):
     def run(self):
         if self.mode == 'create':
             self.tablethread = threading.Thread(target=self._create_table)
+            # self._create_table()
         elif self.mode == 'filter':
             self.tablethread = threading.Thread(target=self._filter_table)
+            # self._filter_table()
         else:
             self.sigmsg.emit('MrhTable Mode Needed...')
 
@@ -236,8 +239,10 @@ class MrhTable(QThread):
                     qitem.setCheckState(use)
                     if use == 2:
                         qitem.setBackground(QColor('lightgreen'))
+                    # self.sigitem.emit((row, column, qitem))
                     self.datatable.setItem(row, column, qitem)
                 else:
+                    # self.sigitem.emit((row, column, qitem))
                     self.datatable.setItem(row, column, qitem)
         self.datatable.setSortingEnabled(True)
         self.datatable.sortByColumn(0, Qt.AscendingOrder)
