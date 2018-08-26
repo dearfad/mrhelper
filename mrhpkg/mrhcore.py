@@ -243,7 +243,7 @@ class MrhTable(QThread):
                 else:
                     self.sigitem.emit((row, column, qitem))
                     # self.datatable.setItem(row, column, qitem)
-                if row%200 == 0:
+                if row%1000 == 0:
                     self.sigmsg.emit(str(row))
         self.sigmsg.emit(str(len(self.mrhproject.mrhdata)))
         # self.datatable.setSortingEnabled(True)
