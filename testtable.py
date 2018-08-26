@@ -1,5 +1,6 @@
 
 import sys
+import time
 from PyQt5.QtCore import QThread, pyqtSignal
 from PyQt5.QtWidgets import QApplication, QWidget, QTableWidget, QMainWindow, QPushButton, QVBoxLayout, QTableWidgetItem
 
@@ -13,18 +14,32 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.table)
         self.setGeometry(400, 200, 600, 600)
         self.table.cellClicked.connect(self.additem)
+        # self.table.cellClicked.connect(self.addtable)
         self.statusBar()
+
+    def addtable(self):
+        t_start = time.clock()
+        for row in range(20000):
+            for column in range(20):
+                qitem = QTableWidgetItem(str(row))
+                self.table.setItem(row, column, qitem)
+                # self.statusBar().showMessage(str(row))
+                # self.sigitem.emit((row, column, qitem))
+        t_end = time.clock()
+        self.statusBar().showMessage(str(t_end))
+
 
     def additem(self):
         self.qthread = TableThread(self.table)
-        self.table.hide()
         self.qthread.sigitem.connect(self.tableitem)
         self.qthread.sigmsg.connect(self.showmsg)
         self.qthread.sigover.connect(self.showtable)
+        t_start = time.clock()
         self.qthread.start()
     
     def showtable(self):
-        self.table.show()
+        t_end = time.clock()
+        self.statusBar().showMessage(str(t_end))
 
     def tableitem(self, content):
         row, column, qitem = content[0], content[1], content[2]
@@ -47,12 +62,11 @@ class TableThread(QThread):
     def run(self):
         for row in range(20000):
             for column in range(20):
-                qitem = QTableWidgetItem()
-                qitem.setData(0, row)
-                # self.table.setItem(row, column, qitem)
-                self.sigitem.emit((row, column, qitem))
-                if row%10 == 0:
-                    self.sigmsg.emit(str(row))
+                qitem = QTableWidgetItem(str(row))
+                self.table.setItem(row, column, qitem)
+                # self.sigitem.emit((row, column, qitem))
+                # if row%100 == 0:
+                # self.sigmsg.emit(str(row))
         self.sigover.emit()
 
 if __name__ == "__main__":
