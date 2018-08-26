@@ -238,11 +238,11 @@ class MrhTable(QThread):
                     qitem.setCheckState(use)
                     if use == 2:
                         qitem.setBackground(QColor('lightgreen'))
-                    self.sigitem.emit((row, column, qitem))
-                    # self.datatable.setItem(row, column, qitem)
+                    # self.sigitem.emit((row, column, qitem))
+                    self.datatable.setItem(row, column, qitem)
                 else:
-                    self.sigitem.emit((row, column, qitem))
-                    # self.datatable.setItem(row, column, qitem)
+                    # self.sigitem.emit((row, column, qitem))
+                    self.datatable.setItem(row, column, qitem)
                 if row%100 == 0:
                     self.sigmsg.emit(str(row))
         self.sigmsg.emit(str(len(self.mrhproject.mrhdata)))

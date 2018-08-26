@@ -344,6 +344,7 @@ class MainWindow(MrhMainWindow):
 
         datatable = self.maintabwidget.tab_read.datatable
         datatable.setDisabled(True)
+        datatable.setUpdatesEnabled(False)
         self.qthread = MrhTable(MRHPROJECT, datatable, CONFIG, mode='create')
         self.qthread.sigmsg.connect(self._show_status)
         self.qthread.sigover.connect(self._filter_table)
