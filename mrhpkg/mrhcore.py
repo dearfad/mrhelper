@@ -243,9 +243,10 @@ class MrhTable(QThread):
                 else:
                     self.sigitem.emit((row, column, qitem))
                     # self.datatable.setItem(row, column, qitem)
-                if row%1000 == 0:
+                if row%100 == 0:
                     self.sigmsg.emit(str(row))
         self.sigmsg.emit(str(len(self.mrhproject.mrhdata)))
+        self.sigover.emit(str(self.currentrid))
         # self.datatable.setSortingEnabled(True)
         # self.datatable.sortByColumn(0, Qt.AscendingOrder)
 

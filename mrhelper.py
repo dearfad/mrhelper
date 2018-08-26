@@ -343,6 +343,7 @@ class MainWindow(MrhMainWindow):
         self.maintabwidget.tab_read.datatable.setRowCount(0)
 
         datatable = self.maintabwidget.tab_read.datatable
+        datatable.setDisabled(True)
         self.qthread = MrhTable(MRHPROJECT, datatable, CONFIG, mode='create')
         self.qthread.sigmsg.connect(self._show_status)
         self.qthread.sigover.connect(self._filter_table)
@@ -370,6 +371,7 @@ class MainWindow(MrhMainWindow):
         self.maintabwidget.tab_read.viewoptiongroup.setEnabled(True)
         self.maintabwidget.tab_read.datatable.setUpdatesEnabled(True)
         datatable = self.maintabwidget.tab_read.datatable
+        datatable.setEnabled(True)
         if rid != -1:
             datatable.selectRow(rid)
             current_item = datatable.item(rid, 0)
