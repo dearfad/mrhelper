@@ -168,9 +168,11 @@ class MrhTable(QThread):
 
     def run(self):
         if self.mode == 'create':
-            self.tablethread = threading.Thread(target=self._create_table)
+            # self.tablethread = threading.Thread(target=self._create_table)
+            self._create_table()
         elif self.mode == 'filter':
-            self.tablethread = threading.Thread(target=self._filter_table)
+            # self.tablethread = threading.Thread(target=self._filter_table)
+            self._filter_table()
         else:
             self.sigmsg.emit('MrhTable Mode Needed...')
 
@@ -215,8 +217,7 @@ class MrhTable(QThread):
                         qitem = QTableWidgetItem()
                         qitem.setData(0, len(value))
                     else:
-                        qitem = QTableWidgetItem(
-                            value[0]) if value else QTableWidgetItem()
+                        qitem = QTableWidgetItem(value[0]) if value else QTableWidgetItem()
                 elif isinstance(value, int):
                     qitem = QTableWidgetItem()
                     qitem.setData(0, value)
@@ -242,8 +243,9 @@ class MrhTable(QThread):
                 else:
                     self.sigitem.emit((row, column, qitem))
                     # self.datatable.setItem(row, column, qitem)
-                if row%500 == 0:
-                    self.msleep(100)
+                if row%200 == 0:
+                    self.sigmsg.emit(str(row))
+        self.sigmsg.emit(str(len(self.mrhproject.mrhdata)))
         # self.datatable.setSortingEnabled(True)
         # self.datatable.sortByColumn(0, Qt.AscendingOrder)
 
@@ -308,6 +310,7 @@ class MrhTable(QThread):
         self.datatable.verticalHeader().setDefaultSectionSize(
             int(self.config.ini['Appearance']['read_table_row']))
         self.sigmsg.emit(f'Total: {self.visiblerow}')
+        self.sigover.emit(self.currentrid)
 
     def _check_relate(self, mrhitem):
         if self.viewoptions['relate'] == 2:
