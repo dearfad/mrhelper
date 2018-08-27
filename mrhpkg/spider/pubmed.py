@@ -7,8 +7,8 @@ Reference: https://www.ncbi.nlm.nih.gov/pmc/tools/cites-citedby/
 """
 
 import requests
-from requests import adapters
 from bs4 import BeautifulSoup
+from requests import adapters
 
 
 def getdata(pmid, api_key=None, time_out=1, retries=1, proxies=None):

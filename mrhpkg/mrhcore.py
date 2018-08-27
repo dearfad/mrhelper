@@ -11,9 +11,7 @@ import pickle
 import threading
 import time
 
-from PyQt5.QtCore import QThread, pyqtSignal, Qt
-from PyQt5.QtGui import QColor
-from PyQt5.QtWidgets import QTableWidgetItem
+from PyQt5.QtCore import QThread, pyqtSignal
 from bs4 import BeautifulSoup
 from docx import Document
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
@@ -147,135 +145,28 @@ class MrhIo(QThread):
             self.mrhproject.rawdata += data['rawdata']
 
 
-class MrhTable(QThread):
+class MrhTable:
     """Manage Tab_READ datatable."""
 
-    sigmsg = pyqtSignal(str)
-    sigover = pyqtSignal(int)
-    sigitem = pyqtSignal(tuple)
-
-    def __init__(self, mrhproject, datatable, config, mode, viewoptions=None, currentrid=None):
-        super().__init__()
-        self.mrhproject = mrhproject
-        self.datatable = datatable
-        self.config = config
-        self.mode = mode
-        self.viewoptions = viewoptions
-        self.currentrid = currentrid
-        self.tablethread = ''
-        self.checktablethread = ''
-        self.visiblerow = 0
-
-    def run(self):
-        if self.mode == 'create':
-            # self.tablethread = threading.Thread(target=self._create_table)
-            self._create_table()
-        elif self.mode == 'filter':
-            # self.tablethread = threading.Thread(target=self._filter_table)
-            self._filter_table()
-        else:
-            self.sigmsg.emit('MrhTable Mode Needed...')
-
-        if self.tablethread:
-            self.tablethread.start()
-            self.checktablethread = threading.Thread(
-                target=self._check_tablethread)
-            self.checktablethread.start()
-
-    def _check_tablethread(self):
-        start_time = time.time()
-        while self.tablethread.is_alive():
-            self.msleep(100)
-            elapse_time = str(round(time.time() - start_time, 1))
-            self.sigmsg.emit(
-                f'{self.mode.upper()} Time Elapsed: {elapse_time} seconds')
-        self.sigmsg.emit(f'Total: {self.visiblerow}')
-        self.sigover.emit(self.currentrid)
-
-    def _create_table(self):
-        self.datatable.setSortingEnabled(False)
-        self.datatable.setRowCount(len(self.mrhproject.mrhdata))
-        fields = [self.datatable.horizontalHeaderItem(
-            index).text() for index in range(self.datatable.columnCount())]
-        # todo Rewrite Pythonic
-        for row, item in enumerate(self.mrhproject.mrhdata):
-            itemcolor = self._mark_item(item)
-            for column, field in enumerate(fields):
-                value = getattr(item, field, '')
-                if isinstance(value, str):
-                    if field == 'cs' or field == 'cr':
-                        if value:
-                            qitem = QTableWidgetItem()
-                            qitem.setData(0, int(value))
-                        else:
-                            qitem = QTableWidgetItem()
-                    else:
-                        qitem = QTableWidgetItem(
-                            value) if value else QTableWidgetItem()
-                elif isinstance(value, list):
-                    if field == 'lcs' or field == 'lcr':
-                        qitem = QTableWidgetItem()
-                        qitem.setData(0, len(value))
-                    else:
-                        qitem = QTableWidgetItem(value[0]) if value else QTableWidgetItem()
-                elif isinstance(value, int):
-                    qitem = QTableWidgetItem()
-                    qitem.setData(0, value)
-                else:
-                    qitem = QTableWidgetItem('-1')
-
-                if itemcolor.setdefault(field, ''):
-                    qitem.setBackground(QColor(itemcolor[field]))
-
-                qitem.setTextAlignment(Qt.AlignCenter | Qt.AlignVCenter)
-                if field == 'title':
-                    qitem.setTextAlignment(Qt.AlignLeft | Qt.AlignVCenter)
-
-                if field == 'rid':
-                    qitem = QTableWidgetItem()
-                    qitem.setData(0, value)
-                    use = getattr(item, 'use', '')
-                    qitem.setCheckState(use)
-                    if use == 2:
-                        qitem.setBackground(QColor('lightgreen'))
-                    # self.sigitem.emit((row, column, qitem))
-                    self.datatable.setItem(row, column, qitem)
-                else:
-                    # self.sigitem.emit((row, column, qitem))
-                    self.datatable.setItem(row, column, qitem)
-                if row%100 == 0:
-                    self.sigmsg.emit(str(row))
-        self.sigmsg.emit(str(len(self.mrhproject.mrhdata)))
-        self.sigover.emit(str(self.currentrid))
-        # self.datatable.setSortingEnabled(True)
-        # self.datatable.sortByColumn(0, Qt.AscendingOrder)
-
-    def _mark_item(self, mrhitem):
+    @staticmethod
+    def markitem(config, mrhitem):
         itemcolor = {}
-        # todo Rewrite Pythonic
-
         # <5year
         now_year = datetime.datetime.now().year
-        if mrhitem.year:
-            if now_year - int(mrhitem.year) < 6:
-                itemcolor['year'] = 'lightgreen'
-
+        itemcolor['year'] = 'lightgreen' if mrhitem.year and now_year - int(mrhitem.year) < 6 else ''
         # BY TYPE
         if mrhitem.type == 'Review':
             itemcolor['type'] = 'lightgreen'
         else:
             if mrhitem.type == 'Article' or mrhitem.type == 'Journal Article' or 'Journal Article' in mrhitem.type[0]:
                 itemcolor['type'] = 'gold'
-
         # By Pmcid
-        if mrhitem.pmcid:
-            itemcolor['database'] = 'lightgreen'
-
+        itemcolor['database'] = 'lightgreen' if mrhitem.pmcid else ''
         # By Journal
         if mrhitem.journal:
-            if mrhitem.database == 'wos' or mrhitem.database == 'pubmed':
-                if mrhitem.journal in self.config.sci:
-                    impact_factor = float(self.config.sci[mrhitem.journal])
+            if mrhitem.database == 'WOS' or mrhitem.database == 'PUBMED':
+                if mrhitem.journal in config.sci:
+                    impact_factor = float(config.sci[mrhitem.journal])
                     if impact_factor >= 10:
                         itemcolor['journal'] = 'lightgreen'
                     elif impact_factor >= 3:
@@ -285,78 +176,50 @@ class MrhTable(QThread):
             else:
                 if isinstance(mrhitem.journal, list):
                     print(mrhitem.journal)
-                if mrhitem.journal in self.config.hexin:
+                if mrhitem.journal in config.hexin:
                     itemcolor['journal'] = 'lightgreen'
-
         return itemcolor
 
-    def _filter_table(self):
-        rows = self.datatable.rowCount()
-        for row in range(rows):
-            self.datatable.setRowHidden(row, False)
-            rid = int(self.datatable.item(row, 0).text())
-            mrhitem = self.mrhproject.mrhdata[rid]
-            abstract = self._check_abstract(mrhitem)
-            fiveyears = self._check_fiveyears(mrhitem)
-            reftype = self._check_type(mrhitem)
-            use = self._check_use(mrhitem)
-            search = self._check_search(mrhitem)
-            relate = self._check_relate(mrhitem)
-            result = abstract and fiveyears and reftype and use and search and relate
-            if result:
-                self.datatable.setRowHidden(row, False)
-                self.visiblerow += 1
-            else:
-                self.datatable.setRowHidden(row, True)
-        self.datatable.verticalHeader().setDefaultSectionSize(
-            int(self.config.ini['Appearance']['read_table_row']))
-        self.sigmsg.emit(f'Total: {self.visiblerow}')
-        self.sigover.emit(self.currentrid)
+    @staticmethod
+    def check_viewoptions(viewoptions, currentrid, currentitem, mrhitem):
+        """Check Mrhitem Displayed."""
+        relate = MrhTable._check_relate(viewoptions, currentrid, currentitem, mrhitem)
+        abstract = MrhTable._check_abstract(viewoptions, mrhitem)
+        fiveyears = MrhTable._check_fiveyears(viewoptions, mrhitem)
+        reftype = MrhTable._check_type(viewoptions, mrhitem)
+        use = MrhTable._check_use(viewoptions, mrhitem)
+        search = MrhTable._check_search(viewoptions, mrhitem)
+        result = abstract and fiveyears and reftype and use and search and relate
+        return result
 
-    def _check_relate(self, mrhitem):
-        if self.viewoptions['relate'] == 2:
-            if self.currentrid == -1:
-                self.sigmsg.emit('Plase Select One Record...')
+    @staticmethod
+    def _check_relate(viewoptions, currentrid, currentitem, mrhitem):
+        if viewoptions['relate'] == 2:
+            if currentrid == -1:
                 return True
             else:
-                if self.currentrid == mrhitem.rid:
+                if currentrid == mrhitem.rid:
                     return True
                 else:
-                    current_item = self.mrhproject.mrhdata[self.currentrid]
-                    if current_item.lcs:
-                        if mrhitem.rid in current_item.lcs:
+                    if currentitem.lcs:
+                        if mrhitem.rid in currentitem.lcs:
                             return True
-                    if current_item.lcr:
-                        if mrhitem.rid in current_item.lcr:
+                    if currentitem.lcr:
+                        if mrhitem.rid in currentitem.lcr:
                             return True
                     if mrhitem.doi:
-                        if mrhitem.doi == current_item.doi:
+                        if mrhitem.doi == currentitem.doi:
                             return True
                     if mrhitem.title:
-                        if mrhitem.title == current_item.title:
+                        if mrhitem.title == currentitem.title:
                             return True
                     return False
         else:
             return True
 
-    def _pick_viewoption(self):
-        _pick_data = []
-        for item in self.mrhproject.mrhdata:
-            if self._check_viewoptions(item):
-                _pick_data.append(item)
-        self.data = _pick_data
-
-    def _check_viewoptions(self, mrhitem):
-        abstract = self._check_abstract(mrhitem)
-        fiveyears = self._check_fiveyears(mrhitem)
-        reftype = self._check_type(mrhitem)
-        use = self._check_use(mrhitem)
-        search = self._check_search(mrhitem)
-        result = abstract and fiveyears and reftype and use and search
-        return result
-
-    def _check_abstract(self, mrhitem):
-        option = self.viewoptions['abstract']
+    @staticmethod
+    def _check_abstract(viewoptions, mrhitem):
+        option = viewoptions['abstract']
         if option == 2 and mrhitem.abstract:
             return True
         elif option == 0 and not mrhitem.abstract:
@@ -366,8 +229,9 @@ class MrhTable(QThread):
         else:
             return False
 
-    def _check_fiveyears(self, mrhitem):
-        option = self.viewoptions['fiveyears']
+    @staticmethod
+    def _check_fiveyears(viewoptions, mrhitem):
+        option = viewoptions['fiveyears']
         now_year = datetime.datetime.now().year
         if mrhitem.year:
             if option == 2 and now_year - int(mrhitem.year) < 6:
@@ -383,8 +247,9 @@ class MrhTable(QThread):
         else:
             return False
 
-    def _check_type(self, mrhitem):
-        option = self.viewoptions['type']
+    @staticmethod
+    def _check_type(viewoptions, mrhitem):
+        option = viewoptions['type']
         if option == 2 and (mrhitem.type == 'Review' or mrhitem.type == 'Article' or 'Journal Article' in mrhitem.type):
             return True
         elif option == 0 and mrhitem.type != 'Review' and mrhitem.type != 'Article' \
@@ -395,8 +260,9 @@ class MrhTable(QThread):
         else:
             return False
 
-    def _check_use(self, mrhitem):
-        option = self.viewoptions['use']
+    @staticmethod
+    def _check_use(viewoptions, mrhitem):
+        option = viewoptions['use']
         if option == 2 and mrhitem.use == 2:
             return True
         elif option == 0 and mrhitem.use == 0:
@@ -406,17 +272,19 @@ class MrhTable(QThread):
         else:
             return False
 
-    def _check_search(self, mrhitem):
-        option = self.viewoptions['search']
+    @staticmethod
+    def _check_search(viewoptions, mrhitem):
+        option = viewoptions['search']
         if option:
             result = (option in mrhitem.title) or (option in mrhitem.abstract) or \
-                self._check_search_author(option, mrhitem) or (
-                    option in mrhitem.journal)
+                     MrhTable._check_search_author(option, mrhitem) or (
+                             option in mrhitem.journal)
             return result
         else:
             return True
 
-    def _check_search_author(self, option, mrhitem):
+    @staticmethod
+    def _check_search_author(option, mrhitem):
         for author in mrhitem.author:
             if option.lower() in author.lower():
                 return True
@@ -432,11 +300,11 @@ class MrhWeb(QThread):
         self.data = mrhdata
         self.mrhproject = mrhproject
         self.config = config
-        self.status = {'pubmed': [0, 0], 'cnki': [0, 0], 'wanfang': [0, 0]}
+        self.status = {'PUBMED': [0, 0], 'CNKI': [0, 0], 'WANFANG': [0, 0]}
         self.checkwebthread = ''
 
     def run(self):
-        databases = ['pubmed', 'cnki', 'wanfang']
+        databases = ['PUBMED', 'CNKI', 'WANFANG']
         datadict = {}
         threads = []
         for item in self.data:
@@ -464,13 +332,13 @@ class MrhWeb(QThread):
     def _get_info(self, dbdata, database):
         threads = []
         for index, item in enumerate(dbdata):
-            if item.database == 'wanfang' and item.link:
+            if item.database == 'WANFANG' and item.link:
                 thread = threading.Thread(target=MrhSpider(
                     item, self.data, self.config).wanfang)
-            elif item.database == 'cnki' and item.link:
+            elif item.database == 'CNKI' and item.link:
                 thread = threading.Thread(target=MrhSpider(
                     item, self.data, self.config).cnki)
-            elif item.database == 'pubmed':
+            elif item.database == 'PUBMED':
                 thread = threading.Thread(target=MrhSpider(
                     item, self.data, self.config).pubmed)
             else:

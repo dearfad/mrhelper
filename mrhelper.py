@@ -20,7 +20,7 @@ import sys
 
 from PyQt5.QtCore import QUrl, Qt
 from PyQt5.QtGui import QDesktopServices, QCursor, QIcon, QColor
-from PyQt5.QtWidgets import QApplication, QTreeWidgetItem, QFileDialog
+from PyQt5.QtWidgets import QApplication, QTreeWidgetItem, QFileDialog, QTableWidgetItem
 from PyQt5.QtWidgets import QMenu, QTreeWidgetItemIterator, QComboBox, QAbstractItemView
 
 import mrhpkg.mrhabout as mrhabout
@@ -338,35 +338,89 @@ class MainWindow(MrhMainWindow):
 
     # region Tab READ
     def _create_table(self):
-
-        self.maintabwidget.tab_read.datatable.clearContents()
-        self.maintabwidget.tab_read.datatable.setRowCount(0)
-
         datatable = self.maintabwidget.tab_read.datatable
-        datatable.setDisabled(True)
-        datatable.setUpdatesEnabled(False)
-        self.qthread = MrhTable(MRHPROJECT, datatable, CONFIG, mode='create')
-        self.qthread.sigmsg.connect(self._show_status)
-        self.qthread.sigover.connect(self._filter_table)
-        self.qthread.sigitem.connect(self._create_item)
-        self.qthread.start()
+        datatable.itemChanged.disconnect(self._datatable_itemchanged)
+        datatable.clearContents()
+        datatable.setRowCount(0)
+        datatable.setSortingEnabled(False)
+        datatable.setRowCount(len(MRHPROJECT.mrhdata))
+        fields = [datatable.horizontalHeaderItem(index).text() for index in range(datatable.columnCount())]
+        datatable.setEnabled(False)
+        for row, mrhitem in enumerate(MRHPROJECT.mrhdata):
+            itemcolor = MrhTable.markitem(CONFIG, mrhitem)
+            for column, field in enumerate(fields):
+                value = getattr(mrhitem, field, '')
+                if isinstance(value, str):
+                    if field == 'cs' or field == 'cr':
+                        if value:
+                            qitem = QTableWidgetItem()
+                            qitem.setData(0, int(value))
+                        else:
+                            qitem = QTableWidgetItem()
+                    else:
+                        qitem = QTableWidgetItem(
+                            value) if value else QTableWidgetItem()
+                elif isinstance(value, list):
+                    if field == 'lcs' or field == 'lcr':
+                        qitem = QTableWidgetItem()
+                        qitem.setData(0, len(value))
+                    else:
+                        qitem = QTableWidgetItem(value[0]) if value else QTableWidgetItem()
+                elif isinstance(value, int):
+                    qitem = QTableWidgetItem()
+                    qitem.setData(0, value)
+                else:
+                    qitem = QTableWidgetItem('-1')
+
+                if itemcolor.setdefault(field, ''):
+                    qitem.setBackground(QColor(itemcolor[field]))
+
+                qitem.setTextAlignment(Qt.AlignCenter | Qt.AlignVCenter)
+                if field == 'title':
+                    qitem.setTextAlignment(Qt.AlignLeft | Qt.AlignVCenter)
+
+                if field == 'rid':
+                    qitem = QTableWidgetItem()
+                    qitem.setData(0, value)
+                    use = getattr(mrhitem, 'use', '')
+                    qitem.setCheckState(use)
+                    if use == 2:
+                        qitem.setBackground(QColor('lightgreen'))
+                    datatable.setItem(row, column, qitem)
+                else:
+                    datatable.setItem(row, column, qitem)
+
+                if row%100 == 0:
+                    self._show_status(str(row))
+        datatable.setEnabled(True)
+        datatable.setSortingEnabled(True)
+        datatable.sortByColumn(0, Qt.AscendingOrder)
+        datatable.itemChanged.connect(self._datatable_itemchanged)
+        self._filter_table()
     
-    def _create_item(self, var:tuple):
-        row, column, qitem = var[0], var[1], var[2]
-        datatable = self.maintabwidget.tab_read.datatable
-        datatable.setItem(row, column, qitem)
-
     def _filter_table(self):
         viewoptions = self._get_view_options()
         currentrid = int(self._get_current_rid())
+        currentitem = MRHPROJECT.mrhdata[currentrid] if currentrid != -1 else ''
         datatable = self.maintabwidget.tab_read.datatable
         self.maintabwidget.tab_read.viewoptiongroup.setDisabled(True)
         self.maintabwidget.tab_read.datatable.setUpdatesEnabled(False)
-        self.qthread = MrhTable(MRHPROJECT, datatable, CONFIG, mode='filter',
-                                viewoptions=viewoptions, currentrid=currentrid)
-        self.qthread.sigmsg.connect(self._show_status)
-        self.qthread.sigover.connect(self._show_table)
-        self.qthread.start()
+        rows = datatable.rowCount()
+        visiblerow = 0
+
+        for row in range(rows):
+            datatable.setRowHidden(row, False)
+            rid = int(datatable.item(row, 0).text())
+            mrhitem = MRHPROJECT.mrhdata[rid]
+            result = MrhTable.check_viewoptions(viewoptions, currentrid, currentitem, mrhitem)
+            if result:
+                datatable.setRowHidden(row, False)
+                visiblerow += 1
+            else:
+                datatable.setRowHidden(row, True)
+        datatable.verticalHeader().setDefaultSectionSize(int(CONFIG.ini['Appearance']['read_table_row']))
+        self._show_status(f'Total: {visiblerow}')
+        self._show_table(currentrid)
 
     def _show_table(self, rid):
         self.maintabwidget.tab_read.viewoptiongroup.setEnabled(True)
@@ -442,16 +496,16 @@ class MainWindow(MrhMainWindow):
 
     @staticmethod
     def _fulltext_open(mrhitem):
-        if mrhitem.database == 'wos' or mrhitem.database == 'pubmed':
+        if mrhitem.database == 'WOS' or mrhitem.database == 'PUBMED':
             if mrhitem.doi:
                 address = CONFIG.ini['Scihub']['url'] + mrhitem.doi
             else:
                 return
-        elif mrhitem.database == 'cnki':
+        elif mrhitem.database == 'CNKI':
             id_cnki = mrhitem.link.split('&DbName=')[0].split('FileName=')[1]
             prefix_cnki = 'http://kns.cnki.net/KXReader/Detail?dbcode=CJFD&filename='
             address = ''.join([prefix_cnki, id_cnki])
-        elif mrhitem.database == 'wanfang':
+        elif mrhitem.database == 'WANFANG':
             prefix_wf = 'http://www.wanfangdata.com.cn/search/onlineread.do?resourceType=perio&source=WF&resourceId='
             id_wanfang = mrhitem.link.split('&id=')[1]
             title_wanfang = '&resourceTitle='

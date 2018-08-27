@@ -9,10 +9,11 @@
 # Something wrong in cnki crldeng
 # pagecount_eng = pagecount_eng if pagecount_eng < 10 else 10
 ###############################################################
-import requests
-from requests import adapters
-from bs4 import BeautifulSoup
 import ast
+
+import requests
+from bs4 import BeautifulSoup
+from requests import adapters
 
 
 def getpage(link, time_out=1, retries=1, proxies=None):

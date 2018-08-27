@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-# Filename: mrhimp.py
-# Usage: Medical Review Helper DataFile Import Module
+Filename: mrhimp.py
+Usage: Medical Review Helper DataFile Import Module
 """
 
 import mrhpkg.filters.cnki as cnki
@@ -133,6 +133,8 @@ def _fix_mrhitem(mrhitem):
 
     if mrhitem.database == 'PUBMED':
         mrhitem.year = mrhitem.year[:4]
+        if isinstance(mrhitem.doi, str):
+            mrhitem.doi = [mrhitem.doi]
         for doi in mrhitem.doi:
             if '[doi]' in doi:
                 mrhitem.doi = doi.split(' ')[0]
