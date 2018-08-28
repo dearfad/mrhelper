@@ -18,14 +18,14 @@
 * 帮助文档 - [链接](https://dearfad.github.io/mrhelper)
 * 解压后执行 **mrhelper.exe**
 * 从源码执行，请安装以下模块：
-* python 3.7
+* python 3.6
 * python-docx
     ```python
     pip install python-docx
     ```
-* PyQt5
+* PyQt5 5.10.1
     ```python
-    pip install PyQt5
+    pip install PyQt5==5.10.1
     ```
 * Beautiful Soup
     ```python
