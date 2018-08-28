@@ -8,3 +8,5 @@ pyinstaller
 mkdocs
 mkdocs-material
 pymdown-extensions
+pylint
+autopep8

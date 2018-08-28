@@ -344,7 +344,8 @@ class MainWindow(MrhMainWindow):
         datatable.setRowCount(0)
         datatable.setSortingEnabled(False)
         datatable.setRowCount(len(MRHPROJECT.mrhdata))
-        fields = [datatable.horizontalHeaderItem(index).text() for index in range(datatable.columnCount())]
+        fields = [datatable.horizontalHeaderItem(
+            index).text() for index in range(datatable.columnCount())]
         datatable.setEnabled(False)
         for row, mrhitem in enumerate(MRHPROJECT.mrhdata):
             itemcolor = MrhTable.markitem(CONFIG, mrhitem)
@@ -365,7 +366,8 @@ class MainWindow(MrhMainWindow):
                         qitem = QTableWidgetItem()
                         qitem.setData(0, len(value))
                     else:
-                        qitem = QTableWidgetItem(value[0]) if value else QTableWidgetItem()
+                        qitem = QTableWidgetItem(
+                            value[0]) if value else QTableWidgetItem()
                 elif isinstance(value, int):
                     qitem = QTableWidgetItem()
                     qitem.setData(0, value)
@@ -390,14 +392,14 @@ class MainWindow(MrhMainWindow):
                 else:
                     datatable.setItem(row, column, qitem)
 
-                if row%100 == 0:
+                if row % 100 == 0:
                     self._show_status(str(row))
         datatable.setEnabled(True)
         datatable.setSortingEnabled(True)
         datatable.sortByColumn(0, Qt.AscendingOrder)
         datatable.itemChanged.connect(self._datatable_itemchanged)
         self._filter_table()
-    
+
     def _filter_table(self):
         viewoptions = self._get_view_options()
         currentrid = int(self._get_current_rid())
@@ -412,13 +414,15 @@ class MainWindow(MrhMainWindow):
             datatable.setRowHidden(row, False)
             rid = int(datatable.item(row, 0).text())
             mrhitem = MRHPROJECT.mrhdata[rid]
-            result = MrhTable.check_viewoptions(viewoptions, currentrid, currentitem, mrhitem)
+            result = MrhTable.check_viewoptions(
+                viewoptions, currentrid, currentitem, mrhitem)
             if result:
                 datatable.setRowHidden(row, False)
                 visiblerow += 1
             else:
                 datatable.setRowHidden(row, True)
-        datatable.verticalHeader().setDefaultSectionSize(int(CONFIG.ini['Appearance']['read_table_row']))
+        datatable.verticalHeader().setDefaultSectionSize(
+            int(CONFIG.ini['Appearance']['read_table_row']))
         self._show_status(f'Total: {visiblerow}')
         self._show_table(currentrid)
 

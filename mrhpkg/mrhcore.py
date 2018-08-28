@@ -151,39 +151,50 @@ class MrhTable:
     @staticmethod
     def markitem(config, mrhitem):
         itemcolor = {}
-        # <5year
+        itemcolor['year'] = MrhTable._mark_year(config, mrhitem)
+        itemcolor['type'] = MrhTable._mark_type(config, mrhitem)
+        itemcolor['database'] = MrhTable._mark_database(config, mrhitem)
+        itemcolor['journal'] = MrhTable._mark_journal(config, mrhitem)
+        return itemcolor
+
+    @staticmethod
+    def _mark_year(config, mrhitem):
         now_year = datetime.datetime.now().year
-        itemcolor['year'] = 'lightgreen' if mrhitem.year and now_year - int(mrhitem.year) < 6 else ''
-        # BY TYPE
+        return 'lightgreen' if mrhitem.year and now_year - int(mrhitem.year) < 6 else ''
+
+    @staticmethod
+    def _mark_type(config, mrhitem):
         if mrhitem.type == 'Review':
-            itemcolor['type'] = 'lightgreen'
+            return 'lightgreen'
         else:
             if mrhitem.type == 'Article' or mrhitem.type == 'Journal Article' or 'Journal Article' in mrhitem.type[0]:
-                itemcolor['type'] = 'gold'
-        # By Pmcid
-        itemcolor['database'] = 'lightgreen' if mrhitem.pmcid else ''
-        # By Journal
+                return 'gold'
+
+    @staticmethod
+    def _mark_database(config, mrhitem):
+        return 'lightgreen' if mrhitem.pmcid else ''
+
+    @staticmethod
+    def _mark_journal(config, mrhitem):
         if mrhitem.journal:
             if mrhitem.database == 'WOS' or mrhitem.database == 'PUBMED':
                 if mrhitem.journal in config.sci:
                     impact_factor = float(config.sci[mrhitem.journal])
                     if impact_factor >= 10:
-                        itemcolor['journal'] = 'lightgreen'
+                        return 'lightgreen'
                     elif impact_factor >= 3:
-                        itemcolor['journal'] = 'gold'
+                        return 'gold'
                     else:
-                        itemcolor['journal'] = 'yellow'
+                        return 'yellow'
             else:
-                if isinstance(mrhitem.journal, list):
-                    print(mrhitem.journal)
                 if mrhitem.journal in config.hexin:
-                    itemcolor['journal'] = 'lightgreen'
-        return itemcolor
+                    return 'lightgreen'
 
     @staticmethod
     def check_viewoptions(viewoptions, currentrid, currentitem, mrhitem):
         """Check Mrhitem Displayed."""
-        relate = MrhTable._check_relate(viewoptions, currentrid, currentitem, mrhitem)
+        relate = MrhTable._check_relate(
+            viewoptions, currentrid, currentitem, mrhitem)
         abstract = MrhTable._check_abstract(viewoptions, mrhitem)
         fiveyears = MrhTable._check_fiveyears(viewoptions, mrhitem)
         reftype = MrhTable._check_type(viewoptions, mrhitem)
@@ -277,8 +288,8 @@ class MrhTable:
         option = viewoptions['search']
         if option:
             result = (option in mrhitem.title) or (option in mrhitem.abstract) or \
-                     MrhTable._check_search_author(option, mrhitem) or (
-                             option in mrhitem.journal)
+                MrhTable._check_search_author(option, mrhitem) or (
+                option in mrhitem.journal)
             return result
         else:
             return True
@@ -364,11 +375,11 @@ class MrhWeb(QThread):
         wanfang = 0
         for thread in threading.enumerate():
             name = thread.getName().split('_')[0]
-            if name == 'pubmed':
+            if name == 'PUBMED':
                 pubmed += 1
-            elif name == 'cnki':
+            elif name == 'CNKI':
                 cnki += 1
-            elif name == 'wanfang':
+            elif name == 'WANFANG':
                 wanfang += 1
             else:
                 pass
@@ -470,6 +481,8 @@ class MrhSpider:
 
     def pubmed(self):
         api_key = self.config.ini['Pubmed']['api_key']
+        if not api_key:
+            api_key = None
         time_out = int(self.config.ini['Pubmed']['time_out'])
         retries = int(self.config.ini['Pubmed']['retries'])
         proxies = {
