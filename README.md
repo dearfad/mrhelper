@@ -1,4 +1,4 @@
-# 医学综述助手
+# MrHelper
 
 ![GitHub (pre-)release](https://img.shields.io/github/release/dearfad/mrhelper/all.svg?style=plastic)
 

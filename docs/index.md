@@ -16,7 +16,7 @@
 
 ## 使用方法
 
-* 下载 - [链接](https://github.com/dearfad/mrhelper/releases/download/v0.1.0-dev/mrhelper-20180814.zip)
+* 下载 - [链接](https://github.com/dearfad/mrhelper/releases/download/v0.1.0-dev/mrhelper-20180828.zip)
 * 快速入门 - [链接](quickstart.md)
 * 帮助文档 - [链接](index.md)
 * 解压后执行 **mrhelper.exe**
