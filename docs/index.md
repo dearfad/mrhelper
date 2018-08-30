@@ -20,7 +20,10 @@
 * 快速入门 - [链接](quickstart.md)
 * 帮助文档 - [链接](index.md)
 * 解压后执行 **mrhelper.exe**
-* 从源码执行，请安装以下模块：
+
+## 源码执行：
+
+* **mrhelper.py**
 * python 3.6
 * python-docx
     ```python
