@@ -2,72 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://mrhelper.io/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/quickstart/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/manual/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/mrhpkg/mrhimp/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/mrhpkg/filters/fields/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/mrhpkg/filters/pubmed/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/mrhpkg/filters/wos/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/mrhpkg/filters/cnki/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/mrhpkg/filters/wanfang/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/mrhpkg/spiders/pubmed/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/mrhpkg/spiders/cnki/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/mrhres/mrhelper.docx/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/CODE_OF_CONDUCT/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://mrhelper.io/CONTRIBUTING/</loc>
-     <lastmod>2018-09-10</lastmod>
+     <lastmod>2018-09-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
