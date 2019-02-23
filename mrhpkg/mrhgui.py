@@ -43,11 +43,13 @@ class MrhTabWidget(QTabWidget):
         self.tab_export = MrhExportWidget()
         self.tab_help = MrhHelpWidget()
         self.tab_about = MrhAboutWidget()
+        self.tab_config = MrhConfigWidget()
         self.addTab(self.tab_read, 'Read')
         self.addTab(self.tab_classify, 'Classify')
         self.addTab(self.tab_export, 'Export')
         self.addTab(self.tab_help, 'Help')
         self.addTab(self.tab_about, 'About')
+        self.addTab(self.tab_config, 'Config')
 
 
 # noinspection PyArgumentList
@@ -377,6 +379,27 @@ class MrhAboutWidget(QWidget):
         self.hlayout.addWidget(self.about_textedit)
         self.setLayout(self.hlayout)
 
+class MrhConfigWidget(QWidget):
+    """Tab Config."""
+
+    def __init__(self):
+        super().__init__()
+        self.formlayout = QFormLayout()
+
+        self.save_button = QPushButton('Save Config')
+        self.save_button.setObjectName('config_save_button')
+
+        self.scihub_label = QLabel('Scihub')
+        self.scihub_label.setObjectName('config_scihub_label')
+
+        self.scihuburl_lineedit = QLineEdit()
+        self.scihuburl_lineedit.setObjectName('config_scihuburl_linedit')
+
+        self.formlayout.addRow(self.save_button)
+        self.formlayout.addRow(self.scihub_label)
+        self.formlayout.addRow('url: ', self.scihuburl_lineedit)
+
+        self.setLayout(self.formlayout)
 
 def main():
     """Show GUI."""

@@ -47,6 +47,7 @@ class MainWindow(MrhMainWindow):
         self._tab_read_sigslot()
         self._tab_classify_sigslot()
         self._tab_export_sigslot()
+        self._tab_config_sigslot()
         # Last Project
         self._detect_lastproject()
 
@@ -90,6 +91,7 @@ class MainWindow(MrhMainWindow):
     def _set_fixed_content(self):
         self.show_help()
         self.show_about()
+        self.show_config()
 
     # endregion
 
@@ -104,7 +106,8 @@ class MainWindow(MrhMainWindow):
             1: self.treelist_show,
             2: self.export_show,
             3: self._do_nothing,
-            4: self._do_nothing
+            4: self._do_nothing,
+            5: self._do_nothing
         }
         show_tab[current_index]()
 
@@ -189,6 +192,10 @@ class MainWindow(MrhMainWindow):
             self._export_info_edit)
         self.maintabwidget.tab_export.keywords_lineedit.textEdited.connect(
             self._export_info_edit)
+
+    def _tab_config_sigslot(self):
+        self.maintabwidget.tab_config.save_button.clicked.connect(
+            self._config_savebutton_click)
 
     # endregion
 
@@ -913,6 +920,20 @@ class MainWindow(MrhMainWindow):
         about.setText(abouttext)
     # endregion
 
+    # region Tab CONFIG
+    def show_config(self):
+        """Show Tab Config."""
+        scihuburl = self.maintabwidget.tab_config.scihuburl_lineedit
+        url = CONFIG.ini['Scihub']['url']
+        scihuburl.setText(url)
+    
+    def _config_savebutton_click(self):
+        scihuburl = self.maintabwidget.tab_config.scihuburl_lineedit.text()
+        CONFIG.ini['Scihub']['url'] = scihuburl
+        MrhConfig.save(CONFIG)
+        current_time = str(datetime.datetime.now().time()).split('.')[0]
+        self.statusBar().showMessage(current_time + ' Config Saved.')
+    # endregion
 
 def main():
     """Main Function."""
