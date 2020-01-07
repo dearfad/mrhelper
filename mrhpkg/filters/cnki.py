@@ -55,12 +55,11 @@ def _parsefile(filepath):
     data = []
     tree = _fix_treeparse(filepath)
     root = tree.getroot()
-    for sub in root:
-        if sub.tag == 'DATA':
-            cnkiitem = CnkiItem()
-            data.append(cnkiitem)
-            for item in sub:
-                setattr(cnkiitem, item.tag, item.text)
+    for sub in root.iter('CNKIDATA'):
+        cnkiitem = CnkiItem()
+        data.append(cnkiitem)
+        for item in sub:
+            setattr(cnkiitem, item.tag, item.text)
     return data
 
 
