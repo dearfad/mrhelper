@@ -36,7 +36,7 @@ def getdata(filepath):
 
 def checktype(filepath):
     """Check WOS Exported File Format."""
-    validlines = ['FN Thomson Reuters Web of Science™\n', 'VR 1.0\n']
+    validlines = ['FN Clarivate Analytics Web of Science\n', 'VR 1.0\n']
     with open(filepath, encoding='utf-8-sig') as datafile:
         return datafile.readline() == validlines[0] and datafile.readline() == validlines[1]
 
@@ -46,7 +46,7 @@ def _parsefile(datafile_path):
     data = []
     lastfield = ''
     uselesslines = ['\n', 'ER\n', 'EF\n',
-                    'FN Thomson Reuters Web of Science™\n', 'VR 1.0\n']
+                    'FN Clarivate Analytics Web of Science\n', 'VR 1.0\n']
     with open(datafile_path, encoding='utf-8-sig') as datafile:
         for line in datafile:
             if line not in uselesslines:

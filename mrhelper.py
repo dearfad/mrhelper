@@ -517,7 +517,7 @@ class MainWindow(MrhMainWindow):
             prefix_cnki = 'http://kns.cnki.net/KXReader/Detail?dbcode=CJFD&filename='
             address = ''.join([prefix_cnki, id_cnki])
         elif mrhitem.database == 'WANFANG':
-            prefix_wf = 'http://www.wanfangdata.com.cn/search/onlineread.do?resourceType=perio&source=WF&resourceId='
+            prefix_wf = 'http://www.wanfangdata.com.cn/search/onlineread.do?language=chi&resourceType=perio&source=WF&resourceId='
             id_wanfang = mrhitem.link.split('&id=')[1]
             title_wanfang = '&resourceTitle='
             title = mrhitem.title
