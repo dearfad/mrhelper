@@ -21,34 +21,10 @@
 ## 源码执行：
 
 * **mrhelper.py**
-* python 3.6
-* python-docx
+* 安装 python 3
+* 安装依赖库
     ```python
-    pip install python-docx
-    ```
-* PyQt5 5.10.1
-    ```python
-    pip install PyQt5==5.10.1
-    ```
-* Beautiful Soup
-    ```python
-    pip install beautifulsoup4
-    ```
-* defusedxml
-    ```python
-    pip install defusedxml
-    ```
-* requests
-    ```python
-    pip install requests
-    ```
-* requests[socks]
-    ```python
-    pip install requests[socks]
-    ```
-* pyinstaller
-    ```python
-    pip install pyinstaller
+    pip install -r requirements.txt
     ```
 
 ## 依赖库
@@ -61,6 +37,13 @@
 * [requests/requests[socks]](http://www.python-requests.org) - Pubmed, CNKI, 万方文献页面抓取
 * [Pyinstaller](http://www.pyinstaller.org/) - 打包可执行程序文件（.exe）
 
+* 可选装
+    - mkdocs
+    - mkdocs-material
+    - pymdown-extensions
+    - pylint
+    - autopep8
+    
 ## 贡献
 
 * 请参阅 [CONTRIBUTING.md](https://github.com/dearfad/MrHelper/blob/master/docs/CONTRIBUTING.md)
