@@ -38,11 +38,11 @@
 * [Pyinstaller](http://www.pyinstaller.org/) - 打包可执行程序文件（.exe）
 
 * 可选装
-    - mkdocs
-    - mkdocs-material
-    - pymdown-extensions
-    - pylint
-    - autopep8
+    - [mkdocs](https://www.mkdocs.org/) 网站文档生成
+    - [mkdocs-material](https://squidfunk.github.io/mkdocs-material/) 网站material模板
+    - [pymdown-extensions](https://squidfunk.github.io/mkdocs-material/extensions/pymdown/) material模板Markdown支持
+    - [pylint](https://www.pylint.org/) Python代码分析
+    - [autopep8](https://github.com/hhatto/autopep8) Python PEP8 格式化代码
     
 ## 贡献
 
