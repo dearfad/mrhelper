@@ -81,24 +81,24 @@ def _get_mrhdata(rawdata):
     """Transform rawdata Into mrhdata."""
     mrhdata = []
     field_dict = {
-        'author': {'WOS': 'AU', 'PUBMED': 'AU', 'WANFANG': 'Author', 'CNKI': 'Author'},
-        'title': {'WOS': 'TI', 'PUBMED': 'TI', 'WANFANG': 'Title', 'CNKI': 'Title'},
+        'author': {'WOS': 'AU', 'PUBMED': 'AU', 'WANFANG': 'Author', 'CNKI': 'Author-作者'},
+        'title': {'WOS': 'TI', 'PUBMED': 'TI', 'WANFANG': 'Title', 'CNKI': 'Title-题名'},
         'type': {'WOS': 'DT', 'PUBMED': 'PT', 'WANFANG': 'ReferenceType', 'CNKI': 'DataType'},
-        'journal': {'WOS': 'SO', 'PUBMED': 'JT', 'WANFANG': 'Journal', 'CNKI': 'Source'},
-        'year': {'WOS': 'PY', 'PUBMED': 'DP', 'WANFANG': 'Year', 'CNKI': 'Year'},
-        'volumn': {'WOS': 'VL', 'PUBMED': 'VI', 'WANFANG': '', 'CNKI': 'Roll'},
-        'issue': {'WOS': 'IS', 'PUBMED': 'IP', 'WANFANG': 'Issue', 'CNKI': 'Period'},
-        'page': {'WOS': ['BP', 'EP'], 'PUBMED': 'PG', 'WANFANG': 'Pages', 'CNKI': 'Page'},
-        'link': {'WOS': '', 'PUBMED': '', 'WANFANG': 'URL', 'CNKI': 'Link'},
+        'journal': {'WOS': 'SO', 'PUBMED': 'JT', 'WANFANG': 'Journal', 'CNKI': 'Source-刊名'},
+        'year': {'WOS': 'PY', 'PUBMED': 'DP', 'WANFANG': 'Year', 'CNKI': 'Year-年'},
+        'volumn': {'WOS': 'VL', 'PUBMED': 'VI', 'WANFANG': '', 'CNKI': 'Roll-卷'},
+        'issue': {'WOS': 'IS', 'PUBMED': 'IP', 'WANFANG': 'Issue', 'CNKI': 'Period-期'},
+        'page': {'WOS': ['BP', 'EP'], 'PUBMED': 'PG', 'WANFANG': 'Pages', 'CNKI': 'Page-页码'},
+        'link': {'WOS': '', 'PUBMED': '', 'WANFANG': 'URL', 'CNKI': 'Link-链接'},
         'doi': {'WOS': 'DI', 'PUBMED': 'AID', 'WANFANG': 'DOI', 'CNKI': ''},
         'pmid': {'WOS': 'PM', 'PUBMED': 'PMID', 'WANFANG': '', 'CNKI': ''},
         'pmcid': {'WOS': '', 'PUBMED': 'PMC', 'WANFANG': '', 'CNKI': ''},
-        'abstract': {'WOS': 'AB', 'PUBMED': 'AB', 'WANFANG': 'Abstract', 'CNKI': 'Summary'},
+        'abstract': {'WOS': 'AB', 'PUBMED': 'AB', 'WANFANG': 'Abstract', 'CNKI': 'Summary-摘要'},
         'cs': {'WOS': 'TC', 'PUBMED': '', 'WANFANG': '', 'CNKI': ''},
         'cr': {'WOS': 'NR', 'PUBMED': '', 'WANFANG': '', 'CNKI': ''},
         'lcr': {'WOS': 'LCR', 'PUBMED': '', 'WANFANG': '', 'CNKI': ''},
         'lcs': {'WOS': 'LCS', 'PUBMED': '', 'WANFANG': '', 'CNKI': ''},
-        'keywords': {'WOS': 'DE', 'PUBMED': 'OT', 'WANFANG': 'Keywords', 'CNKI': 'Keyword'}
+        'keywords': {'WOS': 'DE', 'PUBMED': 'OT', 'WANFANG': 'Keywords', 'CNKI': 'Keyword-关键词'}
     }
     for rid, rawitem in enumerate(rawdata):
         mrhitem = MrhItem()
@@ -119,8 +119,8 @@ def _get_mrhdata(rawdata):
 def _fix_mrhitem(mrhitem):
     """Fix mrhdata For General Use."""
     if mrhitem.database == 'CNKI':
-        mrhitem.link = mrhitem.link.replace('/kns/', '/kcms/')
-        mrhitem.link = mrhitem.link.replace('nvsm.cnki.net', 'kns.cnki.net')
+        # mrhitem.link = mrhitem.link.replace('/kns/', '/kcms/')
+        # mrhitem.link = mrhitem.link.replace('nvsm.cnki.net', 'kns.cnki.net')
         if mrhitem.type == '1':
             mrhitem.type = 'Journal Article'
 

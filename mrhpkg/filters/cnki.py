@@ -32,11 +32,42 @@ def getdata(filepath):
 def checktype(filepath):
     """Check CNKI Exported File Format."""
     with open(filepath, encoding='utf-8') as datafile:
-        return datafile.readline().lower() == '<?xml version="1.0" encoding="utf-8"?>\n'
+        return datafile.readline().lower() == 'datatype: 1\n'
+        # return datafile.readline().lower() == '<?xml version="1.0" encoding="utf-8"?>\n'
 
 
+def _parsefile(filepath):
+    """Parse Exported File From CNKI in ESTUDY format."""
+    data = []
+    lastfield = ''
+    with open(filepath, encoding='utf-8') as datafile:
+        for line in datafile:
+            if line != '\n':
+                field = line.split(': ')[0].strip()
+                text = line.split(': ')[1].strip()
+                if field == 'DataType':
+                    cnkiitem = CnkiItem()
+                    data.append(cnkiitem)
+                # if field == lastfield:
+                #     content = getattr(wanfangitem, field)
+                #     if isinstance(content, str):
+                #         content = [content]
+                #     content.append(text)
+                #     setattr(wanfangitem, field, content)
+                # else:
+                setattr(cnkiitem, field, text)
+                # lastfield = field
+    return data
+
+
+def _fixdata(data):
+    """Data Preparation."""
+    return data
+
+
+"""
 def _fix_treeparse(datafile_path):
-    """Remove Lines For XML Parse."""
+    ```Remove Lines For XML Parse.```
     with open(datafile_path, encoding='utf-8') as datafile:
         eslines = datafile.readlines()
         fixstr = '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >\n'
@@ -51,7 +82,7 @@ def _fix_treeparse(datafile_path):
 
 
 def _parsefile(filepath):
-    """Parse Exported File From CNKI in ESTUDY format."""
+    ```Parse Exported File From CNKI in ESTUDY format.```
     data = []
     tree = _fix_treeparse(filepath)
     root = tree.getroot()
@@ -64,7 +95,7 @@ def _parsefile(filepath):
 
 
 def _fixdata(data):
-    """Data Preparation."""
+    ```Data Preparation.```
     for cnkiitem in data:
         if getattr(cnkiitem, 'Author', ''):
             if ';' in cnkiitem.Author:
@@ -76,3 +107,4 @@ def _fixdata(data):
         if getattr(cnkiitem, 'Keyword', ''):
             cnkiitem.Keyword = cnkiitem.Keyword.split(';;')
     return data
+"""
