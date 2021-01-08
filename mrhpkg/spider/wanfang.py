@@ -11,12 +11,12 @@ def getmetrics(wfid, time_out=1, retries=1, proxies=None):
     if not wfid:
         return 0
     retry = adapters.HTTPAdapter(max_retries=retries)
-    url = 'http://www.wanfangdata.com.cn/search/wfmetrics.do?id='
-    payload = {'id': wfid, 'type': 'perio'}
+    url = 'http://d.wanfangdata.com.cn/Detail/Periodical/'
+    payload = {'Id': wfid}
     wanfang = requests.Session()
     wanfang.mount('http://', retry)
     try:
-        page = wanfang.get(url, params=payload, timeout=time_out, proxies=proxies)
+        page = wanfang.post(url, params=payload, timeout=time_out, proxies=proxies)
         page.raise_for_status()
     except requests.exceptions.RequestException as error:
         print(error)
@@ -32,18 +32,18 @@ def getdata(wfid, time_out=1, retries=1, proxies=None):
     if not wfid:
         return {'cr': -1, 'cs': -1}
     result = {'cr': [[], 0], 'cs': [[], 0]}
-    types = {'cr': 'reference', 'cs': 'citaition'}
+    types = {'cr': 'Reference', 'cs': 'Quotation'}
     retry = requests.adapters.HTTPAdapter(max_retries=retries)
-    url = 'http://www.wanfangdata.com.cn/graphical/turnpage.do?'
+    url = 'http://d.wanfangdata.com.cn/Detail/Reference'
     pagecount = 1
     for key in types:
         pagenumber = 1
         while pagenumber:
             wanfang = requests.Session()
             wanfang.mount('http://', retry)
-            payload = {'type': types[key], 'id': wfid, 'number': pagenumber}
+            payload = {'Id': wfid, 'ReferenceType': types[key], 'PageNum': pagenumber}
             try:
-                page = wanfang.get(url, params=payload, timeout=time_out, proxies=proxies)
+                page = wanfang.post(url, params=payload, timeout=time_out, proxies=proxies)
                 page.raise_for_status()
             except requests.exceptions.RequestException as error:
                 print(error)
@@ -51,9 +51,9 @@ def getdata(wfid, time_out=1, retries=1, proxies=None):
                 continue
             if page.status_code == requests.codes.ok:
                 if pagenumber == 1:
-                    result[key][1] = page.json()[1]
+                    result[key][1] = page.json()['total']
                     pagecount = result[key][1] // 10 + 1 if result[key][1] % 10 > 0 else result[key][1] // 10
-                result[key][0] += page.json()[0]
+                result[key][0] += [item['neo4j'] for item in page.json()['detail']]
                 pagenumber += 1
                 if pagenumber > pagecount:
                     pagenumber = 0
@@ -66,13 +66,13 @@ def getpage(wfid, time_out=1, retries=1, proxies=None):
     if not wfid:
         return 0
     retry = requests.adapters.HTTPAdapter(max_retries=retries)
-    url = 'http://www.wanfangdata.com.cn/details/detail.do?'
-    payload = {'_type': 'perio', 'id': wfid}
+    url = 'http://d.wanfangdata.com.cn/periodical/' + wfid
+    payload = {}
     wanfang = requests.Session()
     wanfang.mount('http://', retry)
     wanfang.mount('https://', retry)
     try:
-        page = wanfang.get(url, params=payload, timeout=time_out, proxies=proxies)
+        page = wanfang.post(url, params=payload, timeout=time_out, proxies=proxies)
         page.raise_for_status()
     except requests.exceptions.RequestException as error:
         print(error)
@@ -85,11 +85,15 @@ def getpage(wfid, time_out=1, retries=1, proxies=None):
 
 
 def main():
-    wfid = 'xljsyyy201604007'
-    page = getpage(wfid)
+    wfid = 'gwyx-hlxfc200501027'
+    # page = getpage(wfid)
     data = getdata(wfid)
-    metrics = getmetrics(wfid)
-    print(page, data, metrics)
+    # metrics = getmetrics(wfid)
+    # print('文献阅读：', metrics['detail'][0]['periodical']['MetadataViewCount'])
+    # print('下载：', metrics['detail'][0]['periodical']['DownloadCount'])
+    # print('第三方链接：', metrics['detail'][0]['periodical']['ThirdpartyLinkClickCount'])
+    # print('被引：', metrics['detail'][0]['periodical']['CitedCount'])
+    print(data['cr'][0][0].keys())
 
 
 if __name__ == '__main__':

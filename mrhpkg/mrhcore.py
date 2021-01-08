@@ -415,7 +415,7 @@ class MrhSpider:
                 if item['DOI']:
                     crdoi.add(item['DOI'])
                 if item['Title']:
-                    crtitle.add(item['Title'])
+                    crtitle.add(item['Title'][0])
         csdoi = set()
         cstitle = set()
         if cslist != -1 and cslist:
@@ -423,7 +423,7 @@ class MrhSpider:
                 if item['DOI']:
                     csdoi.add(item['DOI'])
                 if item['Title']:
-                    cstitle.add(item['Title'])
+                    cstitle.add(item['Title'][0])
         self.item.lcr = []
         self.item.lcs = []
         for item in self.data:
@@ -519,17 +519,23 @@ class MrhExport:
                 # Type
                 datafile.write('%0 Journal Article\n')
                 # author
-                for author in item.author:
+                if isinstance(item.author, list):
+                    for author in item.author:
+                        datafile.write('%A ')
+                        if item.database == 'pubmed':
+                            firstname = author.split(' ')[0]
+                            lastname = author.split(' ')[1]
+                            fix_lastname = ''
+                            for c in lastname:
+                                fix_lastname += c + '. '
+                            author = ', '.join([firstname, fix_lastname])
+                        datafile.write(author)
+                        datafile.write('\n')
+                else:
                     datafile.write('%A ')
-                    if item.database == 'pubmed':
-                        firstname = author.split(' ')[0]
-                        lastname = author.split(' ')[1]
-                        fix_lastname = ''
-                        for c in lastname:
-                            fix_lastname += c + '. '
-                        author = ', '.join([firstname, fix_lastname])
                     datafile.write(author)
                     datafile.write('\n')
+
                 # title
                 datafile.write('%T ')
                 datafile.write(item.title)
@@ -637,9 +643,12 @@ class MrhExport:
 
     def _docx_addref(self, item):
         if item.author:
-            authorname = item.author[0].split(',')[0]
-            authorname = authorname.split(' ')[0]
-            authorname = authorname.split(';')[0]
+            if isinstance(item.author, list):
+                authorname = item.author[0].split(',')[0]
+                authorname = authorname.split(' ')[0]
+                authorname = authorname.split(';')[0]
+            else:
+                authorname = item.author
         else:
             authorname = ''
         if item.year:

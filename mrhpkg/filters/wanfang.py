@@ -41,10 +41,18 @@ def _parsefile(filepath):
                 field = line.split(': ')[0].strip('{}')
                 field = field.replace('/', '')
                 field = field.replace(' ', '')
-                text = line.split(': ')[1].strip()
+
+                # Fix WanFang Exported File Abstract Format Error
+                if lastfield == 'Abstract' and line[0] != '{':
+                    field = 'Abstract'
+                    text = line
+                else:
+                    text = line.split(': ')[1].strip()
+
                 if field == 'ReferenceType':
                     wanfangitem = WanfangItem()
                     data.append(wanfangitem)
+                    
                 if field == lastfield:
                     content = getattr(wanfangitem, field)
                     if isinstance(content, str):
@@ -53,6 +61,7 @@ def _parsefile(filepath):
                     setattr(wanfangitem, field, content)
                 else:
                     setattr(wanfangitem, field, text)
+
                 lastfield = field
     return data
 

@@ -118,6 +118,11 @@ def _get_mrhdata(rawdata):
 
 def _fix_mrhitem(mrhitem):
     """Fix mrhdata For General Use."""
+
+    if mrhitem.database == 'WANFANG':
+        if  isinstance(mrhitem.abstract, list):
+            mrhitem.abstract = ' '.join(mrhitem.abstract)
+
     if mrhitem.database == 'CNKI':
         # mrhitem.link = mrhitem.link.replace('/kns/', '/kcms/')
         # mrhitem.link = mrhitem.link.replace('nvsm.cnki.net', 'kns.cnki.net')

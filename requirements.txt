@@ -1,7 +1,6 @@
 pyqt5
 python-docx
 beautifulsoup4
-defusedxml
 requests
 requests[socks]
 pyinstaller
