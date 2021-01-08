@@ -33,7 +33,6 @@
 * [python-docx](https://python-docx.readthedocs.io) - 生成综述WORD文稿
 * [PyQt5](https://riverbankcomputing.com/software/pyqt/intro) - (GPL) 程序界面
 * [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) 解析抓取的文献页面
-* [defusedxml](https://pypi.org/project/defusedxml/) - 安全解析CNKI E-Study .eln格式
 * [requests/requests[socks]](http://www.python-requests.org) - Pubmed, CNKI, 万方文献页面抓取
 * [Pyinstaller](http://www.pyinstaller.org/) - 打包可执行程序文件（.exe）
 
