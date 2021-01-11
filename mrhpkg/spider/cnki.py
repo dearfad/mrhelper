@@ -47,18 +47,22 @@ def getdata(link, time_out=1, retries=1, proxies=None):
     reftypes = {'cr': 1, 'cs': 3}
     databases = ['CJFQ', 'SSJD', 'CRLDENG', 'CMFD', 'CPFD', 'CDFD']
     retry = requests.adapters.HTTPAdapter(max_retries=retries)
-    url = 'http://kns.cnki.net/kcms/detail/frame/list.aspx'
+    url = 'https://kns.cnki.net/kcms/detail/frame/list.aspx'
     templink = link.split('&dbname=')
     dbname = templink[1]
-    dbcode = dbname[0:4]
+    dbcode = 'CJFQ'
     filename = templink[0].split('filename=')[1]
     for reftype in reftypes:
         cnki = requests.Session()
         cnki.mount('http://', retry)
         cnki.mount('https://', retry)
         payload = {'dbcode': dbcode, 'filename': filename, 'dbname': dbname, 'RefType': reftypes[reftype], 'vl': ''}
+        headers = {
+            # 'Referer': link,
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'
+            }
         try:
-            page = cnki.get(url, params=payload, timeout=time_out, proxies=proxies)
+            page = cnki.get(url, params=payload, timeout=time_out, proxies=proxies, headers=headers)
             page.raise_for_status()
         except requests.exceptions.RequestException as error:
             print(error)
@@ -109,11 +113,12 @@ def getcount(link, time_out=1, retries=1, proxies=None):
     cnki = requests.Session()
     cnki.mount('http://', retry)
     cnki.mount('https://', retry)
-    url = 'http://kns.cnki.net/kcms/detail/block/refcount.aspx'
+    url = 'https://kns.cnki.net/kcms/detail/block/refcount.aspx'
     templink = link.split('&dbname=')
-    dbcode = templink[1][0:4]
+    dbcode = 'CJFQ'
     filename = templink[0].split('filename=')[1]
     querydict = {'dbcode': dbcode, 'filename': filename, 'vl': ''}
+
     try:
         page = cnki.get(url, params=querydict, timeout=time_out, proxies=proxies)
         page.raise_for_status()
@@ -128,11 +133,12 @@ def getcount(link, time_out=1, retries=1, proxies=None):
 
 
 def main():
-    link = 'http://kns.cnki.net/KCMS/detail/detail.aspx?filename=LCMZ201205031&dbname=CJFD2012'
-    page = getpage(link)
+    link = 'https://kns.cnki.net/kcms/detail/detail.aspx?FileName=WLXB20201224008&DbName=CAPJ2020'
+    # page = getpage(link)
     data = getdata(link)
-    count = getcount(link)
-    print(page, data, count)
+    # count = getcount(link)
+    # print(page, data, count)
+    print(data)
 
 
 if __name__ == '__main__':
