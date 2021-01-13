@@ -58,7 +58,7 @@ class MrhConfig:
         with open(self.ini['Resource']['sci'], newline='', encoding='utf-8') as scifile:
             csvreader = csv.DictReader(scifile)
             for row in csvreader:
-                sci[row['title'].upper()] = row['if']
+                sci[row['title'].upper()] = row['quarter']
         return sci
 
     def _get_hexin(self):
@@ -139,10 +139,11 @@ class MrhIo(QThread):
         for filepath in self.filepaths:
             data = mrhimp.getdata(filepath)
             baserid = len(self.mrhproject.mrhdata)
-            for mrhitem in data['mrhdata']:
-                mrhitem.rid += baserid
-            self.mrhproject.mrhdata += data['mrhdata']
-            self.mrhproject.rawdata += data['rawdata']
+            if data['mrhdata'] != -1:
+                for mrhitem in data['mrhdata']:
+                    mrhitem.rid += baserid
+                self.mrhproject.mrhdata += data['mrhdata']
+                self.mrhproject.rawdata += data['rawdata']
 
 
 class MrhTable:
@@ -179,13 +180,17 @@ class MrhTable:
         if mrhitem.journal:
             if mrhitem.database == 'WOS' or mrhitem.database == 'PUBMED':
                 if mrhitem.journal in config.sci:
-                    impact_factor = float(config.sci[mrhitem.journal])
-                    if impact_factor >= 10:
+                    quarter = config.sci[mrhitem.journal]
+                    if quarter == 'Q1':
                         return 'lightgreen'
-                    elif impact_factor >= 3:
+                    elif quarter == 'Q2':
                         return 'gold'
-                    else:
+                    elif quarter == 'Q3':
                         return 'yellow'
+                    elif quarter == 'Q4':
+                        return 'lightyellow'
+                    else:                        
+                        return 'blue'
             else:
                 if mrhitem.journal in config.hexin:
                     return 'lightgreen'

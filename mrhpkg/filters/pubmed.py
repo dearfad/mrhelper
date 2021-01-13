@@ -31,7 +31,8 @@ def getdata(filepath):
 def checktype(filepath):
     """Check PubMed MEDLINE Format."""
     with open(filepath, encoding='utf-8') as datafile:
-        return datafile.readline() == '\n' and datafile.readline()[:4] == 'PMID'
+        # return datafile.readline() == '\n' and datafile.readline()[:4] == 'PMID'
+        return datafile.readline()[:4] == 'PMID'
 
 
 def _parsefile(filepath):
@@ -40,29 +41,32 @@ def _parsefile(filepath):
     lastfield = ''
     with open(filepath, encoding='utf-8') as datafile:
         for line in datafile:
-            if line == '\n':
-                pubmeditem = PubmedItem()
-                data.append(pubmeditem)
-            else:
-                field = line[:4].strip()
-                text = line[6:].strip()
-                if field:
-                    content = getattr(pubmeditem, field, '')
-                    if content:
-                        if isinstance(content, str):
-                            content = [content]
-                        content.append(text)
-                        setattr(pubmeditem, field, content)
-                    else:
-                        setattr(pubmeditem, field, text)
-                    lastfield = field
+            if line != '\n':
+                if line[:4] == 'PMID':
+                    pubmeditem = PubmedItem()
+                    data.append(pubmeditem)
+                    text = line[6:].strip()
+                    setattr(pubmeditem, 'PMID', text)
                 else:
-                    content = getattr(pubmeditem, lastfield)
-                    if isinstance(content, str):
-                        content = ' '.join([content, text])
+                    field = line[:4].strip()
+                    text = line[6:].strip()
+                    if field:
+                        content = getattr(pubmeditem, field, '')
+                        if content:
+                            if isinstance(content, str):
+                                content = [content]
+                            content.append(text)
+                            setattr(pubmeditem, field, content)
+                        else:
+                            setattr(pubmeditem, field, text)
+                        lastfield = field
                     else:
-                        content[-1] = ' '.join([content[-1], text])
-                    setattr(pubmeditem, lastfield, content)
+                        content = getattr(pubmeditem, lastfield)
+                        if isinstance(content, str):
+                            content = ' '.join([content, text])
+                        else:
+                            content[-1] = ' '.join([content[-1], text])
+                        setattr(pubmeditem, lastfield, content)
     return data
 
 

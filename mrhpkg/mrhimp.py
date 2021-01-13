@@ -63,7 +63,7 @@ def getdata(filepath):
     return dict{'mrhdata':mrhdata, 'rawdata':rawdata}
     """
     rawdata = _get_rawdata(filepath)
-    mrhdata = _get_mrhdata(rawdata)
+    mrhdata = _get_mrhdata(rawdata) if rawdata != -1 else -1
     return {'mrhdata': mrhdata, 'rawdata': rawdata}
 
 

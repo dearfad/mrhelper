@@ -37,6 +37,13 @@ def getpage(link, time_out=1, retries=1, proxies=None):
         result = 0
     return result
 
+def _getvl(page):
+    vl = ''
+    soup = BeautifulSoup(page, 'lxml')
+    for item in soup.find_all('input'):
+        if item.get('id') == 'v' and item.get('type') == 'hidden':
+            vl = item.get('value')
+    return vl
 
 def getdata(link, time_out=1, retries=1, proxies=None):
     if link:
@@ -52,15 +59,13 @@ def getdata(link, time_out=1, retries=1, proxies=None):
     dbname = templink[1]
     dbcode = 'CJFQ'
     filename = templink[0].split('filename=')[1]
+    vl = _getvl(getpage(link))
     for reftype in reftypes:
         cnki = requests.Session()
         cnki.mount('http://', retry)
         cnki.mount('https://', retry)
-        payload = {'dbcode': dbcode, 'filename': filename, 'dbname': dbname, 'RefType': reftypes[reftype], 'vl': ''}
-        headers = {
-            # 'Referer': link,
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'
-            }
+        payload = {'dbcode': dbcode, 'filename': filename, 'dbname': dbname, 'RefType': reftypes[reftype], 'vl': vl}
+        headers = {'Referer': link}
         try:
             page = cnki.get(url, params=payload, timeout=time_out, proxies=proxies, headers=headers)
             page.raise_for_status()
@@ -133,12 +138,12 @@ def getcount(link, time_out=1, retries=1, proxies=None):
 
 
 def main():
-    link = 'https://kns.cnki.net/kcms/detail/detail.aspx?FileName=WLXB20201224008&DbName=CAPJ2020'
+    link = 'https://kns.cnki.net/kcms/detail/detail.aspx?FileName=ZYYZ201912008&DbName=CJFQ2019'
     # page = getpage(link)
-    data = getdata(link)
-    # count = getcount(link)
+    # data = getdata(link)
+    count = getcount(link)
     # print(page, data, count)
-    print(data)
+    print(count)
 
 
 if __name__ == '__main__':

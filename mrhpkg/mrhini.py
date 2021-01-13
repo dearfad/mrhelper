@@ -26,21 +26,21 @@ http =
 https = 
 
 [Scihub]
-url = http://sci-hub.tw/
+url = https://www.sci-hub.ren/
 
 [Pubmed]
 api_key = 
 time_out = 1
 retries = 1
-threads = 1
+threads = 10
 
 [CNKI]
 time_out = 1
 retries = 1
-threads = 1
+threads = 10
 
 [Wanfang]
 time_out = 1
 retries = 1
-threads = 1
+threads = 10
 '''
