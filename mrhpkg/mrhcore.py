@@ -538,7 +538,10 @@ class MrhExport:
                         datafile.write('\n')
                 else:
                     datafile.write('%A ')
-                    datafile.write(author)
+                    if item.database == 'CNKI':
+                        datafile.write(item.author.strip(';'))
+                    else:
+                        datafile.write(item.author)
                     datafile.write('\n')
 
                 # title
