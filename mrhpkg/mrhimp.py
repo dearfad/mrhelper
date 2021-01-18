@@ -124,8 +124,6 @@ def _fix_mrhitem(mrhitem):
             mrhitem.abstract = ' '.join(mrhitem.abstract)
 
     if mrhitem.database == 'CNKI':
-        # mrhitem.link = mrhitem.link.replace('/kns/', '/kcms/')
-        # mrhitem.link = mrhitem.link.replace('nvsm.cnki.net', 'kns.cnki.net')
         if mrhitem.type == '1':
             mrhitem.type = 'Journal Article'
 

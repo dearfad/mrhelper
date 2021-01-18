@@ -8,7 +8,7 @@ Medical Review Helper
 An application that can help to create medical review draft fast and rationally.
 
 :mrhelper.py: Main Program
-:copyright: (c) 2018 by Dearfad
+:copyright: (c) 2018-2021 by Dearfad
 :Email: dearfad@sina.com
 :license: GPL-v3
 """
@@ -934,6 +934,7 @@ class MainWindow(MrhMainWindow):
         current_time = str(datetime.datetime.now().time()).split('.')[0]
         self.statusBar().showMessage(current_time + ' Config Saved.')
     # endregion
+
 
 def main():
     """Main Function."""
