@@ -60,7 +60,7 @@ class MainWindow(MrhMainWindow):
     def _set_appearance(self):
         # Window
         self.setGeometry(200, 300, 960, 540)
-        self.setWindowTitle('Medical Review Helper')
+        self.setWindowTitle('医学综述助手')
         self.setWindowIcon(QIcon('mrhres/icon.ico'))
         # TabWidget
         self.maintabwidget.setTabEnabled(1, False)

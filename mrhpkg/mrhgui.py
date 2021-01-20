@@ -44,12 +44,12 @@ class MrhTabWidget(QTabWidget):
         self.tab_help = MrhHelpWidget()
         self.tab_about = MrhAboutWidget()
         self.tab_config = MrhConfigWidget()
-        self.addTab(self.tab_read, 'Read')
-        self.addTab(self.tab_classify, 'Classify')
-        self.addTab(self.tab_export, 'Export')
-        self.addTab(self.tab_help, 'Help')
-        self.addTab(self.tab_about, 'About')
-        self.addTab(self.tab_config, 'Config')
+        self.addTab(self.tab_read, '阅读')
+        self.addTab(self.tab_classify, '整理')
+        self.addTab(self.tab_export, '导出')
+        self.addTab(self.tab_help, '帮助')
+        self.addTab(self.tab_about, '关于')
+        self.addTab(self.tab_config, '设置')
 
 
 # noinspection PyArgumentList

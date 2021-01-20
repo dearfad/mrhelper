@@ -64,18 +64,17 @@ def _parsefile(filepath):
     with open(filepath, encoding='utf-8') as datafile:
         for line in datafile:
             if line != '\n':
-                field = line.split(': ')[0].strip('{}')
-                field = field.replace('/', '')
-                field = field.replace(' ', '')
 
                 # Fix WanFang Exported File Abstract Format Error
                 if lastfield == 'Abstract' and line[0] != '{':
                     field = 'Abstract'
                     text = line
                 else:
-                    text = line.split(': ')[1].strip()
+                    field, text = line.strip().split(': ')
+                    field = field.strip('{}')
+                    text = text.strip()
 
-                if field == 'ReferenceType':
+                if field == 'Reference Type':
                     wanfangitem = WanfangItem()
                     data.append(wanfangitem)
                     
@@ -94,10 +93,28 @@ def _parsefile(filepath):
 
 def _fixdata(data):
     """Data Preparation."""
+
+    # Change str to list format
+    for wanfangitem in data:
+
+        # Author list
+        authors = getattr(wanfangitem, 'Author', '')
+        if isinstance(authors, str):
+            setattr(wanfangitem, 'Author', [authors])
+        # Author Address list
+        authoraddress = getattr(wanfangitem, 'Author Address', '')
+        if isinstance(authoraddress, str):
+            setattr(wanfangitem, 'Author Address', [authoraddress])
+
+        # Keywords list
+        keywords = getattr(wanfangitem, 'Keywords', '')   
+        if isinstance(keywords, str):
+            setattr(wanfangitem, 'Keywords', [keywords])
+    
     return data
 
 if __name__ == '__main__':
     filepath = './mrhpkg/filters/demo_wanfang_202101.net'
     data = getdata(filepath)
     for item in data:
-        print(getattr(item, 'Author', ''))
+        print(getattr(item, 'Keywords', ''))

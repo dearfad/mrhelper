@@ -83,10 +83,10 @@ def _get_mrhdata(rawdata):
     field_dict = {
         'author': {'WOS': 'AU', 'PUBMED': 'AU', 'WANFANG': 'Author', 'CNKI': 'Author-作者'},
         'title': {'WOS': 'TI', 'PUBMED': 'TI', 'WANFANG': 'Title', 'CNKI': 'Title-题名'},
-        'type': {'WOS': 'DT', 'PUBMED': 'PT', 'WANFANG': 'ReferenceType', 'CNKI': 'DataType'},
+        'type': {'WOS': 'DT', 'PUBMED': 'PT', 'WANFANG': 'Reference Type', 'CNKI': 'DataType'},
         'journal': {'WOS': 'SO', 'PUBMED': 'JT', 'WANFANG': 'Journal', 'CNKI': 'Source-刊名'},
         'year': {'WOS': 'PY', 'PUBMED': 'DP', 'WANFANG': 'Year', 'CNKI': 'Year-年'},
-        'volumn': {'WOS': 'VL', 'PUBMED': 'VI', 'WANFANG': '', 'CNKI': 'Roll-卷'},
+        'volumn': {'WOS': 'VL', 'PUBMED': 'VI', 'WANFANG': 'Volume', 'CNKI': 'Roll-卷'},
         'issue': {'WOS': 'IS', 'PUBMED': 'IP', 'WANFANG': 'Issue', 'CNKI': 'Period-期'},
         'page': {'WOS': ['BP', 'EP'], 'PUBMED': 'PG', 'WANFANG': 'Pages', 'CNKI': 'Page-页码'},
         'link': {'WOS': '', 'PUBMED': '', 'WANFANG': 'URL', 'CNKI': 'Link-链接'},
@@ -144,6 +144,11 @@ def _fix_mrhitem(mrhitem):
                 break
             else:
                 mrhitem.doi = ''
-        mrhitem.journal = mrhitem.journal.upper() if mrhitem.journal else ''
+        if mrhitem.journal:
+            mrhitem.journal = mrhitem.journal.split(' : ')[0]
+            mrhitem.journal = mrhitem.journal.split(' (')[0]
+            mrhitem.journal = mrhitem.journal.upper()
+        else:
+            mrhitem.journal = ''
 
     return mrhitem
