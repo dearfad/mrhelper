@@ -586,7 +586,7 @@ class MrhExport:
                 datafile.write('\n')
                 # Label
                 datafile.write('%F ')
-                datafile.write(str(item.rid + 1))
+                datafile.write('mr.'+str(item.rid + 1))
                 datafile.write('\n')
                 # End of Record
                 datafile.write('\n')
@@ -668,7 +668,7 @@ class MrhExport:
         else:
             title = ''
         seq = item.rid + 1
-        citation = "{%s, %s, %d}" % (authorname, year, seq)
+        citation = "{%s, %s, %s%d}" % (authorname, year, 'mr.', seq)
         iv = item.iv if item.iv else 'iv'
         dv = item.dv if item.dv else 'dv'
         rel = '+' if item.relation == 2 else '±'

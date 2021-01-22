@@ -728,12 +728,15 @@ class MainWindow(MrhMainWindow):
     # region Tab CLASSIFY
     def treelist_show(self):
         """Show Sequence of Selected References."""
+
         treelist = self.maintabwidget.tab_classify.treelist
         treelist.setSortingEnabled(False)
         treelist.clear()
         treedata = [item for item in MRHPROJECT.mrhdata if item.use == 2]
 
         group, subgroup, seq = set(), set(), set(MRHPROJECT.refseq)
+        
+        temprid = []
         for item in treedata:
             if item.group[0]:
                 group.add(item.group[0])
@@ -745,6 +748,12 @@ class MainWindow(MrhMainWindow):
                 item.group[1] = '- -'
             if item.rid not in seq:
                 MRHPROJECT.refseq.append(item.rid)
+            temprid.append(item.rid)
+        
+        removerid = list(set(seq).difference(set(temprid)))
+
+        for i in removerid:
+            MRHPROJECT.refseq.remove(i)
 
         treedata = [MRHPROJECT.mrhdata[rid] for rid in MRHPROJECT.refseq]
         self.treelist_createtree(treedata, group, subgroup)
@@ -926,7 +935,7 @@ class MainWindow(MrhMainWindow):
         scihuburl = self.maintabwidget.tab_config.scihuburl_lineedit
         url = CONFIG.ini['Scihub']['url']
         scihuburl.setText(url)
-    
+
     def _config_savebutton_click(self):
         scihuburl = self.maintabwidget.tab_config.scihuburl_lineedit.text()
         CONFIG.ini['Scihub']['url'] = scihuburl
@@ -938,9 +947,7 @@ class MainWindow(MrhMainWindow):
 
 def main():
     """Main Function."""
-    global CONFIG
-    cgitb.enable(format='text')
-    CONFIG = MrhConfig()  # Config With './mrhelper.ini'
+    cgitb.enable(format='text')  # Debug
 
     app = QApplication(sys.argv)
     app.setStyle(CONFIG.ini['Appearance']['style'])
@@ -950,4 +957,6 @@ def main():
 
 
 if __name__ == '__main__':
+    CONFIG = MrhConfig()  # Config With './mrhelper.ini'
+    MRHPROJECT = mrhimp.MrhProject()
     main()

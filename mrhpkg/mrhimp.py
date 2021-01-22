@@ -133,6 +133,8 @@ def _fix_mrhitem(mrhitem):
             mrhitem.cr = int(mrhitem.cr)
         if mrhitem.cs:
             mrhitem.cs = int(mrhitem.cs)
+        if isinstance(mrhitem.abstract, list):
+            mrhitem.abstract = ' '.join(mrhitem.abstract)
 
     if mrhitem.database == 'PUBMED':
         mrhitem.year = mrhitem.year[:4]
