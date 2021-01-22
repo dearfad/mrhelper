@@ -35,7 +35,7 @@ class CnkiItem:
 
 def getdata(filepath):
     """Return Data From File By E-Study Format Parser.
-    Normal: Return Data Type List
+    Normal: Return Data List
     Error:  Return -1
     """
     data = _parsefile(filepath) if checktype(filepath) else -1
@@ -70,19 +70,19 @@ def _fixdata(data):
     for cnkiitem in data:
 
         # Change Authors to list by split with ";"
-        authors = getattr(cnkiitem, 'Author-作者', '')
-        if authors:
-            setattr(cnkiitem, 'Author-作者', authors.strip(';').split(';'))
+        author = getattr(cnkiitem, 'Author-作者', '')
+        if author:
+            setattr(cnkiitem, 'Author-作者', author.strip(';').split(';'))
 
         # Change Keywords to list by split with ";"
-        keywords = getattr(cnkiitem, 'Keyword-关键词', '')
-        if authors:
-            setattr(cnkiitem, 'Keyword-关键词', keywords.split(';'))
+        keyword = getattr(cnkiitem, 'Keyword-关键词', '')
+        if keyword:
+            setattr(cnkiitem, 'Keyword-关键词', keyword.split(';'))
 
         # Change Organs to list by split with ";"
-        organs = getattr(cnkiitem, 'Organ-机构', '')
-        if authors:
-            setattr(cnkiitem, 'Organ-机构', organs.strip(';').split(';'))
+        organ = getattr(cnkiitem, 'Organ-机构', '')
+        if organ:
+            setattr(cnkiitem, 'Organ-机构', organ.strip(';').split(';'))
 
         # Apply Pubtime year to Year if no Year
         year = getattr(cnkiitem, 'Year-年', '')
@@ -99,5 +99,5 @@ def _fixdata(data):
 if __name__ == '__main__':
     filepath = './mrhpkg/filters/demo_cnki_202101.txt'
     data = getdata(filepath)
-    for item in data:
-        print(getattr(item, 'Link-链接', ''))
+    for cnkiitem in data:
+        print(getattr(cnkiitem, 'Author-作者', ''))
