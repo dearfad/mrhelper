@@ -4,8 +4,6 @@ beautifulsoup4
 requests
 requests[socks]
 pyinstaller
-mkdocs
 mkdocs-material
-pymdown-extensions
 pylint
 autopep8
