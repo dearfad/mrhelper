@@ -16,10 +16,6 @@ class MrhProject:
     """MrHelper Project Data Format."""
 
     def __init__(self):
-        self.title = ''
-        self.author = []
-        self.abstract = ''
-        self.keywords = []
         self.refseq = []
         self.mrhdata = []
         self.rawdata = []

@@ -41,15 +41,15 @@ class MrhTabWidget(QTabWidget):
         self.tab_read = MrhReadWidget()
         self.tab_classify = MrhClassifyWidget()
         self.tab_export = MrhExportWidget()
+        self.tab_config = MrhConfigWidget()
         self.tab_help = MrhHelpWidget()
         self.tab_about = MrhAboutWidget()
-        self.tab_config = MrhConfigWidget()
         self.addTab(self.tab_read, '阅读')
         self.addTab(self.tab_classify, '整理')
         self.addTab(self.tab_export, '导出')
+        self.addTab(self.tab_config, '设置')
         self.addTab(self.tab_help, '帮助')
         self.addTab(self.tab_about, '关于')
-        self.addTab(self.tab_config, '设置')
 
 
 # noinspection PyArgumentList
@@ -90,9 +90,11 @@ class MrhReadTable(QTableWidget):
         self.setShowGrid(True)
         self.setAlternatingRowColors(True)
         self.setSortingEnabled(False)
-        self.setSelectionBehavior(QAbstractItemView.SelectRows)  # Choose Entire Line
+        self.setSelectionBehavior(
+            QAbstractItemView.SelectRows)  # Choose Entire Line
         self.horizontalHeader().setStretchLastSection(True)  # Stretch Last Section
-        self.setContextMenuPolicy(Qt.CustomContextMenu)  # Allow Custom Context Menu
+        # Allow Custom Context Menu
+        self.setContextMenuPolicy(Qt.CustomContextMenu)
         self.verticalHeader().setObjectName('read_table_vheader')
         self.horizontalHeader().setObjectName('read_table_hheader')
 
@@ -285,7 +287,8 @@ class MrhClassifyTree(QTreeWidget):
         self.header().setStretchLastSection(True)
         self.setAlternatingRowColors(True)
         self.setColumnCount(6)
-        self.setHeaderLabels(['Tag', 'ID', 'RID', 'Group', 'SubGroup', 'Title'])
+        self.setHeaderLabels(
+            ['Tag', 'ID', 'RID', 'Group', 'SubGroup', 'Title'])
         columnwidth = [180, 50, 50, 90, 90]
         for index, width in enumerate(columnwidth):
             self.setColumnWidth(index, width)
@@ -330,27 +333,39 @@ class MrhExportWidget(QWidget):
     def __init__(self):
         super().__init__()
         self.formlayout = QFormLayout()
-        self.export_button = QPushButton('Export')
+        self.export_button = QPushButton('导出')
         self.export_button.setObjectName('export_export_button')
-        self.save_button = QPushButton('Save')
+        self.save_button = QPushButton('保存')
         self.save_button.setObjectName('export_save_button')
-        self.opendata_button = QPushButton('Open Data Folder')
+        self.opendata_button = QPushButton('打开目录')
         self.opendata_button.setObjectName('export_open_data_button')
-        self.title_lineedit = QLineEdit()
-        self.title_lineedit.setObjectName('export_title_linedit')
-        self.author_lineedit = QLineEdit()
-        self.author_lineedit.setObjectName('export_author_linedit')
-        self.abstract_lineedit = QLineEdit()
-        self.abstract_lineedit.setObjectName('export_abstract_linedit')
-        self.keywords_lineedit = QLineEdit()
-        self.keywords_lineedit.setObjectName('export_keywords_linedit')
         self.formlayout.addRow(self.export_button)
         self.formlayout.addRow(self.save_button)
         self.formlayout.addRow(self.opendata_button)
-        self.formlayout.addRow('Title: ', self.title_lineedit)
-        self.formlayout.addRow('Author: ', self.author_lineedit)
-        self.formlayout.addRow('Abstract: ', self.abstract_lineedit)
-        self.formlayout.addRow('Keywords: ', self.keywords_lineedit)
+        self.setLayout(self.formlayout)
+
+
+# noinspection PyArgumentList
+class MrhConfigWidget(QWidget):
+    """Tab Config."""
+
+    def __init__(self):
+        super().__init__()
+        self.formlayout = QFormLayout()
+
+        self.save_button = QPushButton('Save Config')
+        self.save_button.setObjectName('config_save_button')
+
+        self.scihub_label = QLabel('Scihub')
+        self.scihub_label.setObjectName('config_scihub_label')
+
+        self.scihuburl_lineedit = QLineEdit()
+        self.scihuburl_lineedit.setObjectName('config_scihuburl_linedit')
+
+        self.formlayout.addRow(self.save_button)
+        self.formlayout.addRow(self.scihub_label)
+        self.formlayout.addRow('url: ', self.scihuburl_lineedit)
+
         self.setLayout(self.formlayout)
 
 
@@ -379,27 +394,6 @@ class MrhAboutWidget(QWidget):
         self.hlayout.addWidget(self.about_textedit)
         self.setLayout(self.hlayout)
 
-class MrhConfigWidget(QWidget):
-    """Tab Config."""
-
-    def __init__(self):
-        super().__init__()
-        self.formlayout = QFormLayout()
-
-        self.save_button = QPushButton('Save Config')
-        self.save_button.setObjectName('config_save_button')
-
-        self.scihub_label = QLabel('Scihub')
-        self.scihub_label.setObjectName('config_scihub_label')
-
-        self.scihuburl_lineedit = QLineEdit()
-        self.scihuburl_lineedit.setObjectName('config_scihuburl_linedit')
-
-        self.formlayout.addRow(self.save_button)
-        self.formlayout.addRow(self.scihub_label)
-        self.formlayout.addRow('url: ', self.scihuburl_lineedit)
-
-        self.setLayout(self.formlayout)
 
 def main():
     """Show GUI."""

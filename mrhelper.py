@@ -89,9 +89,9 @@ class MainWindow(MrhMainWindow):
         self.maintabwidget.tab_read.functiongroup.save_button.setDisabled(True)
 
     def _set_fixed_content(self):
+        self.show_config()
         self.show_help()
         self.show_about()
-        self.show_config()
 
     # endregion
 
@@ -184,14 +184,6 @@ class MainWindow(MrhMainWindow):
             self.save_project)
         self.maintabwidget.tab_export.opendata_button.clicked.connect(
             self._open_data_folder_click)
-        self.maintabwidget.tab_export.title_lineedit.textEdited.connect(
-            self._export_info_edit)
-        self.maintabwidget.tab_export.author_lineedit.textEdited.connect(
-            self._export_info_edit)
-        self.maintabwidget.tab_export.abstract_lineedit.textEdited.connect(
-            self._export_info_edit)
-        self.maintabwidget.tab_export.keywords_lineedit.textEdited.connect(
-            self._export_info_edit)
 
     def _tab_config_sigslot(self):
         self.maintabwidget.tab_config.save_button.clicked.connect(
@@ -473,17 +465,21 @@ class MainWindow(MrhMainWindow):
         rid = self._get_current_rid()
         if rid != -1:
             item = MRHPROJECT.mrhdata[rid]
+            doi = item.doi
             pmid = item.pmid
             pmcid = item.pmcid
             link = item.link
             title = item.title
+            doi_url = 'https://doi.org/'
             xueshu_baidu_url = 'http://xueshu.baidu.com/s?wd='
             pubmed_url = 'https://www.ncbi.nlm.nih.gov/pubmed/'
             pmc_url = 'https://www.ncbi.nlm.nih.gov/pmc/articles/'
             # Change it as Preferred
             # scholar_google_url = 'https://scholar.google.com.hk/scholar?&q='
             # wanfang_url = 'http://www.wanfangdata.com.cn/search/searchList.do?searchType=all&searchWord='
-            if pmcid:
+            if doi:
+                webpage = doi_url + doi
+            elif pmcid:
                 webpage = pmc_url + pmcid
             elif pmid:
                 webpage = pubmed_url + pmid
@@ -888,21 +884,10 @@ class MainWindow(MrhMainWindow):
             item = item.__iadd__(1)
         return reftree
 
-    def _export_info_edit(self):
-        export = self.maintabwidget.tab_export
-        MRHPROJECT.title = export.title_lineedit.text()
-        MRHPROJECT.author = export.author_lineedit.text().split(' ')
-        MRHPROJECT.abstract = export.abstract_lineedit.text()
-        MRHPROJECT.keywords = export.keywords_lineedit.text().split(' ')
 
     def export_show(self):
         """Show export Tab."""
-        export = self.maintabwidget.tab_export
-        export.title_lineedit.setText(MRHPROJECT.title)
-        export.author_lineedit.setText(' '.join(MRHPROJECT.author))
-        export.abstract_lineedit.setText(MRHPROJECT.abstract)
-        export.keywords_lineedit.setText(' '.join(MRHPROJECT.keywords))
-        return
+        pass
 
     @staticmethod
     def _open_data_folder_click():

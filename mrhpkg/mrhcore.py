@@ -602,34 +602,24 @@ class MrhExport:
         #     print(style.name)
         #####################################
         # Add Title
-        if self.mrhproject.title:
-            self.document.add_heading(self.mrhproject.title, 1)
-        else:
-            self.document.add_heading('[Add Title Here]', 1)
+        self.document.add_heading('Review Title', 1)
+
         # Add Author
         paragraph = self.document.add_paragraph('')
         paragraph.alignment = WD_PARAGRAPH_ALIGNMENT.CENTER
-        for item in self.mrhproject.author:
-            author = paragraph.add_run(item)
-            author.bold = True
-            author.italic = True
-            paragraph.add_run(' ')
-        else:
-            paragraph.add_run('[Add Author List Here]')
+        author = paragraph.add_run('Author List')
+        author.bold = True
+        author.italic = True
+        paragraph.add_run(' ')
+
         # Add Abstract
         self.document.add_heading('Abstract', 4)
-        if self.mrhproject.abstract:
-            self.document.add_paragraph(self.mrhproject.abstract)
-        else:
-            self.document.add_paragraph('[Add Abstract Here]')
+        self.document.add_paragraph('Abstract Content')
+
         # Add Keywords
         paragraph = self.document.add_paragraph('Keywords: ', 'Heading 4')
-        for index, item in enumerate(self.mrhproject.keywords):
-            paragraph.add_run(item)
-            if index != len(self.mrhproject.keywords) - 1:
-                paragraph.add_run(', ')
-        else:
-            paragraph.add_run('[Add Keywords Here]')
+        paragraph.add_run('Keywords List')
+
         # Add Heading&References
         for node in self.reftree:
             if node[2] == -1:
