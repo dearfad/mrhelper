@@ -8,24 +8,24 @@
 
 |MrhData|Endnote|Web Of Science|Pubmed|万方|CNKI|
 |-|-|-|-|-|-|
-|author|%A|AU|AU|Author|Author|
-|title|%T|TI|TI|Title|Title|
+|author|%A|AU|AU|Author|Author-作者|
+|title|%T|TI|TI|Title|Title-题名|
 |type|%0|DT|PT|ReferenceType|DataType|
-|journal|%J|SO|JT|Journal|Source|
-|year|%D|PY|DP|Year|Year|
-|volumn|%V|VL|VI||Roll|
-|issue|%N|IS|IP|Issue|Period|
-|page|%P|BP-EP|PG|Pages|Page|
-|link|%U|||URL|Link|
+|journal|%J|SO|JT|Journal|Source-刊名|
+|year|%D|PY|DP|Year|Year-年|
+|volumn|%V|VL|VI||Roll-卷|
+|issue|%N|IS|IP|Issue|Period-期|
+|page|%P|BP-EP|PG|Pages|Page-页码|
+|link|%U|||URL|Link-链接|
 |doi|%R|DI|AID|DOI||
 |pmid|%M|PM|PMID|||
 |pmcid|||PMC|||
-|abstract|%X|AB|AB|Abstract|Summary|
+|abstract|%X|AB|AB|Abstract|Summary-摘要|
 |cs||TC||||
 |cr||NR||||
 |lcr||LCR||||
 |lcs||LCS||||
-|keywords|%K|DE|OT|Keywords|Keyword|
+|keywords|%K|DE|OT|Keywords|Keyword-关键词|
 
 ## **转换字段修正说明**
 
@@ -41,9 +41,6 @@
 
 ### **CNKI**
 
-* 链接：
-    1. 转换`'/kns/' -> '/kcms/'`
-    2. 转换`'nvsm.cnki.net' -> 'kns.cnki.net'`
 * 类型：
     1. `rawitem.type == '1': mrhitem.type = 'Journal Article'`
 

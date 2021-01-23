@@ -7,7 +7,7 @@
 
 ## **文献导出格式对照表**
 
-**最后更新**：2018.05.29
+**最后更新**：2021.01.23
 
 |Fields|NoteExpress|RefWorks|NoteFirst|EndNote|Bibtex|
 |-|-|-|-|-|-|
@@ -17,7 +17,7 @@
 |Journal|Y (CN/ENG)|Y (CN/ENG)|Y (CN)|Y (CN/ENG)|Y (CN)|
 |Type|Y|Y|Y|Y|Y|
 |Year|Y|Y|Y|Y|Y|
-|Volumn|N|N|N|N|N|
+|Volumn|Y|Y|Y|Y|Y|
 |Issue|Y|Y|Y|Y|Y|
 |Page|Y (BP/EP)|Y (BP/EP)|Y (BP/EP)|Y (BP/EP)|Y (BP/EP)|
 |**Analysis Fields**|
@@ -46,39 +46,29 @@
 
     ```text
     {Reference Type}: Journal Article
-    {Title}: 医护人员职业性损伤的危险因素及防护对策
-    {Author}: 戴青梅
-    {Author}: 王立英
-    {Author}: 刘素美
-    {Author}: 李法云
-    {Author Address}: 261041
-    {Author Address}: 261041
-    {Author Address}: 261041
-    {Author Address}: 潍坊市卫生局医政科
-    {Journal}: 中华护理杂志
-    {Translated Journal}: CHINESE JOURNAL OF NURSING
-    {ISBN/ISSN}: 0254-1769
-    {Year}: 2002
-    {Issue}: 7
-    {Pages}: 532-534
-    {Keywords}: 医护人员
-    {Keywords}: 职业性
-    {Keywords}: 性损伤
-    {Keywords}: 危险因素
-    {Keywords}: 医务工作者
-    {Keywords}: 诊疗技术
-    {Keywords}: 医学科学
-    {Keywords}: 危害因素
-    {Keywords}: 身心健康
-    {Keywords}: 临床应用
-    {Keywords}: 化学药物
-    {Keywords}: 个人防护
-    {Keywords}: 高新技术
-    {Keywords}: 操作过程
-    {Keywords}: 护理
-    {Keywords}: 国内
-    {Abstract}: 随着医学科学的发展和各种诊疗技术的推广，尤其是近几年新的化学药物和高新技术的临床应用，医务工作者常暴露于多种职业性危害因素之中，在诊疗、护理、操作过程中若不注意个人防护容易造成职业性损伤（occupational injuries,OI）,严重威胁着医护人员的身心健康，成为目前亟待解决的问题，现将国内外OI最新进展情况综述如下。
-    {URL}: http://www.wanfangdata.com.cn/details/detail.do?_type=perio&id=zhhlzz200207021
+    {Title}: 乳腺癌术后患者婚姻质量与负性情绪、社会支持的相关性
+    {Translated Title}: Relationship between marital quality, negative emotion and social support in patients with breast cancer after operation
+    {Author}: 许雅琼
+    {Author}: 张银萍
+    {Translated Author}: XU Ya-qiong
+    {Translated Author}: ZHANG Yin-ping
+    {Author Address}: 西安交通大学医学部公共卫生学院,陕西 西安,710061;西安交通大学第二附属医院肿瘤病院,陕西 西安,710004
+    {Author Address}: 西安交通大学医学部
+    {Journal}: 临床医学研究与实践
+    {Translated Journal}: Clinical Research and Practice
+    {ISBN/ISSN}: 2096-1413
+    {Year}: 2020
+    {Volume}: 5
+    {Issue}: 1
+    {Pages}: 49-51
+    {Keywords}: 乳腺癌
+    {Keywords}: 婚姻质量
+    {Keywords}: 焦虑
+    {Keywords}: 抑郁
+    {Keywords}: 社会支持
+    {Abstract}: 目的 调查乳腺癌术后患者婚姻质量,并探讨负性情绪、社会支持与乳腺癌术后患者婚姻质量的相关性.方法 选取西安交通大学第二附属医院肿瘤外科的乳腺癌术后患者110例,采用一般情况调查问卷、中国人婚姻质量问卷(CMQI)、焦虑自评量表(SAS)、抑郁自评量表(SDS)和社会支持评定量表(SSRS)进行调查.结果 患者的婚姻质量总分低于常模,SAS和SDS评分均高于常模(P<0.05).患者的婚姻质量评分与SAS评分、SDS评分呈负相关,与社会支持评分呈正相关(P<0.05).结论 乳腺癌术后患者婚姻质量会降低且容易产生负性情绪,医护人员应该加强对其心理健康的关注,提高对患者的社会支持.
+    {URL}: http://www.wanfangdata.com.cn/details/detail.do?_type=perio&id=lcyxyjysj202001019
+    {DOI}: 10.19347/j.cnki.2096-1413.202001019
     {Database Provider}: 北京万方数据股份有限公司
     {Language}: chi
     ```
@@ -86,7 +76,7 @@
 !!! note "格式"
 
     * 文件起始：{Reference Type}: XXXX
-    * 文件终止：空行
+    * 文件终止：无
     * 文献起始：{Reference Type}: XXXX
     * 文献终止：空行
     * 字段标识：{XXXX}: YYYYYYYY
@@ -100,6 +90,12 @@
 
     srcdata = wanfang.getdata(filepath)
     ```
+
+!!! note "校验及更正"
+
+    * Abstract有分行BUG，已合并
+    * 'Author', 'Translated Author', 'Author Address', 'Keywords' -> if str -> list
+    * if Abstact list -> str
 
 ## **RefWorks**
 

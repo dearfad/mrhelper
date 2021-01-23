@@ -3,7 +3,9 @@
 ---
 
 * **解析文件**：./mrhpkg/filters/pubmed.py
-* **默认格式**：MEDLINE
+* **默认格式**：Citation manager - MEDLINE
+
+**最后更新**：2021.01.23
 
 ## **MEDLINE**
 
@@ -93,14 +95,12 @@
 
 !!! note "格式"
 
-    * 文件起始：空行
+    * 文件起始：PMID- XXXXXXXX
     * 文件终止：空行
     * 文献起始：PMID- XXXXXXXX
     * 文献终止：空行
     * 字段标识：XXXX- YYYYYYYY
-    * 校验方式：
-        1. 第1行： `line = '/n'`
-        2. 第2行前4个字母： `line[:4] = 'PMID'`
+    * 校验方式：第1行： readline()[:4] == 'PMID'
 
 !!! note "方法"
 
@@ -110,14 +110,6 @@
     srcdata = pubmed.getdata(filepath)
     ```
 
-## **XML**
+!!! note "校验及更正"
 
-!!! 暂无计划支持
-
-## **PMID List**
-
-!!! 暂无计划支持
-
-## **CSV**
-
-!!! 暂无计划支持
+    * 'AU', 'FAU', 'AUID', 'AD', 'OT' -> if str -> list

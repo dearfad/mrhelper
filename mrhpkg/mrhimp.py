@@ -39,6 +39,9 @@ class MrhItem:
         self.pmcid = ''
         self.abstract = ''
         self.keywords = []
+        self.author_en = []
+        self.title_en = ''
+        self.journal_en = ''
         # Mrhelper Define Field
         self.rid = -1  # References ID
         self.database = ''  # WOS, PUBMED, CNKI, WANFANG
@@ -94,7 +97,10 @@ def _get_mrhdata(rawdata):
         'cr': {'WOS': 'NR', 'PUBMED': '', 'WANFANG': '', 'CNKI': ''},
         'lcr': {'WOS': 'LCR', 'PUBMED': '', 'WANFANG': '', 'CNKI': ''},
         'lcs': {'WOS': 'LCS', 'PUBMED': '', 'WANFANG': '', 'CNKI': ''},
-        'keywords': {'WOS': 'DE', 'PUBMED': 'OT', 'WANFANG': 'Keywords', 'CNKI': 'Keyword-关键词'}
+        'keywords': {'WOS': 'DE', 'PUBMED': 'OT', 'WANFANG': 'Keywords', 'CNKI': 'Keyword-关键词'},
+        'author_en': {'WOS': '', 'PUBMED': '', 'WANFANG': 'Translated Author', 'CNKI': ''},
+        'title_en': {'WOS': '', 'PUBMED': '', 'WANFANG': 'Translated Title', 'CNKI': ''},
+        'journal_en': {'WOS': '', 'PUBMED': '', 'WANFANG': 'Translated Journal', 'CNKI': ''}
     }
     for rid, rawitem in enumerate(rawdata):
         mrhitem = MrhItem()
@@ -116,8 +122,7 @@ def _fix_mrhitem(mrhitem):
     """Fix mrhdata For General Use."""
 
     if mrhitem.database == 'WANFANG':
-        if  isinstance(mrhitem.abstract, list):
-            mrhitem.abstract = ' '.join(mrhitem.abstract)
+        pass
 
     if mrhitem.database == 'CNKI':
         if mrhitem.type == '1':
@@ -129,8 +134,7 @@ def _fix_mrhitem(mrhitem):
             mrhitem.cr = int(mrhitem.cr)
         if mrhitem.cs:
             mrhitem.cs = int(mrhitem.cs)
-        if isinstance(mrhitem.abstract, list):
-            mrhitem.abstract = ' '.join(mrhitem.abstract)
+
 
     if mrhitem.database == 'PUBMED':
         mrhitem.year = mrhitem.year[:4]

@@ -465,21 +465,21 @@ class MainWindow(MrhMainWindow):
         rid = self._get_current_rid()
         if rid != -1:
             item = MRHPROJECT.mrhdata[rid]
-            doi = item.doi
             pmid = item.pmid
             pmcid = item.pmcid
             link = item.link
             title = item.title
-            doi_url = 'https://doi.org/'
-            xueshu_baidu_url = 'http://xueshu.baidu.com/s?wd='
             pubmed_url = 'https://www.ncbi.nlm.nih.gov/pubmed/'
             pmc_url = 'https://www.ncbi.nlm.nih.gov/pmc/articles/'
+
             # Change it as Preferred
+            # doi_url = 'https://doi.org/'
             # scholar_google_url = 'https://scholar.google.com.hk/scholar?&q='
+            xueshu_baidu_url = 'http://xueshu.baidu.com/s?wd='
             # wanfang_url = 'http://www.wanfangdata.com.cn/search/searchList.do?searchType=all&searchWord='
-            if doi:
-                webpage = doi_url + doi
-            elif pmcid:
+
+            #TODO wos link
+            if pmcid:
                 webpage = pmc_url + pmcid
             elif pmid:
                 webpage = pubmed_url + pmid
@@ -487,6 +487,7 @@ class MainWindow(MrhMainWindow):
                 webpage = link
             else:
                 webpage = xueshu_baidu_url + title
+
             QDesktopServices().openUrl(QUrl(webpage))
 
     def _fulltext_button_clicked(self):

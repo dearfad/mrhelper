@@ -54,35 +54,31 @@ def checktype(filepath):
 def _parsefile(filepath):
     """Parse Exported File From CNKI in ESTUDY format."""
     data = []
-    lastfield = ''
+    cnkiitem = ''
     with open(filepath, encoding='utf-8') as datafile:
         for line in datafile:
             field, text = line.strip().split(': ')
             if field == 'DataType':
                 cnkiitem = CnkiItem()
                 data.append(cnkiitem)
-            setattr(cnkiitem, field, text)
+            if cnkiitem:
+                setattr(cnkiitem, field, text)
     return data
 
 
 def _fixdata(data):
     """Data Preparation."""
+
+    listfield = set(['Author-作者', 'Keyword-关键词', 'Organ-机构'])
+
     for cnkiitem in data:
 
-        # Change Authors to list by split with ";"
-        author = getattr(cnkiitem, 'Author-作者', '')
-        if author:
-            setattr(cnkiitem, 'Author-作者', author.strip(';').split(';'))
-
-        # Change Keywords to list by split with ";"
-        keyword = getattr(cnkiitem, 'Keyword-关键词', '')
-        if keyword:
-            setattr(cnkiitem, 'Keyword-关键词', keyword.split(';'))
-
-        # Change Organs to list by split with ";"
-        organ = getattr(cnkiitem, 'Organ-机构', '')
-        if organ:
-            setattr(cnkiitem, 'Organ-机构', organ.strip(';').split(';'))
+        # Change field to list
+        for key in cnkiitem.__dict__.keys():
+            if key in listfield:
+                item = getattr(cnkiitem, key, '')
+                if item:
+                    setattr(cnkiitem, key, item.strip(';').split(';'))
 
         # Apply Pubtime year to Year if no Year
         year = getattr(cnkiitem, 'Year-年', '')
@@ -100,4 +96,4 @@ if __name__ == '__main__':
     filepath = './mrhpkg/filters/demo_cnki_202101.txt'
     data = getdata(filepath)
     for cnkiitem in data:
-        print(getattr(cnkiitem, 'Author-作者', ''))
+        print(getattr(cnkiitem, 'Keyword-关键词', ''))

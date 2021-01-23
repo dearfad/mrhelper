@@ -18,5 +18,5 @@ HELP = '''
 <b>Step 8</b>: 使用<b>Word</b>打开save目录下综述文档<b>reference.docx</b>，在Endnote栏下将Instant Formatting is <b>Off</b>更改为<b>On</b><br>
 <b>Step 9</b>: <b>保存</b>综述文档<br>
 </td></table>
-</div>'
+</div>
 '''

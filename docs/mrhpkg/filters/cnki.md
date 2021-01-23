@@ -3,11 +3,11 @@
 ---
 
 * **解析文件**：./mrhpkg/filters/cnki.py
-* **默认格式**：E-STUDY
+* **默认格式**：知网研学（原E-Study）
 
 ## **文献导出格式对照表**
 
-**最后更新**：2018.05.14
+**最后更新**：2021.01.23
 
 |Fields|CNKI E-Study|RefWorks|Endnote|NoteExpress|NoteFirst|
 |-|-|-|-|-|-|
@@ -17,18 +17,18 @@
 |Journal|Y (CN)|Y (CN)|Y (CN)|Y (CN)|Y (CN)|
 |Type|Y|Y|Y|Y|Y|
 |Year|Y|Y|Y|Y|Y|
-|Volumn|Y|N|N|N|N|
+|Volumn|Y|Y|Y|Y|Y|
 |Issue|Y|Y|Y|Y|Y|
 |Page|Y (BP/EP)|Y (BP/EP)|Y (BP/EP)|Y (BP/EP)|Y (BP/EP)|
 |**Analysis Fields**|
 |Month|Y|N|N|N|N|
-|Link|Y[^1]|N|N|N|N|
+|Link|Y|N|N|N|N|
 |DOI|N|N|N|N|N|
 |Abstract|Y|Y|Y|Y|Y|
 |Keywords|Y|Y|Y|Y|Y|
-|Address|N|Y|Y|Y|N|
+|Address|Y|Y|Y|Y|Y|
 |ISSN|N|Y|Y|Y|Y|
-|Database[^2]|Y|Y|N|Y|N|
+|Database[^1]|Y|Y|N|Y|N|
 |Language|N|Y|N|N|Y|
 |**Other Fields**|
 |Country|N|N|N|N|N|
@@ -36,8 +36,7 @@
 |Notes|N|N|N|Y|N|
 |CallNum|N|Y|Y|N|N|
 
-[^1]: **错误**：链接无法访问，需更改/kns/->/kcms/
-[^2]: **标注**：来源数据库，期刊，报纸...
+[^1]: **标注**：DataType 1=学术期刊，2=学位论文，等等；SrcDatabase-来源库 定义2级标题，期刊，硕士，博士，报纸...
 
 ## **E-STUDY**
 
@@ -55,20 +54,20 @@
     Period-期: 07
     PageCount-页数: 1
     Page-页码: 161
-    SrcDatabase-来源数据库: 期刊
+    SrcDatabase-来源库: 期刊
     Organ-机构: 新疆医科大学学报编辑部;
-    Link-链接: http://kns.cnki.net/kns/detail/detail.aspx?FileName=XXJK201307097&DbName=CJFQ2013
+    Link-链接: https://kns.cnki.net/kcms/detail/detail.aspx?FileName=XXJK201307097&DbName=CJFQ2013
     ```
 
 !!! note "格式"
 
-    * 文件起始：`<?xml version="1.0" encoding="utf-8"?>`
-    * 文件终止：空行
-    * 文献起始：`<DATA>`
-    * 文献终止：`</DATA>`
-    * 字段标识：XML
+    * 文件起始：`DataType: 1`
+    * 文件终止：无
+    * 文献起始：`DataType: 1`
+    * 文献终止：无
+    * 字段标识：XXX-YYY: ZZZ
     * 校验方式：
-        1. 第1行： `<?xml version="1.0" encoding="utf-8"?>\n`
+        1. 第1行： `DataType: 1\n`
 
 !!! note "方法"
 
@@ -77,6 +76,12 @@
 
     srcdata = cnki.getdata(filepath)
     ```
+
+!!! note "校验及更正"
+
+    * Author-作者 Keyword-关键词 Organ-机构 -> list
+    * 其余字段 -> 未校验
+    * 如果'Year-年'无内容，则使用'PubTime-出版时间'内'-'前字符替换
 
 ## **Refworks**
 

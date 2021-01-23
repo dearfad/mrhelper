@@ -116,6 +116,7 @@ def _parsefile(filepath):
     """Parse Exported File From Pubmed in MEDLINE format."""
     data = []
     lastfield = ''
+    pubmeditem = ''
     with open(filepath, encoding='utf-8') as datafile:
         for line in datafile:
             if line != '\n':
@@ -150,12 +151,18 @@ def _parsefile(filepath):
 def _fixdata(data):
     """Data Preparation."""
     # Change str to list format
+
+    listfield = set(['AU', 'FAU', 'AUID', 'AD', 'OT'])
+
     for pubmeditem in data:
 
-        # Author list
-        authors = getattr(pubmeditem, 'AU', '')
-        if isinstance(authors, str):
-            setattr(pubmeditem, 'AU', [authors])
+        # Change field to list
+        for key in pubmeditem.__dict__.keys():
+            if key in listfield:
+                item = getattr(pubmeditem, key, '')
+                if item:
+                    if isinstance(item, str):
+                        setattr(pubmeditem, key, [item])
 
     return data
 
@@ -163,5 +170,5 @@ def _fixdata(data):
 if __name__ == '__main__':
     filepath = './mrhpkg/filters/demo_pubmed_202101.nbib'
     data = getdata(filepath)
-    for item in data:
-        print(getattr(item, 'JT', ''))
+    for pubmeditem in data:
+        print(getattr(pubmeditem, 'OT', ''))

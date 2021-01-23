@@ -61,6 +61,7 @@ def _parsefile(filepath):
     """Parse Exported File From WanFang in NoteExpress format."""
     data = []
     lastfield = ''
+    wanfangitem = ''
     with open(filepath, encoding='utf-8') as datafile:
         for line in datafile:
             if line != '\n':
@@ -77,7 +78,7 @@ def _parsefile(filepath):
                 if field == 'Reference Type':
                     wanfangitem = WanfangItem()
                     data.append(wanfangitem)
-                    
+
                 if field == lastfield:
                     content = getattr(wanfangitem, field)
                     if isinstance(content, str):
@@ -94,27 +95,32 @@ def _parsefile(filepath):
 def _fixdata(data):
     """Data Preparation."""
 
-    # Change str to list format
     for wanfangitem in data:
 
-        # Author list
-        authors = getattr(wanfangitem, 'Author', '')
-        if isinstance(authors, str):
-            setattr(wanfangitem, 'Author', [authors])
-        # Author Address list
-        authoraddress = getattr(wanfangitem, 'Author Address', '')
-        if isinstance(authoraddress, str):
-            setattr(wanfangitem, 'Author Address', [authoraddress])
+        # Change str to list format
+        listfield = set(['Author', 'Translated Author',
+                         'Author Address', 'Keywords'])
 
-        # Keywords list
-        keywords = getattr(wanfangitem, 'Keywords', '')   
-        if isinstance(keywords, str):
-            setattr(wanfangitem, 'Keywords', [keywords])
-    
+        for wanfangitem in data:
+
+            # Change field to list
+            for key in wanfangitem.__dict__.keys():
+                if key in listfield:
+                    item = getattr(wanfangitem, key, '')
+                    if isinstance(item, str):
+                        setattr(wanfangitem, key, [item])
+
+            # Change Abstract list to str Fix
+            abstract = getattr(wanfangitem, 'Abstract', '')
+            if abstract:
+                if isinstance(abstract, list):
+                    setattr(wanfangitem, 'Abstract', ' '.join(abstract))
+
     return data
+
 
 if __name__ == '__main__':
     filepath = './mrhpkg/filters/demo_wanfang_202101.net'
     data = getdata(filepath)
-    for item in data:
-        print(getattr(item, 'Keywords', ''))
+    for wanfangitem in data[:1]:
+        print(getattr(wanfangitem, 'Abstract', ''))

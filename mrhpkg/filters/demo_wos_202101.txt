@@ -1,0 +1,1089 @@
+﻿FN Clarivate Analytics Web of Science
+VR 1.0
+PT J
+AU Husinka, L
+   Koerner, PH
+   Miller, RT
+   Trombatt, W
+AF Husinka, Lakyn
+   Koerner, Pamela H.
+   Miller, Rick T.
+   Trombatt, William
+TI Review of cyclin-dependent kinase 4/6 inhibitors in the treatment of
+   advanced or metastatic breast cancer
+SO JOURNAL OF DRUG ASSESSMENT
+LA English
+DT Review
+DE Palbociclib; abemaciclib; ribociclib; breast cancer; cancer; side
+   effects; safety; adverse events
+AB Objective
+   The purpose of this study is to review CDK 4/6 inhibitors used to treat metastatic breast cancer for patient safety, cost and utilization. By evaluating patient outcomes and payer influence, this study will provide critical information to aid prescribers in therapeutic decisions.
+   Methods
+   This retrospective cohort study included patients from a national specialty pharmacy with a diagnosis of breast cancer and received either palbociclib, abemaciclib, or ribociclib for treatment. Patients were stratified into four subgroups based on their total oncolytic regimen at the time of their first eligible study medication dispense. Pharmacy claims data were reviewed to determine cost and therapy adherence.
+   Results
+   The mean proportion of days covered was highest in patients on combination therapy with a hormone agent, 81.0%. While secondary insurances largely affected final patient out-of-pocket costs, final copays were significantly lower than the average wholesale price (AWP) of each CDK 4/6 inhibitor. When analyzing patient reported side effects, over 60% of the study population did not experience an adverse drug event (ADE) during the study time period. Ribociclib had the fewest number of reported side effects with abemaciclib patients reporting the most. Although reported ADE profiles were similar across all three study medications, difference in frequency should be evaluated when considering medication choice with specific comorbidities.
+   Conclusion
+   CDK 4/6 inhibitors have demonstrated safety and tolerability in HR-positive/HER2-negative breast cancer patients. Real world safety data and out-of-pocket patient costs in addition patient specific comorbidities should be considered when developing a treatment plan that includes a CDK 4/6 inhibitor selection.
+C1 [Husinka, Lakyn; Miller, Rick T.; Trombatt, William] AllianceRx Walgreens Prime, Pittsburgh, PA USA.
+   [Husinka, Lakyn; Koerner, Pamela H.] Duquesne Univ, Sch Pharm, Pittsburgh, PA 15219 USA.
+RP Husinka, L (corresponding author), 106 Bookbinder Cir, Pittsburgh, PA 15212 USA.
+EM Lakyn.husinka@gmail.com
+CR ACS, 2020, BREAST CANC COMM BRE
+   [Anonymous], 2020, CDK4 6 INH REACH NEW
+   [Anonymous], 2019, HORM THER BREAST CAN
+   [Anonymous], 2020, BREAST CANC
+   Finn RS, 2016, J CLIN ONCOL, V34, DOI 10.1200/JCO.2016.34.15_suppl.507
+   Foulon V, 2011, ACTA CLIN BELG, V66, P85, DOI 10.2143/ACB.66.2.2062525
+   Hansen LA, 2012, J HEMATOL ONCOL PHAR
+   Im SA, 2019, NEW ENGL J MED, V381, P307, DOI 10.1056/NEJMoa1903765
+   IQVIA Institute for Human Data Science, 2019, MED US SPEND US REV
+   Landhuis E, 2019, SCI NEWS, V196, P8
+   Marra A, 2019, NPJ BR CAN
+   Marra A, 2019, NPJ BREAST CANCER, V5, DOI 10.1038/s41523-019-0121-y
+   Miller TW, 2011, CANCER DISCOV, V1, P338, DOI 10.1158/2159-8290.CD-11-0101
+   Paranjpe R, 2019, BREAST CANCER RES TR, V174, P297, DOI 10.1007/s10549-018-05073-z
+   Spring LM, 2019, CURR ONCOL REP, V21, DOI 10.1007/s11912-019-0769-3
+   Stokes M, 2017, BMC HEALTH SERV RES, V17, DOI 10.1186/s12913-017-2373-2
+   Verma S, 2016, ONCOLOGIST, V21, P1165, DOI 10.1634/theoncologist.2016-0097
+   Wang F, 2019, JAMA ONCOL, V5, P1589, DOI 10.1001/jamaoncol.2019.2803
+NR 18
+TC 0
+Z9 0
+U1 10
+U2 10
+PU TAYLOR & FRANCIS INC
+PI PHILADELPHIA
+PA 530 WALNUT STREET, STE 850, PHILADELPHIA, PA 19106 USA
+SN 1369-9474
+EI 2155-6660
+J9 J DRUG ASSESS
+JI J. Drug Assess.
+PD DEC 15
+PY 2021
+VL 10
+IS 1
+BP 27
+EP 34
+DI 10.1080/21556660.2020.1857103
+PG 8
+WC Pharmacology & Pharmacy
+SC Pharmacology & Pharmacy
+GA PK7WD
+UT WOS:000602649200001
+PM 33414982
+OA DOAJ Gold, Green Published
+DA 2021-01-23
+ER
+
+PT J
+AU Zlowocka-Perlowska, E
+   Debniak, T
+   Slojewski, M
+   Leminski, A
+   Soczawa, M
+   van de Wetering, T
+   Trubicka, J
+   Kluzniak, W
+   Wokolorczyk, D
+   Cybulski, C
+   Lubinski, J
+AF Zlowocka-Perlowska, Elzbieta
+   Debniak, Tadeusz
+   Slojewski, Marcin
+   Leminski, Artur
+   Soczawa, Michal
+   van de Wetering, Thierry
+   Trubicka, Joanna
+   Kluzniak, Wojciech
+   Wokolorczyk, Dominika
+   Cybulski, Cezary
+   Lubinski, Jan
+TI Recurrent PALB2 mutations and the risk of cancers of bladder or kidney
+   in Polish population
+SO HEREDITARY CANCER IN CLINICAL PRACTICE
+LA English
+DT Article
+DE 509_510delGA; 172_175delTTGT mutation; PALB2; Survival
+ID FANCONI-ANEMIA; BREAST-CANCER; DNA-REPAIR; GENE-MUTATIONS; PREDISPOSE;
+   PARTNER; WOMEN
+AB Introduction: The role of PALB2 in carcinogenesis remains to be clarified. Our main goal was to determine the prevalence of PALB2 (509_510delGA and 172_175delTTGT) mutations in bladder and kidney cancer patients from Polish population.
+   Materials and methods: 1413 patients with bladder and 810 cases with kidney cancer and 4702 controls were genotyped for two PALB2 variants: 509_510delGA and 172_175delTTGT.
+   Results: Two mutations of PALB2 gene were detected in 5 of 1413 (0.35%) unselected bladder cases and in 10 of 4702 controls (odds ratio [OR], 1.7; 95% CI 0.56-4.88; p = 0.52). Among 810 unselected kidney cancer cases two PALB2 mutations were reported in two patients (0,24%) (odds ratio [OR], (OR = 1.2; 95% CI 0.25-5.13; p = 0.84). In cases with mutations in PALB2 gene cancer family history was negative.
+   Conclusion: We found no difference in the prevalence of recurrent PALB2 mutations between cases and healthy controls. The mutations in PALB2 gene seem not to play a major role in bladder and kidney cancer development in Polish patients.
+C1 [Zlowocka-Perlowska, Elzbieta; Debniak, Tadeusz; Kluzniak, Wojciech; Wokolorczyk, Dominika; Cybulski, Cezary; Lubinski, Jan] Pomeranian Med Univ, Dept Genet & Pathol, Int Hereditary Canc Ctr, Unii Lubelskiej 1, PL-71252 Szczecin, Poland.
+   [Slojewski, Marcin; Leminski, Artur; Soczawa, Michal] Pomeranian Med Univ, Dept Urol & Urol Oncol, Szczecin, Poland.
+   [van de Wetering, Thierry] Gdanski Uniwerytet Med, Zaklad Med Diagnostyki Lab Gdansku, Gdansk, Poland.
+   [Trubicka, Joanna] Childrens Mem Hlth Inst, Dept Pathol, Warsaw, Poland.
+RP Zlowocka-Perlowska, E (corresponding author), Pomeranian Med Univ, Dept Genet & Pathol, Int Hereditary Canc Ctr, Unii Lubelskiej 1, PL-71252 Szczecin, Poland.
+EM elzunik@wp.pl
+CR Adank MA, 2010, PEDIATR BLOOD CANCER, V55, P742, DOI 10.1002/pbc.22588
+   Cybulski C, 2015, CLIN GENET, V88, P366, DOI 10.1111/cge.12524
+   Cybulski C, 2015, LANCET ONCOL, V16, P638, DOI 10.1016/S1470-2045(15)70142-7
+   Dansonka-Mieszkowska A, 2010, BMC MED GENET, V11, DOI 10.1186/1471-2350-11-20
+   Erkko H, 2007, NATURE, V446, P316, DOI 10.1038/nature05609
+   Foulkes WD, 2007, BREAST CANCER RES, V9, DOI 10.1186/bcr1828
+   Gronwald Jacek, 2006, Hered Cancer Clin Pract, V4, P56, DOI 10.1186/1897-4287-4-1-56
+   Hayashi K, 2019, AM J NEPHROL, V50, P81, DOI 10.1159/000501356
+   Heeke AL, 2018, JCO PRECIS ONCOL, V2, P1, DOI 10.1200/PO.17.00286
+   Hsieh P, 2008, MECH AGEING DEV, V129, P391, DOI 10.1016/j.mad.2008.02.012
+   Iqbal J, 2012, BRIT J CANCER, V107, P2005, DOI 10.1038/bjc.2012.483
+   Kanchi KL, 2014, NAT COMMUN, V5, DOI 10.1038/ncomms4156
+   Lener MR, 2016, INT J CANCER, V139, P601, DOI 10.1002/ijc.30116
+   Lupo B, 2014, BBA-REV CANCER, V1846, P201, DOI 10.1016/j.bbcan.2014.07.004
+   Majidinia M, 2017, DNA REPAIR, V54, P22, DOI 10.1016/j.dnarep.2017.03.009
+   Mouw KW, 2017, CANCERS, V9, DOI 10.3390/cancers9040028
+   Nepomuceno TC, 2017, INT J MOL SCI, V18, DOI 10.3390/ijms18091886
+   Norquist BM, 2016, JAMA ONCOL, V2, P482, DOI 10.1001/jamaoncol.2015.5495
+   Polo SE, 2011, GENE DEV, V25, P409, DOI 10.1101/gad.2021311
+   Reid S, 2007, NAT GENET, V39, P162, DOI 10.1038/ng1947
+   Rimar KJ, 2017, CANCER-AM CANCER SOC, V123, P1912, DOI 10.1002/cncr.30631
+   Warner EW, 2019, BJU INT, V123, P769, DOI 10.1111/bju.14576
+   Xia B, 2007, NAT GENET, V39, P159, DOI 10.1038/ng1942
+   Xia B, 2006, MOL CELL, V22, P719, DOI 10.1016/j.molcel.2006.05.022
+   Yap KL, 2014, CLIN CANCER RES, V20, P6605, DOI 10.1158/1078-0432.CCR-14-0257
+NR 25
+TC 0
+Z9 0
+U1 0
+U2 0
+PU BMC
+PI LONDON
+PA CAMPUS, 4 CRINAN ST, LONDON N1 9XW, ENGLAND
+SN 1731-2302
+EI 1897-4287
+J9 HERED CANCER CLIN PR
+JI Hered. Cancer Clin. Pract.
+PD DEC 8
+PY 2021
+VL 19
+IS 1
+AR 6
+DI 10.1186/s13053-020-00161-y
+PG 5
+WC Oncology
+SC Oncology
+GA PQ0ZZ
+UT WOS:000606280400001
+PM 33419454
+OA DOAJ Gold, Green Published
+DA 2021-01-23
+ER
+
+PT J
+AU Priedigkeit, N
+   Ding, K
+   Horne, W
+   Kolls, JK
+   Du, T
+   Lucas, PC
+   Blohmer, JU
+   Denkert, C
+   Machleidt, A
+   Ingold-Heppner, B
+   Oesterreich, S
+   Lee, AV
+AF Priedigkeit, Nolan
+   Ding, Kai
+   Horne, William
+   Kolls, Jay K.
+   Du, Tian
+   Lucas, Peter C.
+   Blohmer, Jens-Uwe
+   Denkert, Carsten
+   Machleidt, Anna
+   Ingold-Heppner, Barbara
+   Oesterreich, Steffi
+   Lee, Adrian V.
+TI Acquired mutations and transcriptional remodeling in long-term
+   estrogen-deprived locoregional breast cancer recurrences
+SO BREAST CANCER RESEARCH
+LA English
+DT Article
+DE Breast cancer; Estrogen receptor; Locoregional recurrence; Endocrine
+   therapy; Therapy resistance; RNA-seq; DNA-seq; Copy number alterations;
+   FFPE; Tumor profiling; Exome capture; Targeted sequencing; Cancer
+   genomics; ESR1; NTRK; ARID1A
+ID ENDOCRINE RESISTANCE; ESR1 MUTATIONS; BIOCONDUCTOR PACKAGE;
+   AROMATASE-INHIBITOR; SOMATIC MUTATION; GENE ARID1A; RECEPTOR;
+   EXPRESSION; TAMOXIFEN; CELLS
+AB Background: Endocrine therapy resistance is a hallmark of advanced estrogen receptor (ER)-positive breast cancer. In this study, we aimed to determine acquired genomic changes in endocrine-resistant disease.
+   Methods: We performed DNA/RNA hybrid-capture sequencing on 12 locoregional recurrences after long-term estrogen deprivation and identified acquired genomic changes versus each tumor's matched primary.
+   Results: Despite being up to 7 years removed from the primary lesion, most recurrences harbored similar intrinsic transcriptional and copy number profiles. Only two genes, AKAP9 and KMT2C, were found to have single nucleotide variant (SNV) enrichments in more than one recurrence. Enriched mutations in single cases included SNVs within transcriptional regulators such as ARID1A, TP53, FOXO1, BRD1, NCOA1, and NCOR2 with one local recurrence gaining three PIK3CA mutations. In contrast to DNA-level changes, we discovered recurrent outlier mRNA expression alterations were common-including outlier gains in TP63 (n = 5 cases [42%]), NTRK3 (n = 5 [42%]), NTRK2 (n = 4 [33%]), PAX3 (n = 4 [33%]), FGFR4 (n = 3 [25%]), and TERT (n = 3 [25%]). Recurrent losses involved ESR1 (n = 5 [42%]), RELN (n = 5 [42%]), SFRP4 (n = 4 [33%]), and FOSB (n = 4 [33%]). ESR1-depleted recurrences harbored shared transcriptional remodeling events including upregulation of PROM1 and other basal cancer markers.
+   Conclusions: Taken together, this study defines acquired genomic changes in long-term, estrogen-deprived disease; highlights the importance of longitudinal RNA profiling; and identifies a common ESR1-depleted endocrine-resistant breast cancer subtype with basal-like transcriptional reprogramming.
+C1 [Priedigkeit, Nolan] Harvard Med Sch, Brigham & Womens Hosp, Dept Med, Boston, MA 02115 USA.
+   [Priedigkeit, Nolan; Ding, Kai; Du, Tian; Lucas, Peter C.; Oesterreich, Steffi; Lee, Adrian V.] UPMC Hillman Canc Ctr, Womens Canc Res Ctr, Pittsburgh, PA 15232 USA.
+   [Ding, Kai; Oesterreich, Steffi; Lee, Adrian V.] Univ Pittsburgh, Dept Pharmacol & Chem Biol, Pittsburgh, PA 15213 USA.
+   [Ding, Kai; Oesterreich, Steffi; Lee, Adrian V.] Univ Pittsburgh, Med Ctr, Magee Womens Res Hosp, Magee Womens Res Inst, Pittsburgh, PA USA.
+   [Horne, William; Kolls, Jay K.] UPMC Childrens Hosp Pittsburgh, Richard King Mellon Fdn Inst Pediat Res, Pittsburgh, PA USA.
+   [Lucas, Peter C.] Univ Pittsburgh, Sch Med, Dept Pathol, Pittsburgh, PA USA.
+   [Blohmer, Jens-Uwe; Machleidt, Anna] Charite, Inst Pathol, Berlin, Germany.
+   [Blohmer, Jens-Uwe; Machleidt, Anna] Charite, Dept Gynecol, Berlin, Germany.
+   [Denkert, Carsten] Philipps Univ Marburg, Inst Pathol, Marburg, Germany.
+   [Denkert, Carsten] Univ Hosp Marburg UKGM, Marburg, Germany.
+   [Ingold-Heppner, Barbara] DRK Kliniken Berlin, Inst Pathol, Berlin, Germany.
+   [Lee, Adrian V.] Univ Pittsburgh, Dept Human Genet, Pittsburgh, PA USA.
+   [Lee, Adrian V.] Magee Womens Res Inst, 204 Craft Ave Room A412, Pittsburgh, PA 15213 USA.
+RP Lee, AV (corresponding author), UPMC Hillman Canc Ctr, Womens Canc Res Ctr, Pittsburgh, PA 15232 USA.; Lee, AV (corresponding author), Univ Pittsburgh, Dept Pharmacol & Chem Biol, Pittsburgh, PA 15213 USA.
+EM leeav@upmc.edu
+FU NIHUnited States Department of Health & Human ServicesNational
+   Institutes of Health (NIH) - USA [P30CA047904]; Susan G. Komen Scholar
+   awardsSusan G. Komen Breast Cancer Foundation; Breast Cancer Research
+   Foundation; Fashion Footwear Association of New York; Magee-Women's
+   Research Institute and Foundation; Nicole Meloche Foundation; Penguins
+   Foundation; Penguins Alumni Foundation; NIH/NIGMSUnited States
+   Department of Health & Human ServicesNational Institutes of Health (NIH)
+   - USANIH National Institute of General Medical Sciences (NIGMS)
+   [2T32GM008424-21]; NIH/NCIUnited States Department of Health & Human
+   ServicesNational Institutes of Health (NIH) - USANIH National Cancer
+   Institute (NCI) [5F30CA203095]; University of Pittsburgh School of
+   Medicine Dean's MSTP Postdoctoral Scholar Award
+FX Research funding for this project was provided in part by NIH
+   P30CA047904, Susan G. Komen Scholar awards (AVL and SO), Breast Cancer
+   Research Foundation (AVL and SO), the Fashion Footwear Association of
+   New York, Magee-Women's Research Institute and Foundation, Nicole
+   Meloche Foundation, Penguins Foundation, Penguins Alumni Foundation,
+   Mario Lemieux. NP was supported by a training grant from the NIH/NIGMS
+   (2T32GM008424-21), an individual fellowship from the NIH/NCI
+   (5F30CA203095), and University of Pittsburgh School of Medicine Dean's
+   MSTP Postdoctoral Scholar Award.
+CR Basudan A, 2019, MOL CANCER RES, V17, P457, DOI 10.1158/1541-7786.MCR-18-0946
+   Bland JM, 2004, BRIT MED J, V328, P1073, DOI 10.1136/bmj.328.7447.1073
+   Cejalvo JM, 2017, CANCER RES, V77, P2213, DOI 10.1158/0008-5472.CAN-16-2717
+   Creighton CJ, 2006, CANCER RES, V66, P3903, DOI 10.1158/0008-5472.CAN-05-4363
+   Curtis C, 2012, NATURE, V486, P346, DOI 10.1038/nature10983
+   Davies C, 2011, LANCET, V378, P771, DOI 10.1016/S0140-6736(11)60993-8
+   Davies C, 2013, LANCET, V381, P805, DOI 10.1016/S0140-6736(12)61963-1
+   Du T, 2018, BREAST CANCER RES, V20, DOI 10.1186/s13058-018-1041-8
+   Forbes SA, 2015, NUCLEIC ACIDS RES, V43, pD805, DOI 10.1093/nar/gku1075
+   Gao RL, 2016, NAT GENET, V48, P1119, DOI 10.1038/ng.3641
+   Gervais R, 2005, ANN ONCOL, V16, P90, DOI 10.1093/annonc/mdi018
+   Goss PE, 2016, NEW ENGL J MED, V375, P209, DOI 10.1056/NEJMoa1604700
+   Gu ZG, 2016, BIOINFORMATICS, V32, P2847, DOI 10.1093/bioinformatics/btw313
+   Guan B, 2011, CANCER RES, V71, P6718, DOI 10.1158/0008-5472.CAN-11-1562
+   Guang RJ, 2000, CANCER RES, V60, P749
+   Gundem G, 2015, NATURE, V520, P353, DOI 10.1038/nature14347
+   Gutierrez MC, 2005, J CLIN ONCOL, V23, P2469, DOI 10.1200/JCO.2005.01.172
+   Hanker AB, 2017, CANCER DISCOV, V7, P575, DOI 10.1158/2159-8290.CD-16-1431
+   Hartmaier RJ, 2018, ANN ONCOL, V29, P872, DOI 10.1093/annonc/mdy025
+   Hugo W, 2015, CELL, V162, P1271, DOI 10.1016/j.cell.2015.07.061
+   JACOBSON JA, 1995, NEW ENGL J MED, V332, P907, DOI 10.1056/NEJM199504063321402
+   Jeselsohn R, 2018, CANCER CELL, V33, P173, DOI 10.1016/j.ccell.2018.01.004
+   Jeselsohn R, 2015, NAT REV CLIN ONCOL, V12, P573, DOI 10.1038/nrclinonc.2015.117
+   JOHNSTON SRD, 1995, CANCER RES, V55, P3331
+   Jones S, 2010, SCIENCE, V330, P228, DOI 10.1126/science.1196333
+   Koboldt DC, 2012, GENOME RES, V22, P568, DOI 10.1101/gr.129684.111
+   Kuukasjarvi T, 1996, J CLIN ONCOL, V14, P2584, DOI 10.1200/JCO.1996.14.9.2584
+   Law CW, 2014, GENOME BIOL, V15, DOI 10.1186/gb-2014-15-2-r29
+   Lek M, 2016, NATURE, V536, P285, DOI 10.1038/nature19057
+   Levine KM, 2019, NPJ BREAST CANCER, V5, DOI 10.1038/s41523-019-0114-x
+   Li H, 2009, BIOINFORMATICS, V25, P1754, DOI 10.1093/bioinformatics/btp324
+   Liu LX, 2015, ONCOTARGET, V6, P2466, DOI 10.18632/oncotarget.2967
+   Loh YN, 2013, BMC CANCER, V13, DOI 10.1186/1471-2407-13-174
+   Mackay A, 2007, BREAST CANCER RES, V9, DOI 10.1186/bcr1732
+   Manso L, 2016, PLOS ONE, V11, DOI 10.1371/journal.pone.0155840
+   McKenna A, 2010, GENOME RES, V20, P1297, DOI 10.1101/gr.107524.110
+   Miller CA, 2016, NAT COMMUN, V7, DOI 10.1038/ncomms12498
+   Miller WR, 2007, PHARMACOGENET GENOM, V17, P813, DOI 10.1097/FPC.0b013e32820b853a
+   Nayar U, 2019, NAT GENET, V51, P207, DOI 10.1038/s41588-018-0287-5
+   Nik-Zainal S, 2012, CELL, V149, DOI 10.1016/j.cell.2012.04.023
+   Obenchain V, 2014, BIOINFORMATICS, V30, P2076, DOI 10.1093/bioinformatics/btu168
+   Oh AS, 2001, MOL ENDOCRINOL, V15, P1344, DOI 10.1210/me.15.8.1344
+   Olshen AB, 2004, BIOSTATISTICS, V5, P557, DOI 10.1093/biostatistics/kxh008
+   Patro R, 2017, NAT METHODS, V14, P417, DOI 10.1038/nmeth.4197
+   Pearson A, 2020, CLIN CANCER RES, V26, P608, DOI 10.1158/1078-0432.CCR-18-4044
+   Pereira B, 2016, NAT COMMUN, V7, DOI 10.1038/ncomms11479
+   Priedigkeit N, 2017, JCI INSIGHT, V2, DOI 10.1172/jci.insight.95703
+   Priedigkeit N, 2017, JAMA ONCOL, V3, P666, DOI 10.1001/jamaoncol.2016.5630
+   Razavi P, 2018, CANCER CELL, V34, P427, DOI 10.1016/j.ccell.2018.08.008
+   Ritchie ME, 2015, NUCLEIC ACIDS RES, V43, DOI 10.1093/nar/gkv007
+   Robinson DR, 2017, NATURE, V548, P297, DOI 10.1038/nature23306
+   Robinson DR, 2013, NAT GENET, V45, P1446, DOI 10.1038/ng.2823
+   Robinson JT, 2011, NAT BIOTECHNOL, V29, P24, DOI 10.1038/nbt.1754
+   Robinson MD, 2010, GENOME BIOL, V11, DOI 10.1186/gb-2010-11-3-r25
+   Robinson MD, 2010, BIOINFORMATICS, V26, P139, DOI 10.1093/bioinformatics/btp616
+   Saito Y, 2020, NATURE, V582, P95, DOI 10.1038/s41586-020-2175-2
+   Sansone P, 2017, CANCER RES, V77, P1927, DOI 10.1158/0008-5472.CAN-16-2129
+   Sansone P, 2016, NAT COMMUN, V7, DOI 10.1038/ncomms10442
+   Shou J, 2004, JNCI-J NATL CANCER I, V96, P926, DOI 10.1093/jnci/djh166
+   Siegel MB, 2018, J CLIN INVEST, V128, P1371, DOI 10.1172/JCI96153
+   Sikora MJ, 2016, BREAST CANCER RES, V18, DOI 10.1186/s13058-016-0748-7
+   Simigdala N, 2016, BREAST CANCER RES, V18, DOI 10.1186/s13058-016-0713-5
+   Soneson Charlotte, 2015, F1000Res, V4, P1521, DOI 10.12688/f1000research.7563.2
+   Subramanian A, 2005, P NATL ACAD SCI USA, V102, P15545, DOI 10.1073/pnas.0506580102
+   Talevich E, 2016, PLOS COMPUT BIOL, V12, DOI 10.1371/journal.pcbi.1004873
+   Touat M, 2015, CLIN CANCER RES, V21, P2684, DOI 10.1158/1078-0432.CCR-14-2329
+   Toy W, 2013, NAT GENET, V45, P1439, DOI 10.1038/ng.2822
+   Turner N, 2010, CANCER RES, V70, P2085, DOI 10.1158/0008-5472.CAN-09-3746
+   Vareslija D, 2019, JNCI-J NATL CANCER I, V111, P388, DOI 10.1093/jnci/djy110
+   Vareslija D, 2016, CLIN CANCER RES, V22, P2765, DOI 10.1158/1078-0432.CCR-15-1583
+   Veeck J, 2008, MOL CANCER, V7, DOI 10.1186/1476-4598-7-83
+   Wahner-Roedler DL, 2011, CLIN BREAST CANCER, V11, P61, DOI 10.3816/CBC.2011.n.010
+   Wang CH, 2017, CELL REP, V18, P2825, DOI 10.1016/j.celrep.2017.02.071
+   Wang K, 2010, NUCLEIC ACIDS RES, V38, DOI 10.1093/nar/gkq603
+   Wong SQ, 2014, BMC MED GENOMICS, V7, DOI 10.1186/1755-8794-7-23
+   Xu GT, 2020, NAT GENET, V52, P198, DOI 10.1038/s41588-019-0554-0
+   Zhang XY, 2012, CANCER EPIDEMIOL, V36, P288, DOI 10.1016/j.canep.2011.07.006
+   Zheng ZY, 2020, CANCER CELL, V37, P387, DOI 10.1016/j.ccell.2020.02.003
+   Zundelevich A, 2020, BREAST CANCER RES, V22, DOI 10.1186/s13058-020-1246-5
+NR 79
+TC 0
+Z9 0
+U1 0
+U2 0
+PU BMC
+PI LONDON
+PA CAMPUS, 4 CRINAN ST, LONDON N1 9XW, ENGLAND
+SN 1465-5411
+EI 1465-542X
+J9 BREAST CANCER RES
+JI Breast Cancer Res.
+PD DEC 6
+PY 2021
+VL 23
+IS 1
+AR 1
+DI 10.1186/s13058-020-01379-3
+PG 14
+WC Oncology
+SC Oncology
+GA PQ4PK
+UT WOS:000606527200001
+PM 33407744
+OA DOAJ Gold, Green Published
+DA 2021-01-23
+ER
+
+PT J
+AU Wang, JY
+   Ma, G
+   Ge, H
+   Han, X
+   Mao, XR
+   Wang, XY
+   Veeramootoo, JS
+   Xia, TS
+   Liu, XA
+   Wang, S
+AF Wang, Jingyi
+   Ma, Ge
+   Ge, Han
+   Han, Xu
+   Mao, Xinrui
+   Wang, Xinyang
+   Veeramootoo, Jordee Selvamanee
+   Xia, Tiansong
+   Liu, Xiaoan
+   Wang, Shui
+TI Circulating tRNA-derived small RNAs (tsRNAs) signature for the diagnosis
+   and prognosis of breast cancer
+SO NPJ BREAST CANCER
+LA English
+DT Article
+AB Liquid biopsy is noninvasive and convenient to detect cancer-derived materials in blood or other body fluids. The aim of this study was to identify tRNA-derived small RNAs (tsRNAs) in plasma that could distinguish patients with breast cancer (BC) from healthy controls. Basing on high-throughput sequencing, 15 significantly upregulated tsRNAs were selected and assessed in cell supernatants and cell lines. 6 tsRNAs were identified and verified in a large cohort of 120 patients with BC and 112 healthy controls. tRF-Arg-CCT-017, tRF-Gly-CCC-001, and tiRNA-Phe-GAA-003 could serve as novel diagnostic biomarkers. Meanwhile, tRF-Arg-CCT-017 and tiRNA-Phe-GAA-003 could also act as prognostic biomarkers. Target genes of these tsRNAs were related to the development of cancers. These results suggested that specific tsRNAs in plasma might serve as diagnostic and prognostic biomarkers of BC.
+C1 [Wang, Jingyi; Ma, Ge; Ge, Han; Han, Xu; Mao, Xinrui; Wang, Xinyang; Veeramootoo, Jordee Selvamanee; Xia, Tiansong; Liu, Xiaoan; Wang, Shui] Nanjing Med Univ, Dept Breast Surg, Affiliated Hosp 1, 300 Guangzhou Rd, Nanjing 210029, Peoples R China.
+   [Wang, Jingyi; Ma, Ge; Xia, Tiansong; Liu, Xiaoan; Wang, Shui] Nanjing Med Univ, Jiangsu Collaborat Innovat Ctr Canc Personalized, Sch Publ Hlth, Jiangsu Key Lab Canc Biomarkers Prevent & Treatme, Nanjing 211166, Peoples R China.
+RP Xia, TS; Liu, XA; Wang, S (corresponding author), Nanjing Med Univ, Dept Breast Surg, Affiliated Hosp 1, 300 Guangzhou Rd, Nanjing 210029, Peoples R China.; Xia, TS; Liu, XA; Wang, S (corresponding author), Nanjing Med Univ, Jiangsu Collaborat Innovat Ctr Canc Personalized, Sch Publ Hlth, Jiangsu Key Lab Canc Biomarkers Prevent & Treatme, Nanjing 211166, Peoples R China.
+EM xiatsswms@163.com; liuxiaoan@126.com; ws0801@hotmail.com
+FU Natural Science Foundation of ChinaNational Natural Science Foundation
+   of China (NSFC) [81572607, 81572602]; Natural Science Foundation of
+   Jiangsu ProvinceNatural Science Foundation of Jiangsu Province
+   [BK20171506]; Postgraduate Research & Practice Innovation Program of
+   Jiangsu Province [KYCX19_1158]
+FX The authors wish to thank all participants and family members for
+   participating in this study. This study was funded by the Natural
+   Science Foundation of China (81572607 and 81572602), the Natural Science
+   Foundation of Jiangsu Province (BK20171506) and Postgraduate Research &
+   Practice Innovation Program of Jiangsu Province (KYCX19_1158).
+CR Adeli E, 2020, IEEE T PATTERN ANAL, V42, P1713, DOI 10.1109/TPAMI.2019.2901688
+   [Anonymous], 2020, GENE EXPRESSION OMNI
+   Balatti V, 2017, ADV CANCER RES, V135, P173, DOI 10.1016/bs.acr.2017.06.007
+   Balatti V, 2017, P NATL ACAD SCI USA, V114, P8071, DOI 10.1073/pnas.1706908114
+   DeSantis CE, 2019, CA-CANCER J CLIN, V69, P438, DOI 10.3322/caac.21583
+   Giege R, 2008, NAT STRUCT MOL BIOL, V15, P1007, DOI 10.1038/nsmb.1498
+   Goodarzi H, 2015, CELL, V161, P790, DOI 10.1016/j.cell.2015.02.053
+   Guzzi N, 2018, CELL, V173, P1204, DOI 10.1016/j.cell.2018.03.008
+   Kim HK, 2017, NATURE, V552, P57, DOI 10.1038/nature25005
+   Kumar P, 2016, TRENDS BIOCHEM SCI, V41, P679, DOI 10.1016/j.tibs.2016.05.004
+   Langmead B, 2009, GENOME BIOL, V10, DOI 10.1186/gb-2009-10-3-r25
+   Mo DP, 2019, CANCER LETT, V457, P60, DOI 10.1016/j.canlet.2019.05.007
+   Pekarsky Y, 2016, P NATL ACAD SCI USA, V113, P5071, DOI 10.1073/pnas.1604266113
+   Selitsky SR, 2015, BMC BIOINFORMATICS, V16, DOI 10.1186/s12859-015-0800-0
+   Siegel RL, 2019, CA-CANCER J CLIN, V69, P7, DOI 10.3322/caac.21551
+   Timmerman D, 2005, J CLIN ONCOL, V23, P8794, DOI 10.1200/JCO.2005.01.7632
+   Wang J, 2020, FIGSHARE, DOI [10.6084/m9.figshare.12961883, DOI 10.6084/M9.FIGSHARE.12961883]
+   Zhao CM, 2018, J UROLOGY, V199, P378, DOI 10.1016/j.juro.2017.07.082
+NR 18
+TC 0
+Z9 0
+U1 0
+U2 0
+PU NATURE RESEARCH
+PI BERLIN
+PA HEIDELBERGER PLATZ 3, BERLIN, 14197, GERMANY
+EI 2374-4677
+J9 NPJ BREAST CANCER
+JI npj Breast Cancer
+PD DEC 5
+PY 2021
+VL 7
+IS 1
+AR 4
+DI 10.1038/s41523-020-00211-7
+PG 5
+WC Oncology
+SC Oncology
+GA PO5IR
+UT WOS:000605203200001
+PM 33402674
+OA DOAJ Gold
+DA 2021-01-23
+ER
+
+PT J
+AU Shimazaki, A
+   Hashimoto, T
+   Kai, M
+   Nakayama, T
+   Yamada, M
+   Zaguirre, K
+   Tokuda, K
+   Kubo, M
+   Yamaura, K
+   Nakamura, M
+AF Shimazaki, Akiko
+   Hashimoto, Takuma
+   Kai, Masaya
+   Nakayama, Tetsuzo
+   Yamada, Mai
+   Zaguirre, Karen
+   Tokuda, Kentaro
+   Kubo, Makoto
+   Yamaura, Ken
+   Nakamura, Masafumi
+TI Surgical treatment for breast cancer in a patient with erythropoietic
+   protoporphyria and photosensitivity: a case report
+SO SURGICAL CASE REPORTS
+LA English
+DT Article
+DE Erythropoietic protoporphyria (EPP); Photosensitivity; Breast cancer
+   surgery
+ID LIVER-TRANSPLANTATION; PORPHYRIAS; SURGERY; FAILURE
+AB Background Erythropoietic protoporphyria (EPP) is a rare disorder of heme synthesis. Patients with EPP mainly show symptoms of photosensitivity, but approximately 20% of EPPs are associated with the liver-related complications. We report a case of breast cancer in a 48-year-old female patient with EPP in whom meticulous perioperative management was required in order to avoid complications resulting from this disease. Case presentation The patient was diagnosed with EPP at the age of 33 and had a rich family history of the disease. For right breast cancer initially considered as TisN0M0 (Stage 0), the right mastectomy and sentinel lymph node biopsy were performed, while the final stage was pT1bN0M0, pStage I. In the perioperative period, we limited the drug use and monitored light wavelength measurements. Besides, we covered surgical lights, headlights, and laryngoscope's light with a special polyimide film that filtered the wavelength of light causing dermal photosensitivity. After the surgery, any emerging complications were closely monitored. Conclusions The surgery, internal medicine, anesthesiology, and operation departments undertook all possible measures through close cooperation to ensure a safe surgery for the patient with a rare condition.
+C1 [Shimazaki, Akiko; Kai, Masaya; Yamada, Mai; Zaguirre, Karen; Kubo, Makoto; Nakamura, Masafumi] Kyushu Univ, Grad Sch Med Sci, Dept Surg & Oncol, Higashi Ku, 3-1-1 Maidashi, Fukuoka 8128582, Japan.
+   [Hashimoto, Takuma; Yamaura, Ken] Kyushu Univ, Grad Sch Med Sci, Dept Anesthesiol & Crit Care Med, Higashi Ku, 3-1-1 Maidashi, Fukuoka 8128582, Japan.
+   [Nakayama, Tetsuzo] Kyushu Univ Hosp, Higashi Ku, Operating Room,3-1-1 Maidashi, Fukuoka 8128582, Japan.
+   [Tokuda, Kentaro] Kyushu Univ Hosp, Emergency & Crit Care Ctr, Higashi Ku, 3-1-1 Maidashi, Fukuoka 8128582, Japan.
+RP Kubo, M (corresponding author), Kyushu Univ, Grad Sch Med Sci, Dept Surg & Oncol, Higashi Ku, 3-1-1 Maidashi, Fukuoka 8128582, Japan.
+EM mkubo@tumor.med.kyushu-u.ac.jp
+CR Akinci E, 2005, J CARDIAC SURG, V20, P267, DOI 10.1111/j.1540-8191.2005.200438.x
+   Asokumar B, 1999, PAEDIATR ANAESTH, V9, P356, DOI 10.1046/j.1460-9592.1999.00338.x
+   Balwani M, 2012, BLOOD, V120, P4496, DOI 10.1182/blood-2012-05-423186
+   Bissell DM, 2017, NEW ENGL J MED, V377, P862, DOI 10.1056/NEJMra1608634
+   Hanaki T, 2020, TRANSPL P, V52, P625, DOI 10.1016/j.transproceed.2019.12.004
+   HERBERT A, 1991, GASTROENTEROLOGY, V100, P1753, DOI 10.1016/0016-5085(91)90680-J
+   Kondo M, 2004, INT J HEMATOL, V79, P448, DOI 10.1532/IJH97.03127
+   Kubo M, 2019, BREAST CANCER RES TR, V178, P647, DOI 10.1007/s10549-019-05413-7
+   Lecha M, 2009, ORPHANET J RARE DIS, V4, DOI 10.1186/1750-1172-4-19
+   MAGNUS IA, 1961, LANCET, V2, P448
+   McGuire BM, 2005, LIVER TRANSPLANT, V11, P1590, DOI 10.1002/lt.20620
+   Pagano MB, 2012, J CLIN APHERESIS, V27, P336, DOI 10.1002/jca.21249
+   Park PJ, 2012, CLIN MOL HEPATOL, V18, P411, DOI 10.3350/cmh.2012.18.4.411
+   Roe T, 2010, J SURG CASE REP, DOI 10.1093/jscr/2010.9.3
+   Seth AK, 2007, LIVER TRANSPLANT, V13, P1219, DOI 10.1002/lt.21261
+   Stolzel U, 2019, GASTROENTEROLOGY, V157, P365, DOI 10.1053/j.gastro.2019.04.050
+   Wahlin S, 2008, LIVER TRANSPLANT, V14, P1340, DOI 10.1002/lt.21527
+NR 17
+TC 0
+Z9 0
+U1 0
+U2 0
+PU SPRINGER
+PI NEW YORK
+PA ONE NEW YORK PLAZA, SUITE 4600, NEW YORK, NY, UNITED STATES
+SN 2198-7793
+J9 SURG CASE REP
+JI SURG. CASE REP.
+PD DEC 5
+PY 2021
+VL 7
+IS 1
+AR 1
+DI 10.1186/s40792-020-01068-5
+PG 6
+WC Surgery
+SC Surgery
+GA PO5IL
+UT WOS:000605202600001
+PM 33400006
+OA DOAJ Gold
+DA 2021-01-23
+ER
+
+PT J
+AU Lao-Gonzalez, T
+   Bueno-Soler, A
+   Duran-Hernandez, A
+   Sosa-Aguiar, K
+   Hinojosa-Puerta, LE
+   Hernandez-Garcia, T
+   de la Luz-hernandez, KR
+   Palacios-Oliva, J
+   Boggiano-Ayo, T
+AF Lao-Gonzalez, Thailin
+   Bueno-Soler, Alexi
+   Duran-Hernandez, Arnelys
+   Sosa-Aguiar, Katya
+   Hinojosa-Puerta, Luis Eduardo
+   Hernandez-Garcia, Tays
+   de la Luz-hernandez, Kathya Rashida
+   Palacios-Oliva, Julio
+   Boggiano-Ayo, Tammy
+TI Screening and selection strategy for the establishment of biosimilar to
+   trastuzumab-expressing CHO-K1 cell lines
+SO AMB EXPRESS
+LA English
+DT Article
+DE Biosimilar; Trastuzumab; CHO-K1 cells; Lentivirus; Intracellular
+   staining; Flow cytometry
+ID RECOMBINANT PROTEIN-PRODUCTION; MONOCLONAL-ANTIBODY; GLYCOSYLATION;
+   PRODUCTIVITY; HEAVY; HERCEPTIN(R); TRANSFECTION; EFFICIENT; HYBRIDOMA;
+   VECTORS
+AB The high prices of biopharmaceuticals or biologics used in the treatment of many diseases limit the access of patients to these novel therapies. One example is the monoclonal antibody trastuzumab, successfully used for breast cancer treatment. An economic alternative is the generation of biosimilars to these expensive biopharmaceuticals. Since antibody therapies may require large doses over a long period of time, robust platforms and strategies for cell line development are essential for the generation of recombinant cell lines with higher levels of expression. Here, we obtained trastuzumab-expressing CHO-K1 cells through a screening and selection strategy that combined the use of host cells pre-adapted to protein-free media and suspension culture and lentiviral vectors. The results demonstrated that the early screening strategy obtained recombinant CHO-K1 cell populations with higher enrichment of IgG-expressing cells. Moreover, the measurement of intracellular heavy chain polypeptide by flow cytometry was a useful metric to characterize the homogeneity of cell population, and our results suggest this could be used to predict the expression levels of monoclonal antibodies in early stages of cell line development. Additionally, we propose an approach using 25 cm(2) T-flasks in suspension and shaking culture conditions as a screening tool to identify high producing cell lines. Finally, trastuzumab-expressing CHO-K1 clones were generated and characterized by batch culture, and preliminary results related to HER2-recognition capacity were successful. Further optimization of elements such as gene optimization, vector selection, type of amplification/selection system, cell culture media composition, in combination with this strategy will allow obtaining high producing clones.
+C1 [Lao-Gonzalez, Thailin; Bueno-Soler, Alexi; Hernandez-Garcia, Tays; de la Luz-hernandez, Kathya Rashida; Palacios-Oliva, Julio; Boggiano-Ayo, Tammy] Ctr Mol Immunol, Proc Dev Direct, Havana 11600, Cuba.
+   [Lao-Gonzalez, Thailin] Ctr Genet Engn & Biotechnol, Anim Biotechnol Div, Havana 10600, Cuba.
+   [Duran-Hernandez, Arnelys] Univ Havana, Fac Biol, Havana, Cuba.
+   [Sosa-Aguiar, Katya] Ctr Mol Immunol, Immunotherapy Direct, Havana 11600, Cuba.
+   [Hinojosa-Puerta, Luis Eduardo] CIMAB SA, Havana 11600, Cuba.
+RP Lao-Gonzalez, T (corresponding author), Ctr Mol Immunol, Proc Dev Direct, Havana 11600, Cuba.; Lao-Gonzalez, T (corresponding author), Ctr Genet Engn & Biotechnol, Anim Biotechnol Div, Havana 10600, Cuba.
+EM thailin.lao@cigb.edu.cu
+CR Agrawal Vishal, 2012, Methods Mol Biol, V911, P287, DOI 10.1007/978-1-61779-968-6_18
+   Bandaranayake AD, 2014, FEBS LETT, V588, P253, DOI 10.1016/j.febslet.2013.11.035
+   BERGMAN LW, 1981, J BIOL CHEM, V256, P701
+   Borth N, 1999, J BIOTECHNOL, V67, P57, DOI 10.1016/S0168-1656(98)00162-X
+   Chusainow J, 2009, BIOTECHNOL BIOENG, V102, P1182, DOI 10.1002/bit.22158
+   Curigliano G, 2016, CRIT REV ONCOL HEMAT, V104, P131, DOI 10.1016/j.critrevonc.2016.06.002
+   Dillman RO, 1999, CANCER BIOTHER RADIO, V14, P5, DOI 10.1089/cbr.1999.14.5
+   Dorai H, 2006, HYBRIDOMA, V25, P1, DOI 10.1089/hyb.2006.25.1
+   Dorai H, 2012, BIOTECHNOL BIOENG, V109, P1016, DOI 10.1002/bit.24367
+   Edmonds MCDLC, 2006, MOL BIOTECHNOL, V34, P179, DOI 10.1385/MB:34:2:179
+   Edros RZ, 2013, PLOS ONE, V8, DOI 10.1371/journal.pone.0075935
+   Gaillet B, 2010, BIOTECHNOL BIOENG, V106, P203, DOI 10.1002/bit.22698
+   Genentech, 1998, HERC PRESCR
+   Godecke N, 2018, METHODS MOL BIOL, V1850, P43, DOI 10.1007/978-1-4939-8730-6_4
+   Hacker DL, 2016, CURR OPIN STRUC BIOL, V38, P129, DOI 10.1016/j.sbi.2016.06.005
+   Heffner K, 2015, CELL ENG, V9, P591, DOI 10.1007/978-3-319-10320-4_19
+   Ho SCL, 2013, J BIOTECHNOL, V165, P157, DOI 10.1016/j.jbiotec.2013.03.019
+   Ho SCL, 2012, J BIOTECHNOL, V157, P130, DOI 10.1016/j.jbiotec.2011.09.023
+   Hutterer KM, 2019, BIODRUGS, DOI [10.1080/19420862.2017.1305530, DOI 10.1080/19420862.2017.1305530]
+   Jiang Z, 2006, BIOTECHNOL PROGR, V22, P313, DOI 10.1021/bp0501524
+   Jostock T, 2011, CELL ENG, V7, P1, DOI 10.1007/978-94-007-1257-7_1
+   Kim JY, 2012, APPL MICROBIOL BIOT, V93, P917, DOI 10.1007/s00253-011-3758-5
+   Kim S, 2017, MABS-AUSTIN, V9, P704, DOI 10.1080/19420862.2017.1305530
+   Kober L, 2013, BIOTECHNOL BIOENG, V110, P1164, DOI 10.1002/bit.24776
+   Krebs LE, 2018, BIOTECHNOL PROGR, V34, P570, DOI 10.1002/btpr.2667
+   Kuystermans D, 2015, CELL ENG, V9, P717, DOI 10.1007/978-3-319-10320-4_23
+   Kuystermans D, 2015, CELL ENG, V9, P327, DOI 10.1007/978-3-319-10320-4_11
+   LAEMMLI UK, 1970, NATURE, V227, P680, DOI 10.1038/227680a0
+   Lattenmayer C, 2007, J BIOTECHNOL, V128, P716, DOI 10.1016/j.jbiotec.2006.12.016
+   Le Fourn V, 2014, METAB ENG, V21, P91, DOI 10.1016/j.ymben.2012.12.003
+   Lee CJ, 2009, BIOTECHNOL BIOENG, V102, P1107, DOI 10.1002/bit.22126
+   LEE GM, 1993, BIOTECHNOL TECH, V7, P271, DOI 10.1007/BF00150897
+   Li F, 2010, MABS-AUSTIN, V2, P466, DOI 10.4161/mabs.2.5.12720
+   McDonnell S, 2015, CELL ENG, V9, P65, DOI 10.1007/978-3-319-10320-4_3
+   Mora A, 2018, BIOTECHNOL PROGR, V34, P175, DOI 10.1002/btpr.2584
+   Mursi IFA, 2018, APPL RNA BIOSCIENCE, P131, DOI [10.1007/978-981-10-8372-3_9, DOI 10.1007/978-981-10-8372-3_9]
+   Nelson KM, 2014, EXPERT OPIN THER PAT, V24, P1149, DOI 10.1517/13543776.2014.964683
+   Noh SM, 2018, SCI REP, V8, P1, DOI [10.1038/s41598-017-17765-5, DOI 10.1038/S41598-017-17765-5]
+   Oberbek A, 2011, BIOTECHNOL BIOENG, V108, P600, DOI 10.1002/bit.22968
+   Paplomata E, 2018, EXPERT OPIN BIOL TH, V18, P335, DOI 10.1080/14712598.2018.1430761
+   PARK SH, 1994, BIOTECHNOL BIOENG, V44, P361, DOI 10.1002/bit.260440314
+   Pivot X, 2018, BRIT J CANCER, V119, P263, DOI 10.1038/s41416-018-0171-1
+   Porter AJ, 2010, BIOTECHNOL PROGR, V26, P1455, DOI 10.1002/btpr.443
+   Priola JJ, 2016, BIOTECHNOL J, V11, P853, DOI 10.1002/biot.201500579
+   Roy G, 2017, J IMMUNOL METHODS, V451, P100, DOI 10.1016/j.jim.2017.08.012
+   Schlatter S, 2005, BIOTECHNOL PROGR, V21, P122, DOI 10.1021/bp049780w
+   Spearman M, 2015, CELL ENG, V9, P237, DOI 10.1007/978-3-319-10320-4_9
+   Toledo JR, 2009, APPL BIOCHEM BIOTECH, V157, P538, DOI 10.1007/s12010-008-8381-2
+   Wurm FM, 2016, BIOSIMILARS MONOCLON, P327, DOI [10.1002/9781118940648.ch11, DOI 10.1002/9781118940648.CH11]
+NR 49
+TC 0
+Z9 0
+U1 0
+U2 0
+PU SPRINGER
+PI NEW YORK
+PA ONE NEW YORK PLAZA, SUITE 4600, NEW YORK, NY, UNITED STATES
+SN 2191-0855
+J9 AMB EXPRESS
+JI AMB Express
+PD DEC 3
+PY 2021
+VL 11
+IS 1
+AR 1
+DI 10.1186/s13568-020-01157-6
+PG 17
+WC Biotechnology & Applied Microbiology
+SC Biotechnology & Applied Microbiology
+GA PN1OI
+UT WOS:000604255800001
+PM 33389203
+OA DOAJ Gold, Green Published
+DA 2021-01-23
+ER
+
+PT J
+AU Hashemi, M
+   Haghgoo, Z
+   Yazdian-Robati, R
+   Shahgordi, S
+   Salmasi, Z
+   Abnous, K
+AF Hashemi, Maryam
+   Haghgoo, Zahra
+   Yazdian-Robati, Rezvan
+   Shahgordi, Sanaz
+   Salmasi, Zahra
+   Abnous, Khalil
+TI Improved anticancer efficiency of Mitoxantrone by Curcumin loaded PLGA
+   nanoparticles targeted with AS1411 aptamer
+SO NANOMEDICINE JOURNAL
+LA English
+DT Article
+DE AS1411 aptamer; Breast cancer; Curcumin; Mitoxantrone; Polymeric
+   nanoparticles
+ID CANCER-CELLS; IN-VITRO; DELIVERY-SYSTEM; DOXORUBICIN; APOPTOSIS;
+   EPIRUBICIN; PACLITAXEL; THERAPY; DESIGN; BLOCK
+AB Objective(s): Mitoxantrone (MTX) is one of the most commonly used chemotherapeutic agents for treatment of different cancers. However, prolonged treatment with MTX results in unwanted side effects and drug resistant cancer cells. Combination therapies and exploiting of targeted nanoparticles have the potential of improving the efficiency of drug treatment as well as reducing the side effects. Curcumin (CUR) is a biological molecules with anticancer property. In this study, we investigated whether targeted PLGA (Poly Lactic-co-Glycolic Acid)-CUR nanoparticles (NPs) can reinforce the effect of MTX on breast cancer cells.
+   Materials and Methods: PLGA NPs containing CUR targeted with AS1411 aptamer were prepared by single emulsion evaporation method. Physicochemical properties of NPs were investigated. The cytotoxicity of non-targeted and targeted NPs along with MTX was evaluated on MCF7, 4T1 and L929 cell lines.
+   Results: The results showed that PLGA-CUR NPs were synthetized with an average encapsulation efficiency of 66% with a mean size of 186 +/- 3.2 nm. The drug release of curcumin from these NPs within 72h was about 59% in neutral medium and 90% in acidic medium. Interestingly, the combined treatment with PLGA-CUR-Apt and MTX inhibited the cancer cell's proliferation significantly more than the non-targeted nanoparticles, CUR and MTX-treated group alone.
+   Conclusion: These results suggest that targeted PLGA-CUR nanoparticles may consider as a potential therapeutic contender in improving the efficacy of MTX in Breast cancer therapy.
+C1 [Hashemi, Maryam; Salmasi, Zahra] Mashhad Univ Med Sci, Pharmaceut Technol Inst, Nanotechnol Res Ctr, Mashhad, Razavi Khorasan, Iran.
+   [Hashemi, Maryam] Mashhad Univ Med Sci, Dept Pharmaceut Biotechnol, Sch Pharm, Mashhad, Razavi Khorasan, Iran.
+   [Haghgoo, Zahra] Mashhad Univ Med Sci, Sch Pharm, Mashhad, Razavi Khorasan, Iran.
+   [Yazdian-Robati, Rezvan] Mazandaran Univ Med Sci, Fac Med, Mol & Cell Biol Res Ctr, Sari, Iran.
+   [Shahgordi, Sanaz] Golestan Univ Med Sci, Sch Med, Dept Immunol, Gorgan, Golestan, Iran.
+   [Abnous, Khalil] Mashhad Univ Med Sci, Sch Pharm, Dept Med Chem, Mashhad, Razavi Khorasan, Iran.
+RP Salmasi, Z (corresponding author), Mashhad Univ Med Sci, Pharmaceut Technol Inst, Nanotechnol Res Ctr, Mashhad, Razavi Khorasan, Iran.; Abnous, K (corresponding author), Mashhad Univ Med Sci, Sch Pharm, Dept Med Chem, Mashhad, Razavi Khorasan, Iran.
+EM salmasiz@mums.ac.ir; abnouskh@mums.ac.ir
+FU Mashhad University of Medical Sciences [961941]
+FX The authors are grateful for the financial support provided by the
+   Mashhad University of Medical Sciences (numbers: 961941).
+CR Abnous K, 2017, RSC ADV, V7, P15181, DOI 10.1039/c6ra28234b
+   Abouzeid AH, 2013, J DRUG TARGET, V21, P994, DOI 10.3109/1061186X.2013.840639
+   Ahmadpour S, 2019, LIFE SCI, V239, DOI 10.1016/j.lfs.2019.116870
+   Ansari N, 2018, MICROCHIM ACTA, V185, DOI 10.1007/s00604-017-2550-3
+   Aravind A, 2013, J MAGN MAGN MATER, V344, P116, DOI 10.1016/j.jmmm.2013.05.036
+   Aravind A, 2012, BIOTECHNOL BIOENG, V109, P2920, DOI 10.1002/bit.24558
+   Banerjee M, 2010, FEBS J, V277, P3437, DOI 10.1111/j.1742-4658.2010.07750.x
+   Banerjee Saswati, 2017, Front Biosci (Elite Ed), V9, P235
+   Bates PJ, 2017, BBA-GEN SUBJECTS, V1861, P1414, DOI 10.1016/j.bbagen.2016.12.015
+   Bayat P, 2019, TALANTA, V194, P399, DOI 10.1016/j.talanta.2018.10.063
+   Chou TC, 2006, PHARMACOL REV, V58, P621, DOI 10.1124/pr.58.3.10
+   Cui Y, 2016, ACS APPL MATER INTER, V8, P32159, DOI 10.1021/acsami.6b10175
+   Dhillon N, 2008, CLIN CANCER RES, V14, P4491, DOI 10.1158/1078-0432.CCR-08-0024
+   DSouza S., 2014, IJAP, V2014
+   Duan JH, 2012, INT J PHARMACEUT, V426, P193, DOI 10.1016/j.ijpharm.2012.01.020
+   Ebrahimian M, 2017, APPL BIOCHEM BIOTECH, V183, P126, DOI 10.1007/s12010-017-2434-3
+   Epelbaum R, 2010, NUTR CANCER, V62, P1137, DOI 10.1080/01635581.2010.513802
+   Ghahestani ZH, 2017, ARTIF CELL NANOMED B, V45, P955, DOI 10.1080/21691401.2016.1198359
+   Guo JW, 2011, BIOMATERIALS, V32, P8010, DOI 10.1016/j.biomaterials.2011.07.004
+   Guorgui J, 2018, ARCH BIOCHEM BIOPHYS, V648, P12, DOI 10.1016/j.abb.2018.04.012
+   Nguyen HT, 2018, ACTA BIOMATER, V68, P154, DOI 10.1016/j.actbio.2017.12.033
+   Hashemi M, 2020, ARCH BIOCHEM BIOPHYS, V691, DOI 10.1016/j.abb.2020.108485
+   Hashemi M, 2017, NANOMED J, V4, P1, DOI 10.22038/nmj.2017.8046
+   Huang YF, 2009, CHEMBIOCHEM, V10, P862, DOI 10.1002/cbic.200800805
+   Irving GRB, 2015, TRIALS, V16, DOI 10.1186/s13063-015-0641-1
+   Jin H, 2015, ONCOL REP, V34, P2782, DOI 10.3892/or.2015.4258
+   Jung YJ, 2007, BBA-MOL CELL RES, V1773, P383, DOI 10.1016/j.bbamcr.2006.11.004
+   Kardani A, 2020, J CELL PHYSIOL, V235, P6887, DOI 10.1002/jcp.29584
+   Kunwar A, 2008, BBA-GEN SUBJECTS, V1780, P673, DOI 10.1016/j.bbagen.2007.11.016
+   Kurosaki T, 2012, GENE, V491, P205, DOI 10.1016/j.gene.2011.09.021
+   Ma Q, 2019, DRUG DES DEV THER, V13, P4021, DOI 10.2147/DDDT.S210949
+   Mackenzie GG, 2008, INT J CANCER, V123, P56, DOI 10.1002/ijc.23477
+   Mosafer J, 2017, MAT SCI ENG C-MATER, V72, P123, DOI 10.1016/j.msec.2016.11.053
+   Mujokoro B, 2020, J PHARM INNOV, V15, P617, DOI 10.1007/s12247-019-09406-3
+   Nagpal Monika, 2013, J Nat Sci Biol Med, V4, P3, DOI 10.4103/0976-9668.107253
+   Patil P, 2012, RJPPD, V4, P77
+   Rejhova A, 2018, EUR J MED CHEM, V144, P582, DOI 10.1016/j.ejmech.2017.12.039
+   Sa G, 2008, CELL DIV, V3, DOI 10.1186/1747-1028-3-14
+   Saleh T, 2019, INT J BIOL MACROMOL, V130, P109, DOI 10.1016/j.ijbiomac.2019.02.129
+   Saravanakumar K, 2019, ARCH BIOCHEM BIOPHYS, V671, P143, DOI 10.1016/j.abb.2019.07.004
+   Serova M, 2011, BRIT J CANCER, V104, P272, DOI 10.1038/sj.bjc.6606063
+   Shahgordi S, 2020, INT IMMUNOPHARMACOL, V84, DOI 10.1016/j.intimp.2020.106525
+   Shaikh J, 2009, EUR J PHARM SCI, V37, P223, DOI 10.1016/j.ejps.2009.02.019
+   Shanmugam MK, 2015, MOLECULES, V20, P2728, DOI 10.3390/molecules20022728
+   Shao ZM, 2002, INT J CANCER, V98, P234, DOI 10.1002/ijc.10183
+   Sinha R, 2006, MOL CANCER THER, V5, P1909, DOI 10.1158/1535-7163.MCT-06-0141
+   Song ZM, 2011, J COLLOID INTERF SCI, V354, P116, DOI 10.1016/j.jcis.2010.10.024
+   Taghdisi SM, 2018, MOL PHARMACEUT, V15, P1972, DOI 10.1021/acs.molpharmaceut.8b00124
+   Verderio P, 2013, BIOMACROMOLECULES, V14, P672, DOI 10.1021/bm3017324
+   Xu GJ, 2016, INT J NANOMED, V11, DOI 10.2147/IJN.S103513
+   Xu XB, 2014, GENE, V546, P226, DOI 10.1016/j.gene.2014.06.006
+   Yazdian-Robati R, 2020, INT J BIOL MACROMOL, V155, P1420, DOI 10.1016/j.ijbiomac.2019.11.118
+   Yazdian-Robati R, 2017, MICROCHIM ACTA, V184, P4029, DOI 10.1007/s00604-017-2436-4
+   Yazdian-Robati R, 2016, PHARM RES-DORDR, V33, P2289, DOI 10.1007/s11095-016-1967-4
+   Yoo HS, 2001, J CONTROL RELEASE, V70, P63, DOI 10.1016/S0168-3659(00)00340-0
+   Yoo HS, 2000, J CONTROL RELEASE, V68, P419, DOI 10.1016/S0168-3659(00)00280-7
+   Yu B, 2020, J DRUG DELIV SCI TEC, V57, DOI 10.1016/j.jddst.2020.101739
+   Zhou L, 2015, INT J NANOMED, V10, P5205, DOI 10.2147/IJN.S84326
+NR 58
+TC 0
+Z9 0
+U1 0
+U2 0
+PU MASHHAD UNIV MED SCIENCES
+PI MASHHAD
+PA VICE-CHANCELLOR FOR RES CTR OFF IJBMS, DANESHGAH ST, PO BOX 9138813944 -
+   445, MASHHAD, 00000, IRAN
+SN 2322-3049
+EI 2322-5904
+J9 NANOMED J
+JI Nanomed. J.
+PD WIN
+PY 2021
+VL 8
+IS 1
+BP 21
+EP 29
+DI 10.22038/nmj.2021.08.03
+PG 9
+WC Nanoscience & Nanotechnology
+SC Science & Technology - Other Topics
+GA PN2TI
+UT WOS:000604336800003
+OA DOAJ Gold
+DA 2021-01-23
+ER
+
+PT J
+AU Mansouri, E
+   Mesbahi, A
+   Yazdani, P
+AF Mansouri, Elham
+   Mesbahi, Asghar
+   Yazdani, Parivar
+TI Analysis of physical dose enhancement in nano-scale for
+   nanoparticle-based radiation therapy: a Cluster and endothelial cell
+   model
+SO NANOMEDICINE JOURNAL
+LA English
+DT Article
+DE Dose Enhancement; Radiation Therapy; Radiosensitization; Nanoparticle;
+   Nano-Cluster
+ID BREAST-CANCER CELLS; GOLD NANOPARTICLES; MONTE-CARLO; SHIELDING
+   PROPERTIES; AGENTS; MICRO; RADIOSENSITIZATION; BRACHYTHERAPY;
+   RADIOTHERAPY; PARTICLES
+AB Objective(s): One major difficulty of conventional radiotherapy is the lack of selectivity between the tumor and the organs at risk. In nanoparticle aided radiotherapy, heavy elements are present at higher concentrations in the tumor than normal tissues. This study aimed to model the characteristics of secondary electrons generated from the interaction of clusters comprised of five different nanoparticles including Gold, Gadolinium, Iridium, Bismuth, and Hafnium atoms with low energy x-rays (similar to brachytherapy sources in terms of energy) as a function of nanoparticle size and beam energy.
+   Materials and Methods: To better evaluate the contributions of secondary electrons in energy deposition, and also to develop a framework in analyzing further measurements in the future, we attempted to enhance and promote existing mathematical models for energy deposition in endothelial cells by nanoparticle-enhanced radiotherapy. Also, the MCNPX Monte Carlo code was used to model the identical geometry and the dose enhancement factor was calculated for all types of simulated nano-clusters.
+   Results: Our results showed that for our model consist of a nano-cluster and an endothelial cell the DEF significantly depends on the energy of photons and L- and K-edge binding energy of the atoms inside the nano-cluster. However, for Gd at the energy 60 keV, a higher dose enhancement factor was seen.
+   Conclusion: It can be concluded that the mathematical model considers the DEF variation with photon energy and the effect of NP type is considered in DEF calculations. However, the MC method has indicated very high sensitivity to photon energy, and NP type compared to the mathematical method.
+C1 [Mansouri, Elham] Tabriz Univ Med Sci, Drug Appl Res Ctr, Tabriz, Iran.
+   [Mesbahi, Asghar; Yazdani, Parivar] Tabriz Univ Med Sci, Mol Med Res Ctr, Tabriz, Iran.
+   [Mesbahi, Asghar] Tabriz Univ Med Sci, Med Radiat Sci Res Team, Tabriz, Iran.
+RP Mesbahi, A (corresponding author), Tabriz Univ Med Sci, Mol Med Res Ctr, Tabriz, Iran.; Mesbahi, A (corresponding author), Tabriz Univ Med Sci, Med Radiat Sci Res Team, Tabriz, Iran.
+EM amesbahi2010@gmail.com
+FU Drug Applied research center of Tabriz Univerity Of Medical Science
+FX This project was supported by Drug Applied research center of Tabriz
+   Univerity Of Medical Science as a part of the PhD thesis in medical
+   physics. The authors would like to thank the molecular medicine research
+   center and medical physics department of Tabriz Univerity Of Medical
+   Science for providing the required computer hardware for MC simulation.
+CR Afkham Y, 2020, RADIAT ONCOL, V15, DOI 10.1186/s13014-020-01551-1
+   Badrigilan S, 2020, INT J NANOSCI, V19, DOI 10.1142/S0219581X18500436
+   Badrigilan S, 2019, PHOTODIAGN PHOTODYN, V25, P504, DOI 10.1016/j.pdpdt.2018.10.021
+   Bazak R, 2015, J CANCER RES CLIN, V141, P769, DOI 10.1007/s00432-014-1767-3
+   Berbeco RI, 2011, INT J RADIAT ONCOL, V81, P270, DOI 10.1016/j.ijrobp.2010.10.022
+   Butterworth KT, 2008, RADIAT RES, V170, P381, DOI 10.1667/RR1320.1
+   Butterworth KT, 2012, NANOSCALE, V4, P4830, DOI 10.1039/c2nr31227a
+   Chithrani DB, 2010, RADIAT RES, V173, P719, DOI 10.1667/RR1984.1
+   Cooper DR, 2014, FRONT CHEM, V2, DOI 10.3389/fchem.2014.00086
+   Ghavami SM, 2016, NUCL TECHNOL RADIAT, V31, P89, DOI 10.2298/NTRP1601089G
+   Hainfeld JF, 2008, J PHARM PHARMACOL, V60, P977, DOI 10.1211/jpp.60.8.0005
+   Hildenbrand G, 2018, PLOS ONE, V13, DOI 10.1371/journal.pone.0190183
+   Hossain M, 2012, J PHYS CHEM C, V116, P23047, DOI 10.1021/jp306543q
+   Howell RW, 2008, INT J RADIAT BIOL, V84, P959, DOI 10.1080/09553000802395527
+   Islamian JP, 2017, BREAST, V33, P97, DOI 10.1016/j.breast.2017.03.009
+   Jain S, 2012, BRIT J RADIOL, V85, P101, DOI 10.1259/bjr/59448833
+   Jangjoo AG, 2019, POL J MED PHYS ENG, V25, P87, DOI 10.2478/pjmpe-2019-0012
+   Khodadadi A, 2019, APPL RADIAT ISOTOPES, V145, P39, DOI 10.1016/j.apradiso.2018.11.013
+   Kobayashi K, 2010, MUTAT RES-REV MUTAT, V704, P123, DOI 10.1016/j.mrrev.2010.01.002
+   Kong T, 2008, SMALL, V4, P1537, DOI 10.1002/smll.200700794
+   Lee C, 2012, J PHYS CHEM C, V116, P11292, DOI 10.1021/jp210301q
+   Leung MKK, 2011, MED PHYS, V38, P624, DOI 10.1118/1.3539623
+   Malekzadeh R, 2019, RADIOL PHYS TECHNOL, V12, P325, DOI 10.1007/s12194-019-00529-3
+   Mansouri E, 2020, ADSORPTION, V26, P835, DOI 10.1007/s10450-020-00217-4
+   McMahon SJ, 2011, SCI REP-UK, V1, DOI 10.1038/srep00018
+   Mesbahi A, 2019, POL J MED PHYS ENG, V25, P211, DOI 10.2478/pjmpe-2019-0028
+   Mesbahi A, 2018, APPL RADIAT ISOTOPES, V136, P27, DOI 10.1016/j.apradiso.2018.02.004
+   Mesbahi A, 2017, POL J MED PHYS ENG, V23, P9, DOI 10.1515/pjmpe-2017-0003
+   Mesbahi A, 2013, BIOIMPACTS, V3, P29, DOI 10.5681/bi.2013.002
+   Mesbahi A, 2010, REP PRACT ONCOL RADI, V15, P176, DOI 10.1016/j.rpor.2010.09.001
+   Mortezazadeh T, 2020, J DRUG TARGET, V28, P533, DOI 10.1080/1061186X.2019.1703188
+   Ngwa W, 2010, PHYS MED BIOL, V55, P6533, DOI 10.1088/0031-9155/55/21/013
+   Paro AD, 2016, INT J NANOMED, V11, P4735, DOI 10.2147/IJN.S114025
+   Peukert D, 2018, PHYS MEDICA, V47, P121, DOI 10.1016/j.ejmp.2018.03.004
+   Porcel E, 2010, NANOTECHNOLOGY, V21, DOI 10.1088/0957-4484/21/8/085103
+   Retif P, 2016, INT J NANOSCI, V11
+   Roeske JC, 2007, TECHNOL CANCER RES T, V6, P395, DOI 10.1177/153303460700600504
+   Sadeghian M, 2020, POL J MED PHYS ENG, V26, P21, DOI 10.2478/pjmpe-2020-0003
+   Vallieres S., 2016, DOSE ENHANCEMENT NAN
+   Verdipoor K, 2020, IJMP, V17, P205
+   Verdipoor K, 2018, RADIAT PHYS CHEM, V147, P85, DOI 10.1016/j.radphyschem.2018.02.017
+   Villagomez-Bernabe B, 2019, SCI REP-UK, V9, DOI 10.1038/s41598-019-44482-y
+   Yazdani P, 2019, ARTIF CELL NANOMED B, V47, P436, DOI 10.1080/21691401.2018.1559182
+   Zareei L, 2019, J Biomed Phys Eng, V9, P211
+   Zheng Y, 2009, RADIAT RES, V172, P114, DOI 10.1667/RR1689.1
+   Zygmanski P, 2016, BRIT J RADIOL, V89, DOI 10.1259/bjr.20150200
+NR 46
+TC 0
+Z9 0
+U1 0
+U2 0
+PU MASHHAD UNIV MED SCIENCES
+PI MASHHAD
+PA VICE-CHANCELLOR FOR RES CTR OFF IJBMS, DANESHGAH ST, PO BOX 9138813944 -
+   445, MASHHAD, 00000, IRAN
+SN 2322-3049
+EI 2322-5904
+J9 NANOMED J
+JI Nanomed. J.
+PD WIN
+PY 2021
+VL 8
+IS 1
+BP 30
+EP 41
+DI 10.22038/nmj.2021.08.04
+PG 12
+WC Nanoscience & Nanotechnology
+SC Science & Technology - Other Topics
+GA PN2TI
+UT WOS:000604336800004
+OA DOAJ Gold
+DA 2021-01-23
+ER
+
+PT J
+AU Shamasi, Z
+   Es-haghi, A
+   Yazdi, MET
+   Amiri, MS
+   Homayouni-Tabrizi, M
+AF Shamasi, Zahra
+   Es-haghi, Ali
+   Yazdi, Mohammad Ehsan Taghavizadeh
+   Amiri, Mohammad Sadegh
+   Homayouni-Tabrizi, Masoud
+TI Role of Rubia tinctorum in the synthesis of zinc oxide nanoparticles and
+   apoptosis induction in breast cancer cell line
+SO NANOMEDICINE JOURNAL
+LA English
+DT Article
+DE Apoptosis; Breast cancer; Green Synthesis; Rubia tinctorum; zinc oxide
+   nanoparticles
+ID SILVER NANOPARTICLES; ZNO NANOPARTICLES; ANTIBACTERIAL; CYTOTOXICITY;
+   CHEMISTRY; DELIVERY; SENSOR
+AB Objective(s): Nowadays, nanotechnology has offered great success in resolving concerns in cancer therapy and created a new interdisciplinary field of study incorporating various sciences, such as biology, chemistry and medicine. Apoptosis is a conserved and controlled strategy in regulating cellular growth and proliferation, as well as preserving development and general homeostasis of the body. Zinc oxide nanoparticles (ZnO-NPs) are the most important and widely used nanoparticles. This study aimed to evaluate the apoptosis-inducing properties of the synthesized ZnO-NPs by aqueous extract of Rubia tinctorum against the MCF7 breast cancer cell line.
+   Materials and Methods: Zinc oxide nanoparticles were synthesized using rubia tinctorum extract and characterized by some methods including dynamic light scattering (DLS), field emission scanning electron microscopy (FESEM) and x-ray diffraction analysis (XRD). Apoptosis was measured by the Hoechst and Acridine-Orange/Propodium Iodide staining, as well as flow cytometry.
+   Results: The results of this study showed that the particle size of biosynthesized ZnO-NPs using R.tinctorum extract was about 40 nm and had a spherical morphology. The obtain results of the Hoechst and Acridine-Orange/Propodium Iodide staining, as well as flow cytometry showed that biosynthesized ZnO-NPs effectively and dose-dependently induced apoptosis in the MCF7 breast cancer cells.
+   Conclusion: Therefore, the biosynthesized ZnO-NPs by watery extract of R. tinctorum can be used in the treatment of many diseases, including cancers.
+C1 [Shamasi, Zahra; Es-haghi, Ali; Homayouni-Tabrizi, Masoud] Islamic Azad Univ, Dept Biol, Mashhad Branch, Mashhad, Razavi Khorasan, Iran.
+   [Yazdi, Mohammad Ehsan Taghavizadeh] Mashhad Univ Med Sci, Med Toxicol Res Ctr, Sch Med, Mashhad, Razavi Khorasan, Iran.
+   [Amiri, Mohammad Sadegh] Payame Noor Univ, Dept Biol, Tehran, Iran.
+RP Es-haghi, A (corresponding author), Islamic Azad Univ, Dept Biol, Mashhad Branch, Mashhad, Razavi Khorasan, Iran.
+EM ashaghi@gmail.com
+CR Ahmad H, 2020, BIOMOLECULES, V10, DOI 10.3390/biom10030425
+   Alarifi S, 2013, INT J NANOMED, V8, P983, DOI 10.2147/IJN.S42028
+   Alavi-Tabari SAR, 2018, J ELECTROANAL CHEM, V811, P84, DOI 10.1016/j.jelechem.2018.01.034
+   Albanese A, 2012, ANNU REV BIOMED ENG, V14, P1, DOI [10.1146/annurev-bioeng-071811-150124, 10.1146/annurev.bioeng-071811-150124]
+   Ani IJ, 2018, J CLEAN PROD, V205, P930, DOI 10.1016/j.jclepro.2018.08.189
+   BANK HL, 1988, IN VITRO CELL DEV B, V24, P266
+   Behl C, 2000, J NEURAL TRANSM, V107, P1325, DOI 10.1007/s007020070021
+   Burz C, 2009, ACTA ONCOL, V48, P811, DOI 10.1080/02841860902974175
+   Chauhan AK, 2020, CHEMOSPHERE, V247, DOI 10.1016/j.chemosphere.2019.125803
+   Crowley LC, 2016, COLD SPRING HARB PRO, V2016
+   Darroudi M, 2020, 21 CENTURY NANOSCIEN, P1
+   De Berardis B, 2010, TOXICOL APPL PHARM, V246, P116, DOI 10.1016/j.taap.2010.04.012
+   Deng XY, 2009, NANOTECHNOLOGY, V20, DOI 10.1088/0957-4484/20/11/115101
+   Dhandapani KV, 2020, BIOCATAL AGR BIOTECH, V24, DOI 10.1016/j.bcab.2020.101517
+   DIVE C, 1992, BIOCHIM BIOPHYS ACTA, V1133, P275, DOI 10.1016/0167-4889(92)90048-G
+   Einafshar E, 2018, NANOMED J, V5, P210, DOI 10.22038/nmj.2018.05.00004
+   Es-haghi A, 2019, AVICENNA J MED BIOCH, V7, P16, DOI [10.34172/ajmb.2019.04, DOI 10.34172/AJMB.2019.04]
+   Fahimmunisha BA, 2020, J DRUG DELIV SCI TEC, V55, DOI 10.1016/j.jddst.2019.101465
+   Favaloro B, 2012, AGING-US, V4, P330, DOI 10.18632/aging.100459
+   Goldar Samira, 2015, Asian Pac J Cancer Prev, V16, P2129
+   Guo DD, 2008, J PHOTOCH PHOTOBIO B, V93, P119, DOI 10.1016/j.jphotobiol.2008.07.009
+   Hamidi A, 2019, RES CHEM INTERMEDIAT, V45, P2915, DOI 10.1007/s11164-019-03770-y
+   Hipfner DR, 2004, NAT REV MOL CELL BIO, V5, P805, DOI 10.1038/nrm1491
+   Javadi F, 2019, MATER RES EXPRESS, V6, DOI 10.1088/2053-1591/ab08ff
+   Krol A, 2017, ADV COLLOID INTERFAC, V249, P37, DOI 10.1016/j.cis.2017.07.033
+   Liu XS, 2020, COLLOID SURFACE A, V584, DOI 10.1016/j.colsurfa.2019.124011
+   Marsden VS, 2003, ANNU REV IMMUNOL, V21, P71, DOI 10.1146/annurev.immunol.21.120601.141029
+   Modarres M, 2018, CYTOTECHNOLOGY, V70, P741, DOI 10.1007/s10616-017-0178-0
+   Mohamadian F, 2018, NANOMED J, V5, P217, DOI 10.22038/nmj.2018.05.00005
+   Nezhad SA, 2020, APPL ORGANOMET CHEM, V34, DOI 10.1002/aoc.5314
+   Noohpisheh Z, 2020, SPECTROCHIM ACTA A, V240, DOI 10.1016/j.saa.2020.118595
+   Oancea Marcela, 2006, V129, P279
+   Plati J, 2011, INTEGR BIOL-UK, V3, P279, DOI 10.1039/c0ib00144a
+   Rahnama M, 2018, MOL PLANT MICROBE IN, V31, P591, DOI 10.1094/MPMI-11-17-0286-R
+   Rai M, 2013, IET NANOBIOTECHNOL, V7, P117, DOI 10.1049/iet-nbt.2012.0031
+   Saad AM, 2020, J ENVIRON MANAGE, V258, DOI 10.1016/j.jenvman.2019.110043
+   Selim YA, 2020, SCI REP-UK, V10, DOI 10.1038/s41598-020-60541-1
+   Sharifan H, 2020, ECOTOX ENVIRON SAFE, V191, DOI 10.1016/j.ecoenv.2020.110177
+   Shetti NP, 2019, BIOSENS BIOELECTRON, V141, DOI 10.1016/j.bios.2019.111417
+   Sun J, 2018, J CHEM RES, P184, DOI 10.3184/174751918X15232701502261
+   Wang CX, 2015, PROCESS SAF ENVIRON, V93, P265, DOI 10.1016/j.psep.2014.05.007
+   Wang C, 2015, BIOMED RES INT, V2015, DOI 10.1155/2015/328707
+   Wilczewska AZ, 2012, PHARMACOL REP, V64, P1020, DOI 10.1016/S1734-1140(12)70901-5
+   Yao J, 2014, CHEM REV, V114, P6130, DOI 10.1021/cr200359p
+   Yazdi M E T, 2018, INT J BASIC SCI MED, V3, P99, DOI DOI 10.15171/ijbsm.2018.18
+   Yazdi MET, 2019, MATER TECHNOL, V34, P490, DOI 10.1080/10667857.2019.1583408
+   Yazdi MET, 2019, B MATER SCI, V42, DOI 10.1007/s12034-019-1855-8
+   Yazdi MET, 2019, IET NANOBIOTECHNOL, V13, P189, DOI 10.1049/iet-nbt.2018.5215
+   Yazdi MET, 2018, RES CHEM INTERMEDIAT, V44, P1325, DOI 10.1007/s11164-017-3169-z
+   Yazdi T, 2020, STUDIES MED SCI, V31, P75
+   Zabihi E, 2019, INT J BIOL MACROMOL, V131, P107, DOI 10.1016/j.ijbiomac.2019.01.224
+   Zarei M, 2020, NUTR CANCER, DOI 10.1080/01635581.2020.1801780
+   Zhu L, 2017, SENSOR ACTUAT A-PHYS, V267, P242, DOI 10.1016/j.sna.2017.10.021
+NR 53
+TC 0
+Z9 0
+U1 0
+U2 0
+PU MASHHAD UNIV MED SCIENCES
+PI MASHHAD
+PA VICE-CHANCELLOR FOR RES CTR OFF IJBMS, DANESHGAH ST, PO BOX 9138813944 -
+   445, MASHHAD, 00000, IRAN
+SN 2322-3049
+EI 2322-5904
+J9 NANOMED J
+JI Nanomed. J.
+PD WIN
+PY 2021
+VL 8
+IS 1
+BP 65
+EP 72
+DI 10.22038/nmj.2021.08.07
+PG 8
+WC Nanoscience & Nanotechnology
+SC Science & Technology - Other Topics
+GA PN2TI
+UT WOS:000604336800007
+OA DOAJ Gold
+DA 2021-01-23
+ER
+
+PT J
+AU Atabakhshian, R
+   Salami, S
+   Mirfakhraie, R
+   Khatonabadi, SM
+   Sirati-Sabet, M
+   Yaghmaei, BG
+   Ghafghazi, S
+   Beirami, AD
+   Rezaei, MS
+   Ziai, SA
+AF Atabakhshian, Roya
+   Salami, Siamak
+   Mirfakhraie, Reza
+   Khatonabadi, Somayeh Mahmoodi
+   Sirati-Sabet, Majid
+   Yaghmaei, Bahram Gholamali
+   Ghafghazi, Shiva
+   Beirami, Amirreza Dowlati
+   Rezaei, Mitra Sadat
+   Ziai, Seyed Ali
+TI Umbelliprenin Suppresses Angiogenesis Signaling in SKBR-3 Cell Line by
+   Downregulation of EGF/CoCl2 -Mediated PI3K/AKT/MAPK
+SO RESEARCH JOURNAL OF PHARMACOGNOSY
+LA English
+DT Article
+DE angiogenesis; breast cancer; CoCl2; EGF; umbelliprenin
+ID CANCER; VEGF; HIF-1-ALPHA; APOPTOSIS; GROWTH; EXPRESSION; INCREASES;
+   COUMARINS; TARGETS
+AB Background and objectives: Umbelliprenin, a prenylated coumarin from different species of Ferula, has demonstrated anti-cancer effects in various types of cancer cells, but the potential molecular mechanisms for the anti-angiogenic activity of umbelliprenin in breast cancer cells have not yet been studied. In this study, we investigated the possible molecular pathways involved in the antiangiogenic effect of umbelliprenin in EGF and CoCl2 stimulated SKBR-3 breast cancer cells. Methods: Effects of umbelliprenin on the changes in EGFR signaling genes (EGFR, PI3K, AKT, mTOR, S6K, 4EBP1, ERK1/2, HIF-1 alpha, HIF-1 beta, VEGF, VEGFR) and proteins (VEGF/HIF-1 alpha) expression were assayed in SKBR-3 via Quantitative PCR and Western blotting assays. Results: Umbelliprenin dramatically decreased the living cells in a concentration related manner (IC50 =103.9 mu M) and non- toxic doses of umbelliprenin IC5 and IC10 (10 and 20 mu M, respectively) were used for evaluating in vitro anti-angiogenic effects. Umbelliprenin significantly reduced pro-angiogenic AKT, ERK1, ERK2, mTOR, S6K, HIF-1 alpha, HIF-1 beta, VEGF and VEGFR mRNAs in EGF-treated, and AKT, ERK2, S6K, HIF-1 alpha, HIF-1 beta, VEGF and VEGFR mRNAs in CoCl2-treated cells. Umbelliprenin significantly increased anti-angiogenic 4EBP1 mRNA in EGF / CoCl2-treated cells. It significantly decreased the levels of HIF-1 alpha and VEGF proteins, in CoCl2-treated cells. Conclusion: Our findings showed that umbelliprenin exhibits anti-angiogenic effects by decreasing the expression of AKT/mTOR/MAPK angiogenesis pathways in EGF or CoCl2 treated SKBR-3 breast cancer cells.
+C1 [Atabakhshian, Roya; Salami, Siamak; Khatonabadi, Somayeh Mahmoodi; Sirati-Sabet, Majid; Yaghmaei, Bahram Gholamali] Shahid Beheshti Univ Med Sci, Sch Med, Dept Clin Biochem, Tehran, Iran.
+   [Mirfakhraie, Reza] Shahid Beheshti Univ Med Sci, Sch Med, Dept Med Genet, Tehran, Iran.
+   [Ghafghazi, Shiva; Ziai, Seyed Ali] Shahid Beheshti Univ Med Sci, Sch Med, Dept Pharmacol, Tehran, Iran.
+   [Beirami, Amirreza Dowlati] Shahid Beheshti Univ Med Sci, Sch Pharm, Dept Med Chem, Tehran, Iran.
+   [Rezaei, Mitra Sadat] Shahid Beheshti Univ Med Sci, Sch Med, Dept Pathol, Tehran, Iran.
+RP Ziai, SA (corresponding author), Shahid Beheshti Univ Med Sci, Sch Med, Dept Pharmacol, Tehran, Iran.
+EM aliziai@sbmu.ac.ir
+FU Shahid Beheshti University of Medical Sciences [11214]
+FX This research was funded by grant number 11214 from the Shahid Beheshti
+   University of Medical Sciences. This article was taken from a thesis
+   written by Roya Atabakhshian at the School of Medicine, Shahid Beheshti
+   University of Medical Sciences (Registration No: 342).
+CR Ahluwalia A, 2012, CURR MED CHEM, V19, P90, DOI 10.2174/092986712803413944
+   Al Okail MS, 2010, J SAUDI CHEM SOC, V14, P197, DOI 10.1016/j.jscs.2010.02.005
+   Alizadeh MN, 2018, IRAN J PHARM RES, V17, P976
+   Barthomeuf C, 2008, PHYTOMEDICINE, V15, P103, DOI 10.1016/j.phymed.2007.04.001
+   Bruick RK, 2001, SCIENCE, V294, P1337, DOI 10.1126/science.1066373
+   Chakrabarti J, 2004, BRIT J CANCER, V91, P954, DOI 10.1038/sj.bjc.6602059
+   Changavi Arathi A, 2015, J Lab Physicians, V7, P79, DOI 10.4103/0974-2727.163129
+   Eales KL, 2016, ONCOGENESIS, V5, DOI 10.1038/oncsis.2015.50
+   Folkman J, 2006, ANNU REV MED, V57, P1, DOI 10.1146/annurev.med.57.121304.131306
+   Guru SK, 2015, CANCER RES, V75, P2886, DOI 10.1158/0008-5472.CAN-14-2312
+   Iranshahi M, 2008, PLANTA MED, V74, P147, DOI 10.1055/s-2008-1034293
+   Iranshahi M, 2018, AVICENNA J PHYTOMEDI, V8, P296
+   Iranshahi M, 2010, PHARM BIOL, V48, P217, DOI 10.3109/13880200903019226
+   Kerbel RS, 1997, NATURE, V390, P335, DOI 10.1038/36978
+   Khaghanzadeh N, 2012, DARU, V20, P1
+   Khong T. L., 2013, BMC CANCER, V13, P1
+   Kim MH, 2017, ONCOL REP, V37, P777, DOI 10.3892/or.2016.5296
+   Koboldt DC, 2012, NATURE, V490, P61, DOI 10.1038/nature11412
+   Lee JW, 2004, EXP MOL MED, V36, P1, DOI 10.1038/emm.2004.1
+   Li N, 2019, BRIT J CANCER, V120, P703, DOI 10.1038/s41416-019-0383-z
+   Li Q, 2018, ONCOL LETT, V15, P1119, DOI 10.3892/ol.2017.7369
+   Li S, 2015, SCI REP, V5, P14417
+   Liu ZJ, 2015, J ZHEJIANG UNIV-SC B, V16, P32, DOI 10.1631/jzus.B1400221
+   Mojsilovic-Petrovic J, 2007, J NEUROINFLAMM, V4, DOI 10.1186/1742-2094-4-12
+   Mousavi SH, 2015, AVICENNA J PHYTOMEDI, V5, P520
+   Nakai K, 2016, AM J CANCER RES, V6, P1609
+   Nielsen DL, 2010, BREAST CANCER RES, V12, P1
+   Paplomata E, 2014, THER ADV MED ONCOL, V6, P154, DOI 10.1177/1758834014530023
+   Park JH, 2016, PHYTOMEDICINE, V23, P1716, DOI 10.1016/j.phymed.2016.10.010
+   Peng XH, 2006, J BIOL CHEM, V281, P25903, DOI 10.1074/jbc.M603414200
+   Rabe SZT, 2016, J IMMUNOTOXICOL, V13, P209, DOI 10.3109/1547691X.2015.1043606
+   Rashidi M, 2018, J CELL PHYSIOL, V233, P8908, DOI 10.1002/jcp.26814
+   Rashidi M, 2017, IN VITRO CELL DEV-AN, V53, P7, DOI 10.1007/s11626-016-0080-7
+   Rashidi M, 2016, IRAN RED CRESCENT ME, V18, DOI 10.5812/ircmj.35167
+   Saryeddine L, 2016, PLOS ONE, V11, DOI 10.1371/journal.pone.0165876
+   Semenza GL, 2003, NAT REV CANCER, V3, P721, DOI 10.1038/nrc1187
+   Shakeri A, 2014, J ASIAN NAT PROD RES, V16, P884, DOI 10.1080/10286020.2014.917630
+   Shi YH, 2010, ONCOL LETT, V1, P657, DOI 10.3892/ol_00000115
+   Soggia A, 2014, DIABETOLOGIA, V57, P2348, DOI 10.1007/s00125-014-3365-y
+   Vengellur A, 2004, TOXICOL SCI, V82, P638, DOI 10.1093/toxsci/kfh278
+   Ziai SA, 2012, IRAN J PHARM RES, V11, P653
+NR 41
+TC 0
+Z9 0
+U1 0
+U2 0
+PU IRANIAN SOC PHARMACOGNOSY
+PI TEHRAN
+PA NO 8 SHAMS ALLEY, VALI-E-ASR ST, TEHRAN, 00000, IRAN
+SN 2345-4458
+EI 2345-5977
+J9 RES J PHARMACOGN
+JI Res. J. Pharmacogn.
+PD WIN
+PY 2021
+VL 8
+IS 1
+BP 7
+EP 18
+DI 10.22127/rjp.2020.119314
+PG 12
+WC Pharmacology & Pharmacy
+SC Pharmacology & Pharmacy
+GA PM2OU
+UT WOS:000603646200002
+OA DOAJ Gold
+DA 2021-01-23
+ER
+
+EF

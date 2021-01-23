@@ -45,6 +45,7 @@ def _parsefile(datafile_path):
     """Parse Exported File From Web of Science in CORE format."""
     data = []
     lastfield = ''
+    wositem = ''
     uselesslines = ['\n', 'ER\n', 'EF\n',
                     'FN Clarivate Analytics Web of Science\n', 'VR 1.0\n']
     with open(datafile_path, encoding='utf-8-sig') as datafile:
@@ -121,10 +122,38 @@ def _add_info(data):
 def _fixdata(data):
     """Data Preparation."""
     for wositem in data:
-        if isinstance(getattr(wositem, 'AU', 0), str):
+
+        # author to list
+        if isinstance(getattr(wositem, 'AU', ''), str):
             wositem.AU = [wositem.AU]
-        if isinstance(getattr(wositem, 'TI', 0), list):
+        if isinstance(getattr(wositem, 'AF', ''), str):
+            wositem.AF = [wositem.AF]
+        
+        # TI SO to str
+        if isinstance(getattr(wositem, 'TI', ''), list):
             wositem.TI = ' '.join(wositem.TI)
-        if isinstance(getattr(wositem, 'SO', 0), list):
+        if isinstance(getattr(wositem, 'SO', ''), list):
             wositem.SO = ' '.join(wositem.SO)
+        
+        # Change DE keywords to list
+        de = getattr(wositem, 'DE', '')
+        if de:
+            if isinstance(de, list):
+                setattr(wositem, 'DE', ' '.join(de))
+                de = getattr(wositem, 'DE', '')
+            if isinstance(de, str):
+                setattr(wositem, 'DE', de.split('; '))
+
+        # Abstract
+        abstract = getattr(wositem, 'AB', '')
+        if abstract:
+            if isinstance(abstract, list):
+                setattr(wositem, 'AB', ' '.join(abstract))
+
     return data
+
+if __name__ == '__main__':
+    filepath = './mrhpkg/filters/demo_wos_202101.txt'
+    data = getdata(filepath)
+    for wositem in data:
+        print(getattr(wositem, 'DE', ''))

@@ -179,3 +179,10 @@
 
     srcdata = wos.getdata(filepath)
     ```
+
+!!! note "校验及更正"
+
+    * 'AU', 'AF' -> if str -> list
+    * 'TI', 'SO' -> if list -> str
+    * 'DE' -> if list -> str -> '; ' -> list
+    * 'AB' -> if list -> str
