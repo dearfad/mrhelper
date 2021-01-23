@@ -798,6 +798,15 @@ EF
 <span class="n">srcdata</span> <span class="o">=</span> <span class="n">wos</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 </code></pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">校验及更正</p>
+<ul>
+<li>'AU', 'AF' -&gt; if str -&gt; list</li>
+<li>'TI', 'SO' -&gt; if list -&gt; str</li>
+<li>'DE' -&gt; if list -&gt; str -&gt; '; ' -&gt; list</li>
+<li>'AB' -&gt; if list -&gt; str</li>
+</ul>
+</div>
                 
               
               

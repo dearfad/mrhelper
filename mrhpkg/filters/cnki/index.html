@@ -692,10 +692,10 @@
 <hr />
 <ul>
 <li><strong>解析文件</strong>：./mrhpkg/filters/cnki.py</li>
-<li><strong>默认格式</strong>：E-STUDY</li>
+<li><strong>默认格式</strong>：知网研学（原E-Study）</li>
 </ul>
 <h2 id="_1"><strong>文献导出格式对照表</strong><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><strong>最后更新</strong>：2018.05.14</p>
+<p><strong>最后更新</strong>：2021.01.23</p>
 <table>
 <thead>
 <tr>
@@ -759,10 +759,10 @@
 <tr>
 <td>Volumn</td>
 <td>Y</td>
-<td>N</td>
-<td>N</td>
-<td>N</td>
-<td>N</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>Issue</td>
@@ -798,7 +798,7 @@
 </tr>
 <tr>
 <td>Link</td>
-<td>Y<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
+<td>Y</td>
 <td>N</td>
 <td>N</td>
 <td>N</td>
@@ -830,11 +830,11 @@
 </tr>
 <tr>
 <td>Address</td>
-<td>N</td>
 <td>Y</td>
 <td>Y</td>
 <td>Y</td>
-<td>N</td>
+<td>Y</td>
+<td>Y</td>
 </tr>
 <tr>
 <td>ISSN</td>
@@ -845,7 +845,7 @@
 <td>Y</td>
 </tr>
 <tr>
-<td>Database<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
+<td>Database<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></td>
 <td>Y</td>
 <td>Y</td>
 <td>N</td>
@@ -914,21 +914,21 @@ Summary-摘要: 为指导医学人员查阅专业文献并撰写医学综述,了
 Period-期: 07
 PageCount-页数: 1
 Page-页码: 161
-SrcDatabase-来源数据库: 期刊
+SrcDatabase-来源库: 期刊
 Organ-机构: 新疆医科大学学报编辑部;
-Link-链接: http://kns.cnki.net/kns/detail/detail.aspx?FileName=XXJK201307097&amp;DbName=CJFQ2013
+Link-链接: https://kns.cnki.net/kcms/detail/detail.aspx?FileName=XXJK201307097&amp;DbName=CJFQ2013
 </code></pre></div>
 </details>
 <div class="admonition note">
 <p class="admonition-title">格式</p>
 <ul>
-<li>文件起始：<code>&lt;?xml version="1.0" encoding="utf-8"?&gt;</code></li>
-<li>文件终止：空行</li>
-<li>文献起始：<code>&lt;DATA&gt;</code></li>
-<li>文献终止：<code>&lt;/DATA&gt;</code></li>
-<li>字段标识：XML</li>
+<li>文件起始：<code>DataType: 1</code></li>
+<li>文件终止：无</li>
+<li>文献起始：<code>DataType: 1</code></li>
+<li>文献终止：无</li>
+<li>字段标识：XXX-YYY: ZZZ</li>
 <li>校验方式：<ol>
-<li>第1行： <code>&lt;?xml version="1.0" encoding="utf-8"?&gt;\n</code></li>
+<li>第1行： <code>DataType: 1\n</code></li>
 </ol>
 </li>
 </ul>
@@ -939,6 +939,14 @@ Link-链接: http://kns.cnki.net/kns/detail/detail.aspx?FileName=XXJK201307097&a
 
 <span class="n">srcdata</span> <span class="o">=</span> <span class="n">cnki</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 </code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">校验及更正</p>
+<ul>
+<li>Author-作者 Keyword-关键词 Organ-机构 -&gt; list</li>
+<li>其余字段 -&gt; 未校验</li>
+<li>如果'Year-年'无内容，则使用'PubTime-出版时间'内'-'前字符替换</li>
+</ul>
 </div>
 <h2 id="refworks"><strong>Refworks</strong><a class="headerlink" href="#refworks" title="Permanent link">&para;</a></h2>
 <div class="admonition 暂无计划支持">
@@ -960,10 +968,7 @@ Link-链接: http://kns.cnki.net/kns/detail/detail.aspx?FileName=XXJK201307097&a
 <hr />
 <ol>
 <li id="fn:1">
-<p><strong>错误</strong>：链接无法访问，需更改/kns/-&gt;/kcms/&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p><strong>标注</strong>：来源数据库，期刊，报纸...&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p><strong>标注</strong>：DataType 1=学术期刊，2=学位论文，等等；SrcDatabase-来源库 定义2级标题，期刊，硕士，博士，报纸...&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

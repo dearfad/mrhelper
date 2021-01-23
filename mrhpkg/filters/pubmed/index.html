@@ -384,27 +384,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#xml" class="md-nav__link">
-    XML
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pmid-list" class="md-nav__link">
-    PMID List
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#csv" class="md-nav__link">
-    CSV
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -622,27 +601,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#xml" class="md-nav__link">
-    XML
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pmid-list" class="md-nav__link">
-    PMID List
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#csv" class="md-nav__link">
-    CSV
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -664,8 +622,9 @@
 <hr />
 <ul>
 <li><strong>解析文件</strong>：./mrhpkg/filters/pubmed.py</li>
-<li><strong>默认格式</strong>：MEDLINE</li>
+<li><strong>默认格式</strong>：Citation manager - MEDLINE</li>
 </ul>
+<p><strong>最后更新</strong>：2021.01.23</p>
 <h2 id="medline"><strong>MEDLINE</strong><a class="headerlink" href="#medline" title="Permanent link">&para;</a></h2>
 <details class="example"><summary>范例</summary><div class="highlight"><pre><span></span><code>PMID- 29447299
 OWN - NLM
@@ -751,16 +710,12 @@ SO  - PLoS One. 2018 Feb 15;13(2):e0192757. doi: 10.1371/journal.pone.0192757.
 <div class="admonition note">
 <p class="admonition-title">格式</p>
 <ul>
-<li>文件起始：空行</li>
+<li>文件起始：PMID- XXXXXXXX</li>
 <li>文件终止：空行</li>
 <li>文献起始：PMID- XXXXXXXX</li>
 <li>文献终止：空行</li>
 <li>字段标识：XXXX- YYYYYYYY</li>
-<li>校验方式：<ol>
-<li>第1行： <code>line = '/n'</code></li>
-<li>第2行前4个字母： <code>line[:4] = 'PMID'</code></li>
-</ol>
-</li>
+<li>校验方式：第1行： readline()[:4] == 'PMID'</li>
 </ul>
 </div>
 <div class="admonition note">
@@ -770,17 +725,11 @@ SO  - PLoS One. 2018 Feb 15;13(2):e0192757. doi: 10.1371/journal.pone.0192757.
 <span class="n">srcdata</span> <span class="o">=</span> <span class="n">pubmed</span><span class="o">.</span><span class="n">getdata</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<h2 id="xml"><strong>XML</strong><a class="headerlink" href="#xml" title="Permanent link">&para;</a></h2>
-<div class="admonition 暂无计划支持">
-<p class="admonition-title">暂无计划支持</p>
-</div>
-<h2 id="pmid-list"><strong>PMID List</strong><a class="headerlink" href="#pmid-list" title="Permanent link">&para;</a></h2>
-<div class="admonition 暂无计划支持">
-<p class="admonition-title">暂无计划支持</p>
-</div>
-<h2 id="csv"><strong>CSV</strong><a class="headerlink" href="#csv" title="Permanent link">&para;</a></h2>
-<div class="admonition 暂无计划支持">
-<p class="admonition-title">暂无计划支持</p>
+<div class="admonition note">
+<p class="admonition-title">校验及更正</p>
+<ul>
+<li>'AU', 'FAU', 'AUID', 'AD', 'OT' -&gt; if str -&gt; list</li>
+</ul>
 </div>
                 
               
