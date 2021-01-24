@@ -469,23 +469,29 @@ class MainWindow(MrhMainWindow):
             pmcid = item.pmcid
             link = item.link
             title = item.title
+            database = item.database
+
             pubmed_url = 'https://www.ncbi.nlm.nih.gov/pubmed/'
             pmc_url = 'https://www.ncbi.nlm.nih.gov/pmc/articles/'
-
+            webpage = ''
             # Change it as Preferred
             # doi_url = 'https://doi.org/'
             # scholar_google_url = 'https://scholar.google.com.hk/scholar?&q='
             xueshu_baidu_url = 'http://xueshu.baidu.com/s?wd='
             # wanfang_url = 'http://www.wanfangdata.com.cn/search/searchList.do?searchType=all&searchWord='
 
-            #TODO wos link
-            if pmcid:
-                webpage = pmc_url + pmcid
-            elif pmid:
-                webpage = pubmed_url + pmid
-            elif link:
-                webpage = link
+            # TODO wos link
+
+            if database == 'PUBMED' or database == 'WOS':
+                if pmcid:
+                    webpage = pmc_url + pmcid
+                elif pmid:
+                    webpage = pubmed_url + pmid
             else:
+                if database == 'CNKI' or database == 'WANFANG':
+                    if link:
+                        webpage = link
+            if not webpage:
                 webpage = xueshu_baidu_url + title
 
             QDesktopServices().openUrl(QUrl(webpage))
@@ -732,7 +738,7 @@ class MainWindow(MrhMainWindow):
         treedata = [item for item in MRHPROJECT.mrhdata if item.use == 2]
 
         group, subgroup, seq = set(), set(), set(MRHPROJECT.refseq)
-        
+
         temprid = []
         for item in treedata:
             if item.group[0]:
@@ -746,7 +752,7 @@ class MainWindow(MrhMainWindow):
             if item.rid not in seq:
                 MRHPROJECT.refseq.append(item.rid)
             temprid.append(item.rid)
-        
+
         removerid = list(set(seq).difference(set(temprid)))
 
         for i in removerid:
@@ -884,7 +890,6 @@ class MainWindow(MrhMainWindow):
                 reftree.append([groupname, 0, rid])
             item = item.__iadd__(1)
         return reftree
-
 
     def export_show(self):
         """Show export Tab."""
