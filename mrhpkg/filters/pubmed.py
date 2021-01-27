@@ -164,6 +164,15 @@ def _fixdata(data):
                     if isinstance(item, str):
                         setattr(pubmeditem, key, [item])
 
+                        # todo fixe lastname ?
+                        # if item.database == 'pubmed':
+                        #     firstname = author.split(' ')[0]
+                        #     lastname = author.split(' ')[1]
+                        #     fix_lastname = ''
+                        #     for c in lastname:
+                        #         fix_lastname += c + '. '
+                        #     author = ', '.join([firstname, fix_lastname])
+
     return data
 
 

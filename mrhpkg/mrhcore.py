@@ -524,26 +524,10 @@ class MrhExport:
                 # Type
                 datafile.write('%0 Journal Article\n')
                 # author
-                if isinstance(item.author, list):
-                    for author in item.author:
-                        datafile.write('%A ')
-                        if item.database == 'pubmed':
-                            firstname = author.split(' ')[0]
-                            lastname = author.split(' ')[1]
-                            fix_lastname = ''
-                            for c in lastname:
-                                fix_lastname += c + '. '
-                            author = ', '.join([firstname, fix_lastname])
-                        datafile.write(author)
-                        datafile.write('\n')
-                else:
+                for author in item.author:
                     datafile.write('%A ')
-                    if item.database == 'CNKI':
-                        datafile.write(item.author.strip(';'))
-                    else:
-                        datafile.write(item.author)
+                    datafile.write(author)
                     datafile.write('\n')
-
                 # title
                 datafile.write('%T ')
                 datafile.write(item.title)
@@ -587,6 +571,19 @@ class MrhExport:
                 # Label
                 datafile.write('%F ')
                 datafile.write('mr.'+str(item.rid + 1))
+                datafile.write('\n')
+                # Alternate Journal
+                datafile.write('%O ')
+                datafile.write(item.journal_en)
+                datafile.write('\n')
+                # Translated Author
+                for author_en in item.author_en:
+                    datafile.write('%H ')
+                    datafile.write(author_en)
+                    datafile.write('\n')
+                # Translated Title
+                datafile.write('%Q ')
+                datafile.write(item.title_en)
                 datafile.write('\n')
                 # End of Record
                 datafile.write('\n')

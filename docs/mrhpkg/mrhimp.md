@@ -26,6 +26,9 @@
 |lcr||LCR||||
 |lcs||LCS||||
 |keywords|%K|DE|OT|Keywords|Keyword-关键词|
+|author_en|%H|||Translated Author|Author-作者|
+|title_en|%Q|||Translated Title|Author-作者|
+|journal_en|%O|||Translated Journal|Author-作者|
 
 ## **转换字段修正说明**
 
