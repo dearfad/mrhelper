@@ -63,9 +63,9 @@ nav:
           - FILTERS:
               - 文献格式: "mrhpkg/filters/fields.md"
               - PUBMED: 'mrhpkg/filters/pubmed.md'
-              - WOS: 'mrhpkg/filters/wos.md'
-              - CNKI: 'mrhpkg/filters/cnki.md'
-              - 万方: 'mrhpkg/filters/wanfang.md'
+              - Web of Science: 'mrhpkg/filters/wos.md'
+              - 中国知网: 'mrhpkg/filters/cnki.md'
+              - 万方数据: 'mrhpkg/filters/wanfang.md'
           - SPIDERS:
               - PUBMED: 'mrhpkg/spiders/pubmed.md'
               - CNKI: 'mrhpkg/spiders/cnki.md'
